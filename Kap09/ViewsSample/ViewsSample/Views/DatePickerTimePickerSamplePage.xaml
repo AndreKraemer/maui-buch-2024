@@ -4,13 +4,13 @@
              x:Class="ViewsSample.Views.DatePickerTimePickerSamplePage"
              Title="DatePicker / TimePicker Demo">
     <ContentPage.Content>
-        <StackLayout Margin="20">
+        <VerticalStackLayout Margin="20">
             <Label Text="Bitte wählen Sie Ihren Termin"/>
-            <DatePicker DateSelected="DatePicker_OnDateSelected"></DatePicker>
-            <TimePicker PropertyChanged="TimePicker_Changed"></TimePicker>
+            <DatePicker DateSelected="DatePicker_OnDateSelected"/>
+            <TimePicker PropertyChanged="TimePicker_Changed"/>
             <Label Text="Ihre Auswahl lautet:"/>
             <Label x:Name="ResultDateLabel" Text=""/>
             <Label x:Name="ResultTimeLabel" Text=""/>
-        </StackLayout>
+        </VerticalStackLayout>
     </ContentPage.Content>
 </ContentPage>
