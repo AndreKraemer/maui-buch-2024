@@ -3,7 +3,9 @@
     x:Class="DontLetMeExpire.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
     Padding="16"
+    x:DataType="viewModels:MainViewModel"
     BackgroundColor="#f5f7fa">
     <ScrollView>
         <Grid
@@ -36,7 +38,7 @@
                         FontAttributes="Bold"
                         FontSize="20"
                         HorizontalOptions="End"
-                        Text="12" />
+                        Text="{Binding StockCount}" />
                     <!--  Anzeige der Beschreibung  -->
                     <Label
                         Grid.Row="1"
@@ -68,7 +70,7 @@
                         FontAttributes="Bold"
                         FontSize="20"
                         HorizontalOptions="End"
-                        Text="3"
+                        Text="{Binding ExpiringSoonCount}"
                         TextColor="Green" />
                     <Label
                         Grid.Row="1"
@@ -100,7 +102,7 @@
                         FontAttributes="Bold"
                         FontSize="20"
                         HorizontalOptions="End"
-                        Text="1"
+                        Text="{Binding ExpiresTodayCount}"
                         TextColor="Orange" />
                     <Label
                         Grid.Row="1"
@@ -132,7 +134,7 @@
                         FontAttributes="Bold"
                         FontSize="20"
                         HorizontalOptions="End"
-                        Text="4"
+                        Text="{Binding ExpiredCount}"
                         TextColor="Red" />
                     <Label
                         Grid.Row="1"
@@ -155,9 +157,6 @@
                 Grid.ColumnSpan="2"
                 Padding="2"
                 Spacing="8">
-                <!--<BoxView BackgroundColor="LightGray" HeightRequest="50" />
-                <BoxView BackgroundColor="LightGray" HeightRequest="50" />
-                <BoxView BackgroundColor="LightGray" HeightRequest="50" />-->
 
                 <!--  Darstellung eines Rahmens mit abgerundeten Ecken  -->
                 <Border
