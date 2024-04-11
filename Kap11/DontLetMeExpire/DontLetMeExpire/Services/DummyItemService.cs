@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-public class DummyItemService
+public class DummyItemService :IItemService
 {
     private readonly List<Item> _items;
 

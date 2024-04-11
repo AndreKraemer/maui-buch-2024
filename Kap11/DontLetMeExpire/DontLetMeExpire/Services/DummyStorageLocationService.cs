@@ -2,7 +2,7 @@ using DontLetMeExpire.Models;
 
 namespace DontLetMeExpire.Services;
 
-public class DummyStorageLocationService
+public class DummyStorageLocationService : IStorageLocationService
 {
     private readonly DummyItemService _itemService;
     private readonly List<StorageLocation> _storageLocations = [];

@@ -4,7 +4,12 @@ namespace DontLetMeExpire.ViewModels;
 
 public class MainViewModel : ViewModelBase
 {
-  private readonly DummyItemService _itemService = new();
+  private readonly IItemService _itemService;
+
+  public MainViewModel(IItemService itemService)
+  {
+    _itemService = itemService;
+  }
 
   private int _stockCount;
   private int _expiringSoonCount;

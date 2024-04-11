@@ -12,12 +12,15 @@ public class ItemViewModel : ViewModelBase
   private decimal _amount;
   private string _image;
 
-  private readonly DummyStorageLocationService _storageLocationService = new();
-  private readonly DummyItemService _itemService = new();
+  private readonly IStorageLocationService _storageLocationService;
+  private readonly IItemService _itemService;
 
-  public ItemViewModel()
+  public ItemViewModel(IStorageLocationService storageLocationService, 
+                       IItemService itemService)
   {
     SaveCommand = new Command(async () => await SaveAsync(), CanSave);
+    _storageLocationService = storageLocationService;
+    _itemService = itemService;
   }
 
   public ObservableCollection<StorageLocation> StorageLocations { get; set; } = [];
