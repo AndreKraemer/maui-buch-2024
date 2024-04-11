@@ -1,5 +1,3 @@
-using static System.Net.Mime.MediaTypeNames;
-
 namespace CodeSharingDemo.Views;
 
 public partial class PraeprozessorDemoPage : ContentPage
