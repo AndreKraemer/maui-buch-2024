@@ -1,10 +1,11 @@
 ﻿using DontLetMeExpire.Models;
 using DontLetMeExpire.Services;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DontLetMeExpire.ViewModels;
 
-public class ItemViewModel : ViewModelBase
+public class ItemViewModel : ValidationViewModelBase
 {
   private string _name;
   private DateTime _expirationDate;
@@ -15,10 +16,10 @@ public class ItemViewModel : ViewModelBase
   private readonly IStorageLocationService _storageLocationService;
   private readonly IItemService _itemService;
 
-  public ItemViewModel(IStorageLocationService storageLocationService, 
-                       IItemService itemService)
+  public ItemViewModel(IStorageLocationService storageLocationService,
+                        IItemService itemService)
   {
-    SaveCommand = new Command(async () => await SaveAsync(), CanSave);
+    SaveCommand = new Command(async () => await SaveAsync());
     _storageLocationService = storageLocationService;
     _itemService = itemService;
   }
@@ -33,6 +34,8 @@ public class ItemViewModel : ViewModelBase
   /// <summary>
   /// Der Name des Elements.
   /// </summary>
+  [Required]
+  [Length(1, 50)]
   public string Name
   {
     get => _name;
@@ -60,6 +63,7 @@ public class ItemViewModel : ViewModelBase
   /// <summary>
   /// Die Menge des Elements.
   /// </summary>
+  [Range(1, 10000)]
   public decimal Amount
   {
     get => _amount;
@@ -82,7 +86,7 @@ public class ItemViewModel : ViewModelBase
   {
     // Speicherorte laden
     var locations = await _storageLocationService.GetAsync();
-    
+
 
     // Die Liste der Speicherorte aktualisieren
     StorageLocations.Clear();
@@ -98,6 +102,10 @@ public class ItemViewModel : ViewModelBase
   /// </summary>
   private async Task SaveAsync()
   {
+    if(!Validate())
+    {
+      return;
+    } 
     // Neues Element mit den
     // Daten des ViewModels erstellen
     var item = new Item
@@ -121,7 +129,7 @@ public class ItemViewModel : ViewModelBase
 
   private bool CanSave()
   {
-    return !string.IsNullOrEmpty(Name) 
+    return !string.IsNullOrEmpty(Name)
       && Amount > 0;
   }
 
