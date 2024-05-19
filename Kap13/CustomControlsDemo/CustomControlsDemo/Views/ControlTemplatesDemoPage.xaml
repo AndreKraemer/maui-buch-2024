@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsDemo.Views.ControlTemplatesDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CustomControlsDemo.Controls"
+    xmlns:vm="clr-namespace:CustomControlsDemo.ViewModels"
+    x:DataType="vm:CompositeControlDemoViewModel">
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="CompressedEntryWithLabel" x:DataType="controls:EntryWithLabel">
+            <Grid
+                ColumnDefinitions="auto,*, 20"
+                ColumnSpacing="8"
+                RowDefinitions="auto, auto"
+                RowSpacing="8">
+                <Label
+                    Grid.Column="0"
+                    Text="{TemplateBinding LabelText}"
+                    VerticalOptions="Center" />
+                <Entry Grid.Column="1" Text="{TemplateBinding EntryText}" />
+                <Label
+                    Grid.Column="2"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    IsVisible="{Binding IsVisible, Source={Reference errorLabel}}"
+                    Text="!"
+                    TextColor="Red" />
+                <Label
+                    x:Name="errorLabel"
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    FontSize="Caption"
+                    IsVisible="False"
+                    Opacity="0"
+                    TextColor="Red" />
+            </Grid>
+        </ControlTemplate>
+    </ContentPage.Resources>
+    <VerticalStackLayout Padding="32" Spacing="16">
+        <controls:EntryWithLabel
+            ControlTemplate="{StaticResource CompressedEntryWithLabel}"
+            EntryText="{Binding Username}"
+            LabelText="Username"
+            ValidationErrors="{Binding PropertyErrorMessages[Username]}" />
+        <controls:EntryWithLabel
+            ControlTemplate="{StaticResource CompressedEntryWithLabel}"
+            EntryText="{Binding Password}"
+            LabelText="Password"
+            ValidationErrors="{Binding PropertyErrorMessages[Password]}" />
+        <Button Command="{Binding LoginCommand}" Text="Login" />
+    </VerticalStackLayout>
+</ContentPage>
