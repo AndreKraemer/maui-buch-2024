@@ -2,12 +2,10 @@
 
 public class CircularProgressBarDrawable : IDrawable
 {
-  private readonly IProgress _progressBar;
+  public Color ProgressColor { get; set; } = Colors.Blue;
 
-  public CircularProgressBarDrawable(IProgress progressBar)
-  {
-    _progressBar = progressBar;
-  }
+  public double Progress { get; set; }
+
   public void Draw(ICanvas canvas, RectF dirtyRect)
   {
     float lineWidth = (float)Math.Round(dirtyRect.Height * 0.1);
@@ -17,17 +15,32 @@ public class CircularProgressBarDrawable : IDrawable
 
     canvas.StrokeSize = lineWidth;
 
-    // Draw the background circle
-    canvas.StrokeColor = Colors.LightGray;
-    canvas.StrokeSize = lineWidth;
-    canvas.DrawCircle(centerX, centerY, radius);
+    DrawBackgroundCircle(canvas, lineWidth, centerX, centerY, radius);
+    DrawProgressCircle(canvas, lineWidth, centerX, centerY, radius);
+    DrawProgressText(canvas, dirtyRect, radius);
 
+  }
+
+  private void DrawProgressText(ICanvas canvas, RectF dirtyRect, float radius)
+  {
+    // Draw the progress text
+    float fontSize = radius * 0.66f;
+    canvas.FontSize = fontSize;
+    canvas.FontColor = ProgressColor;
+
+    // float verticalPosition = centerY + fontSize/3.5f;
+    //canvas.DrawString($"{Progress*100:0}", centerX, verticalPosition,HorizontalAlignment.Center); 
+    canvas.DrawString($"{Progress * 100:0}", 0, 0, dirtyRect.Width, dirtyRect.Height, HorizontalAlignment.Center, VerticalAlignment.Center);
+  }
+
+  private void DrawProgressCircle(ICanvas canvas, float lineWidth, float centerX, float centerY, float radius)
+  {
     // Draw the progress circle
-    canvas.StrokeColor = _progressBar.ProgressColor;
-    if (Math.Round(_progressBar.Progress, 2) < 1)
+    canvas.StrokeColor = ProgressColor;
+    if (Math.Round(Progress, 2) < 1)
     {
       var startAngle = 90;
-      var endAngle = startAngle - (float)(_progressBar.Progress * 360);
+      var endAngle = startAngle - (float)(Progress * 360);
       var arcHeight = (float)radius * 2;
       var arcWidth = arcHeight;
       var x = centerX - radius;
@@ -38,15 +51,13 @@ public class CircularProgressBarDrawable : IDrawable
     {
       canvas.DrawCircle(centerX, centerY, radius);
     }
+  }
 
-    // Draw the progress text
-    float fontSize = radius * 0.66f;
-    canvas.FontSize = fontSize;
-    canvas.FontColor = _progressBar.ProgressColor;
-
-    // float verticalPosition = centerY + fontSize/3.5f;
-    //canvas.DrawString($"{_progressBar.Progress*100:0}", centerX, verticalPosition,HorizontalAlignment.Center); 
-    canvas.DrawString($"{_progressBar.Progress * 100:0}", 0, 0, dirtyRect.Width, dirtyRect.Height, HorizontalAlignment.Center, VerticalAlignment.Center);
-
+  private static void DrawBackgroundCircle(ICanvas canvas, float lineWidth, float centerX, float centerY, float radius)
+  {
+    // Draw the background circle
+    canvas.StrokeColor = Colors.LightGray;
+    canvas.StrokeSize = lineWidth;
+    canvas.DrawCircle(centerX, centerY, radius);
   }
 }

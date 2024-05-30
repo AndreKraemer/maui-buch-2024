@@ -15,6 +15,7 @@
             <Label
                 SemanticProperties.HeadingLevel="Level1"
                 Style="{StaticResource Headline}"
+                StyleClass="PT-S"
                 Text="Hello, World!" />
 
             <Label

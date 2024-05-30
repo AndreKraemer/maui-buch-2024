@@ -32,20 +32,36 @@ public class CircularProgressBarHandler : ViewHandler<ProgressBar, PlatformGraph
 
   protected override PlatformGraphicsView CreatePlatformView()
   {
-    var platformGraphicsView = new PlatformGraphicsView
-    {
-      Drawable = new CircularProgressBarDrawable(VirtualView)
-    };
+    PlatformGraphicsView platformGraphicsView;
+
+#if ANDROID
+    platformGraphicsView = new PlatformGraphicsView(Context);
+#else
+  platformGraphicsView = new PlatformGraphicsView();
+#endif
+
+    platformGraphicsView.Drawable = new CircularProgressBarDrawable();
+
     return platformGraphicsView;
   }
 
   public static void MapProgress(CircularProgressBarHandler handler, ProgressBar progressBar)
   {
+    ((CircularProgressBarDrawable)handler.PlatformView.Drawable).Progress = progressBar.Progress;
+#if IOS || MACCATALYST
+    handler.PlatformView.InvalidateDrawable();
+#else
     handler.PlatformView.Invalidate();
+#endif
   }
 
   public static void MapProgressColor(CircularProgressBarHandler handler, ProgressBar progressBar)
   {
+    ((CircularProgressBarDrawable)handler.PlatformView.Drawable).ProgressColor = progressBar.ProgressColor;
+#if IOS || MACCATALYST
+    handler.PlatformView.InvalidateDrawable();
+#else
     handler.PlatformView.Invalidate();
+#endif
   }
 }
