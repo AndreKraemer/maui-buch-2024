@@ -20,7 +20,7 @@ public class CircularProgressBarHandler : ViewHandler<ProgressBar, PlatformGraph
   {
   }
 
-  public static IPropertyMapper<ProgressBar, IViewHandler> Mapper = new PropertyMapper<ProgressBar, CircularProgressBarHandler>(ViewMapper)
+  public static IPropertyMapper<ProgressBar, CircularProgressBarHandler> Mapper = new PropertyMapper<ProgressBar, CircularProgressBarHandler>(ViewMapper)
   {
     [nameof(IProgress.Progress)] = MapProgress,
     [nameof(IProgress.ProgressColor)] = MapProgressColor
@@ -30,6 +30,8 @@ public class CircularProgressBarHandler : ViewHandler<ProgressBar, PlatformGraph
   {
   };
 
+  public CircularProgressBarDrawable CircularProgressBarDrawable { get; private set; } = new CircularProgressBarDrawable();
+
   protected override PlatformGraphicsView CreatePlatformView()
   {
     PlatformGraphicsView platformGraphicsView;
@@ -37,31 +39,32 @@ public class CircularProgressBarHandler : ViewHandler<ProgressBar, PlatformGraph
 #if ANDROID
     platformGraphicsView = new PlatformGraphicsView(Context);
 #else
-  platformGraphicsView = new PlatformGraphicsView();
+    platformGraphicsView = new PlatformGraphicsView();
 #endif
 
-    platformGraphicsView.Drawable = new CircularProgressBarDrawable();
+    platformGraphicsView.Drawable = CircularProgressBarDrawable;
 
     return platformGraphicsView;
   }
 
   public static void MapProgress(CircularProgressBarHandler handler, ProgressBar progressBar)
   {
-    ((CircularProgressBarDrawable)handler.PlatformView.Drawable).Progress = progressBar.Progress;
-#if IOS || MACCATALYST
-    handler.PlatformView.InvalidateDrawable();
-#else
-    handler.PlatformView.Invalidate();
-#endif
+    handler.CircularProgressBarDrawable.Progress = progressBar.Progress;
+    handler.Invalidate();
   }
 
   public static void MapProgressColor(CircularProgressBarHandler handler, ProgressBar progressBar)
   {
-    ((CircularProgressBarDrawable)handler.PlatformView.Drawable).ProgressColor = progressBar.ProgressColor;
+    handler.CircularProgressBarDrawable.ProgressColor = progressBar.ProgressColor;
+    handler.Invalidate();
+  }
+
+  private void Invalidate()
+  {
 #if IOS || MACCATALYST
-    handler.PlatformView.InvalidateDrawable();
+    PlatformView.InvalidateDrawable();
 #else
-    handler.PlatformView.Invalidate();
+    PlatformView.Invalidate();
 #endif
   }
 }

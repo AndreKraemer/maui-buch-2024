@@ -43,9 +43,9 @@ public class CircularProgressBarDrawable : IDrawable
       var endAngle = startAngle - (float)(Progress * 360);
       var arcHeight = (float)radius * 2;
       var arcWidth = arcHeight;
-      var x = centerX - radius;
-      var y = lineWidth / 2;
-      canvas.DrawArc(x, y, arcWidth, arcHeight, startAngle, endAngle, true, false);
+      var paddingLeft = centerX - radius;
+      var paddingTop = centerY - radius; // lineWidth / 2;
+      canvas.DrawArc(paddingLeft, paddingTop, arcWidth, arcHeight, startAngle, endAngle, true, false);
     }
     else
     {
