@@ -61,9 +61,6 @@ public partial class EntryWithLabel : ContentView
           errorLabel.IsVisible = false;
         }
       }
-
     }
-
-
   }
 }

@@ -3,6 +3,7 @@
     x:Class="DontLetMeExpire.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:DontLetMeExpire.Controls"
     xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
     Padding="16"
     x:DataType="viewModels:MainViewModel"
@@ -14,137 +15,38 @@
             RowDefinitions="100,100,auto,*,48"
             RowSpacing="16">
 
-            <!--  Darstellung eines Rahmens mit abgerundeten Ecken  -->
-            <Border
+            
+            <controls:DashboardTile
                 Grid.Row="0"
                 Grid.Column="0"
-                BackgroundColor="White"
-                StrokeShape="RoundRectangle 8">
-                <!--  Grid mit zwei Zeilen und zwei Spalten anlegen  -->
-                <Grid
-                    Padding="8"
-                    ColumnDefinitions="*,*"
-                    HeightRequest="98"
-                    RowDefinitions="auto, *">
-                    <!--  Platzhalterbild in der ersten Zeile, ersten Spalte  -->
-                    <Image
-                        HeightRequest="40"
-                        HorizontalOptions="Start"
-                        Source="dotnet_bot.png" />
-                    <!--  Anzeige der Anzahl der Einträge, rechtsbündig ausgerichtet  -->
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        HorizontalOptions="End"
-                        Text="{Binding StockCount}" />
-                    <!--  Anzeige der Beschreibung  -->
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        FontSize="20"
-                        Text="Mein Vorrat"
-                        VerticalOptions="End" />
-                </Grid>
-            </Border>
-            <Border
+                Count="{Binding StockCount}"
+                BorderColor="LightGray"
+                Icon="dotnet_bot.png"
+                Text="Mein Vorrat" />
+            <controls:DashboardTile
                 Grid.Row="0"
                 Grid.Column="1"
-                BackgroundColor="White"
-                Stroke="Green"
-                StrokeShape="RoundRectangle 8">
-                <Grid
-                    Padding="8"
-                    ColumnDefinitions="*,*"
-                    HeightRequest="98"
-                    RowDefinitions="auto, *">
-                    <Image
-                        HeightRequest="40"
-                        HorizontalOptions="Start"
-                        Source="dotnet_bot.png" />
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        HorizontalOptions="End"
-                        Text="{Binding ExpiringSoonCount}"
-                        TextColor="Green" />
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        FontSize="20"
-                        Text="Läuft bald ab"
-                        VerticalOptions="End" />
-                </Grid>
-            </Border>
-            <Border
+                BorderColor="Green"
+                Count="{Binding ExpiringSoonCount}"
+                CountColor="Green"
+                Icon="dotnet_bot.png"
+                Text="Läuft bald ab" />
+            <controls:DashboardTile
                 Grid.Row="1"
                 Grid.Column="0"
-                BackgroundColor="White"
-                Stroke="Orange"
-                StrokeShape="RoundRectangle 8">
-                <Grid
-                    Padding="8"
-                    ColumnDefinitions="*,*"
-                    HeightRequest="98"
-                    RowDefinitions="auto, *">
-                    <Image
-                        HeightRequest="40"
-                        HorizontalOptions="Start"
-                        Source="dotnet_bot.png" />
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        HorizontalOptions="End"
-                        Text="{Binding ExpiresTodayCount}"
-                        TextColor="Orange" />
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        FontSize="20"
-                        Text="Läuft heute ab"
-                        VerticalOptions="End" />
-                </Grid>
-            </Border>
-            <Border
+                BorderColor="Orange"
+                Count="{Binding ExpiresTodayCount}"
+                CountColor="Orange"
+                Icon="dotnet_bot.png"
+                Text="Läuft heute ab" />
+            <controls:DashboardTile
                 Grid.Row="1"
                 Grid.Column="1"
-                BackgroundColor="White"
-                Stroke="Red"
-                StrokeShape="RoundRectangle 8">
-                <Grid
-                    Padding="8"
-                    ColumnDefinitions="*,*"
-                    HeightRequest="98"
-                    RowDefinitions="auto, *">
-                    <Image
-                        HeightRequest="40"
-                        HorizontalOptions="Start"
-                        Source="dotnet_bot.png" />
-                    <Label
-                        Grid.Row="0"
-                        Grid.Column="1"
-                        FontAttributes="Bold"
-                        FontSize="20"
-                        HorizontalOptions="End"
-                        Text="{Binding ExpiredCount}"
-                        TextColor="Red" />
-                    <Label
-                        Grid.Row="1"
-                        Grid.Column="0"
-                        Grid.ColumnSpan="2"
-                        FontSize="20"
-                        Text="Abgelaufen"
-                        VerticalOptions="End" />
-                </Grid>
-            </Border>
+                BorderColor="Red"
+                Count="{Binding ExpiredCount}"
+                CountColor="Red"
+                Icon="dotnet_bot.png"
+                Text="Abgelaufen" />
             <Label
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
