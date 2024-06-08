@@ -1,6 +1,3 @@
-using System.Text.Json;
-using System.Windows.Input;
-
 namespace DontLetMeExpire.Controls;
 
 public partial class DashboardTile : ContentView

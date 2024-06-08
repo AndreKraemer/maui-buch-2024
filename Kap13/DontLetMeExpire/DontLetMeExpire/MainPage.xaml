@@ -14,8 +14,7 @@
             ColumnSpacing="16"
             RowDefinitions="100,100,auto,*,48"
             RowSpacing="16">
-
-            
+           
             <controls:DashboardTile
                 Grid.Row="0"
                 Grid.Column="0"
@@ -47,6 +46,8 @@
                 CountColor="Red"
                 Icon="dotnet_bot.png"
                 Text="Abgelaufen" />
+            
+            <!-- Überschrift für Lagerorte -->
             <Label
                 Grid.Row="2"
                 Grid.ColumnSpan="2"

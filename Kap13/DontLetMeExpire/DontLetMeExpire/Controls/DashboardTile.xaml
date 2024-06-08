@@ -7,8 +7,6 @@
     <ContentView.ControlTemplate>
         <ControlTemplate>
             <Border
-                Grid.Row="0"
-                Grid.Column="1"
                 x:DataType="controls:DashboardTile"
                 BackgroundColor="White"
                 Stroke="{TemplateBinding BorderColor}"
