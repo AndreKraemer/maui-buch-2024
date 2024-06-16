@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CollectionViewSamples.Views.BindableLayoutSamplePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CollectionViewSamples.Models;assembly=CollectionViewSamples"
+    xmlns:viewModels="clr-namespace:CollectionViewSamples.ViewModels;assembly=CollectionViewSamples"
+    Title="{Binding Title}"
+    Padding="16"
+    x:DataType="viewModels:BindableLayoutSampleViewModel">
+    <ScrollView>
+        <FlexLayout BindableLayout.ItemsSource="{Binding Persons}" Wrap="Wrap"
+                    AlignContent="Start" AlignItems="Start" Direction="Row">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="models:Person">
+                    <Border StrokeShape="RoundRectangle 16" Margin="4" BackgroundColor="Azure" Stroke="DarkGray">
+                        <Border.Shadow>
+                            <Shadow Radius="5" Offset="5,5" Opacity="0.2" />
+                        </Border.Shadow>
+                        <Grid
+                            Padding="16"
+                            ColumnDefinitions="300"
+                            RowDefinitions="auto, auto, auto"
+                            RowSpacing="8">
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="25"
+                                Text="{Binding Name}" />
+                            <Label
+                                Grid.Row="1"
+                                FontAttributes="Italic"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="1"
+                                Text="{Binding CompanyName}" />
+                            <Label
+                                Grid.Row="2"
+                                FontSize="12"
+                                LineBreakMode="TailTruncation"
+                                MaxLines="1"
+                                Text="{Binding JobTitle}" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </ScrollView>
+</ContentPage>

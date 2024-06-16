@@ -6,9 +6,6 @@
     Title="Einstellungen"
     IconImageSource="settings.png">
     <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Einstellungen"
-            VerticalOptions="Center" />
+        <Label Style="{x:StaticResource Headline}" Text="Einstellungen" />
     </VerticalStackLayout>
 </ContentPage>

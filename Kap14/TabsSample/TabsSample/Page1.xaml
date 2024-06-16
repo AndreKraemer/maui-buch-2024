@@ -6,9 +6,6 @@
     Title="Startseite"
     IconImageSource="home.png">
     <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Startseite"
-            VerticalOptions="Center" />
+        <Label Style="{x:StaticResource Headline}" Text="Startseite" />
     </VerticalStackLayout>
 </ContentPage>

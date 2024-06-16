@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CollectionViewSamples.Views.SelectSamplePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CollectionViewSamples.Models;assembly=CollectionViewSamples"
+    xmlns:viewModels="clr-namespace:CollectionViewSamples.ViewModels;assembly=CollectionViewSamples"
+    Title="{Binding Title}"
+    Padding="16"
+    x:DataType="viewModels:SelectSampleViewModel">
+    <ContentPage.Content>
+        <VerticalStackLayout Padding="0,4" Spacing="8">
+            <Label Text="{Binding SelectedText}" />
+            <Label Text="{Binding TappedText}" />
+            <CollectionView
+                ItemsSource="{Binding Persons}"
+                SelectedItem="{Binding SelectedPerson}"
+                SelectionMode="Single">
+                <!--
+                    SelectedItem="{Binding SelectedPerson}"
+                    SelectionMode="Single"
+                -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Person">
+                        <VerticalStackLayout Padding="0,8" Spacing="4">
+                            <Label FontAttributes="Bold" Text="{Binding Name}" />
+                            <Label Text="{Binding CompanyName}" />
+                            <!--<VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:SelectSampleViewModel}}, Path=PersonTapped}"		
+                                    CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </VerticalStackLayout.GestureRecognizers>-->
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+</ContentPage>
