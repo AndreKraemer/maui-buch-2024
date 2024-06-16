@@ -6,6 +6,7 @@
     xmlns:models="clr-namespace:CollectionViewSamples.Models;assembly=CollectionViewSamples"
     xmlns:viewModels="clr-namespace:CollectionViewSamples.ViewModels;assembly=CollectionViewSamples"
     Title="{Binding Title}"
+    x:Name="page"
     Padding="16"
     x:DataType="viewModels:MenuSampleViewModel">
     <ContentPage.Content>
@@ -17,13 +18,13 @@
                             <SwipeItems>
                                 <SwipeItem
                                     BackgroundColor="Red"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=DeleteItemCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path= DeletePersonCommand}"
                                     CommandParameter="{Binding}"
                                     IconImageSource="delete.png"
                                     Text="Löschen" />
                                 <SwipeItem
                                     BackgroundColor="Yellow"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=FavoriteItemCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}},   Path=FavoritePersonCommand}"
                                     CommandParameter="{Binding}"
                                     IconImageSource="favorite.png"
                                     Text="Favorit" />
@@ -33,7 +34,8 @@
                             <SwipeItems>
                                 <SwipeItem
                                     BackgroundColor="Azure"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=ArchiveItemCommand}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=ArchivePersonCommand}"
+                                    CommandParameter="{Binding}"
                                     IconImageSource="archive.png"
                                     Text="Archivieren" />
                             </SwipeItems>

@@ -6,7 +6,7 @@ namespace CollectionViewSamples.ViewModels
 {
   public class SelectSampleViewModel : BaseViewModel<Person>
   {
-    private Person _selectedItem;
+    private Person _selectedPerson;
     private string _selectedText = string.Empty;
     private string _tappedText = string.Empty;
 
@@ -49,11 +49,11 @@ namespace CollectionViewSamples.ViewModels
 
     public Person SelectedPerson
     {
-      get => _selectedItem;
+      get => _selectedPerson;
       set
       {
-        SetProperty(ref _selectedItem, value);
-        OnItemSelected(value);
+        SetProperty(ref _selectedPerson, value);
+        OnPersonSelected(value);
       }
     }
 
@@ -69,7 +69,7 @@ namespace CollectionViewSamples.ViewModels
       set => SetProperty(ref _tappedText, value);
     }
 
-    void OnItemSelected(Person person)
+    void OnPersonSelected(Person person)
     {
       SelectedText = person == null ? "Keine aktive Auswahl" : $"Aktive Auswahl ist: {person.Name}";
     }

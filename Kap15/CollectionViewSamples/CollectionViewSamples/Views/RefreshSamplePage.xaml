@@ -9,23 +9,20 @@
     Padding="16"
     x:DataType="viewModels:RefreshSampleViewModel">
     <ContentPage.Content>
-        <VerticalStackLayout x:DataType="viewModels:RefreshSampleViewModel">
-            <RefreshView
-                BackgroundColor="Yellow"
-                Command="{Binding LoadPersonsCommand}"
-                IsRefreshing="{Binding IsBusy}"
-                RefreshColor="Orange">
-                <CollectionView ItemsSource="{Binding Persons}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="models:Person">
-                            <VerticalStackLayout Padding="0,4">
-                                <Label FontAttributes="Bold" Text="{Binding Name}" />
-                                <Label Text="{Binding CompanyName}" />
-                            </VerticalStackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </RefreshView>
-        </VerticalStackLayout>
+        <RefreshView
+            Command="{Binding LoadPersonsCommand}"
+            IsRefreshing="{Binding IsBusy}"
+            RefreshColor="Orange">
+            <CollectionView ItemsSource="{Binding Persons}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Person">
+                        <VerticalStackLayout Padding="0,4">
+                            <Label FontAttributes="Bold" Text="{Binding Name}" />
+                            <Label Text="{Binding CompanyName}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>
