@@ -25,12 +25,14 @@ namespace CollectionViewSamples
 #endif
       builder.Services.AddSingleton<IDataStore<Person>, MockDataStore>();
       builder.Services.AddTransient<BindableLayoutSamplePage>();
+      builder.Services.AddTransient<EmptyListSamplePage>();
       builder.Services.AddTransient<FirstSampleViewModel>();
       builder.Services.AddTransient<SelectSampleViewModel>();
       builder.Services.AddTransient<RefreshSampleViewModel>();
       builder.Services.AddTransient<MenuSampleViewModel>();
       builder.Services.AddTransient<GroupSampleViewModel>();
       builder.Services.AddTransient<BindableLayoutSampleViewModel>();
+      builder.Services.AddTransient<EmptyListSampleViewModel>();
       builder.Services.AddTransient<FirstSamplePage>();
       builder.Services.AddTransient<SelectSamplePage>();
       builder.Services.AddTransient<RefreshSamplePage>();
