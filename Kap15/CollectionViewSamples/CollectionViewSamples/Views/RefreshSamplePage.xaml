@@ -9,11 +9,25 @@
     Padding="16"
     x:DataType="viewModels:RefreshSampleViewModel">
     <ContentPage.Content>
+
         <RefreshView
             Command="{Binding LoadPersonsCommand}"
             IsRefreshing="{Binding IsBusy}"
             RefreshColor="Orange">
+
             <CollectionView ItemsSource="{Binding Persons}">
+                <FlyoutBase.ContextFlyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem
+                            Command="{Binding LoadPersonsCommand}"
+                            CommandParameter="True"
+                            Text="Aktualisieren">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Key="{OnPlatform MacCatalyst=UIKeyInputF5, WinUI=F5}" />
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </FlyoutBase.ContextFlyout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:Person">
                         <VerticalStackLayout Padding="0,4">

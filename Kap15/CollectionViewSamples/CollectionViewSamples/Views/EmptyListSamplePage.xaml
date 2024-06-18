@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CollectionViewSamples.Views.EmptyListSamplePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CollectionViewSamples.Models;assembly=CollectionViewSamples"
+    xmlns:viewModels="clr-namespace:CollectionViewSamples.ViewModels;assembly=CollectionViewSamples"
+    Title="{Binding Title}"
+    Padding="16"
+    x:DataType="viewModels:EmptyListSampleViewModel">
+    <CollectionView ItemSizingStrategy="MeasureFirstItem" ItemsSource="{Binding Persons}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:Person">
+                <Label FontAttributes="Bold" Text="{Binding Name}" />
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        <CollectionView.EmptyView>
+            <Label Text="Keine Einträge vorhanden" />
+        </CollectionView.EmptyView>
+    </CollectionView>
+</ContentPage>

@@ -12,10 +12,7 @@
         <VerticalStackLayout Padding="0,4" Spacing="8">
             <Label Text="{Binding SelectedText}" />
             <Label Text="{Binding TappedText}" />
-            <CollectionView
-                ItemsSource="{Binding Persons}"
-                SelectedItem="{Binding SelectedPerson}"
-                SelectionMode="Single" >
+            <CollectionView ItemsSource="{Binding Persons}">
                 <!--
                     SelectedItem="{Binding SelectedPerson}"
                     SelectionMode="Single"
@@ -25,13 +22,12 @@
                         <VerticalStackLayout Padding="0,8" Spacing="4">
                             <Label FontAttributes="Bold" Text="{Binding Name}" />
                             <Label Text="{Binding CompanyName}" />
-                            <!--<VerticalStackLayout.GestureRecognizers>
+                            <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
-                                    NumberOfTapsRequired="1"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:SelectSampleViewModel}}, Path=PersonTapped}"		
-                                    CommandParameter="{Binding .}">
-                                </TapGestureRecognizer>
-                            </VerticalStackLayout.GestureRecognizers>-->
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:SelectSampleViewModel}}, Path=PersonTapped}"
+                                    CommandParameter="{Binding .}"
+                                    NumberOfTapsRequired="1" />
+                            </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

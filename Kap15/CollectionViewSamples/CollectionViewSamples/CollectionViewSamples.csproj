@@ -68,7 +68,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\EmptyListSamplePage.xaml.cs">
+	    <DependentUpon>EmptyListSamplePage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\BindableLayoutSamplePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EmptyListSamplePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\FirstSamplePage.xaml">

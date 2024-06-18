@@ -33,6 +33,10 @@
         Title="Gruppierte Einträge"
         ContentTemplate="{DataTemplate views:GroupSamplePage}"
         Route="GroupSamplePage" />
+    <ShellContent
+        Title="Leere Liste"
+        ContentTemplate="{DataTemplate views:EmptyListSamplePage}"
+        Route="EmptyListSamplePage" />
 
     <ShellContent
         Title="Bindable Layout"

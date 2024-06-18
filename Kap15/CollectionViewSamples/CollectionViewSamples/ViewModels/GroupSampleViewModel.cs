@@ -2,48 +2,50 @@
 using System.Collections.ObjectModel;
 using CollectionViewSamples.Services;
 
-namespace CollectionViewSamples.ViewModels
+namespace CollectionViewSamples.ViewModels;
+
+public class GroupSampleViewModel : BaseViewModel<Person>
 {
-  public class GroupSampleViewModel : BaseViewModel<Person>
+  private ObservableCollection<PersonsByCompany> _items = [];
+
+  public ObservableCollection<PersonsByCompany> Items
   {
-    private ObservableCollection<PersonsByCompany> _items = [];
+    set => SetProperty(ref _items, value);
+    get => _items;
+  }
+  public GroupSampleViewModel(IDataStore<Person> dataStore) : base(dataStore)
+  {
+    Title = "Gruppierte Einträge";
+  }
 
-    public ObservableCollection<PersonsByCompany> Items
+  public override async Task Initialize()
+  {
+    IsBusy = true;
+
+    try
     {
-      set => SetProperty(ref _items, value);
-      get => _items;
+      // Abrufen aller Personen
+      var persons = await DataStore.GetItemsAsync(true);
+
+      // Gruppieren der Personen nach Firma
+      var group = persons.GroupBy(p => p.CompanyName)
+                        .Select(group => new PersonsByCompany(group.Key, [.. group]))
+                        .ToList();
+
+      // Das dynamische ändern der Items-Collection führt unter Windows
+      // zu einem Fehler. Daher wird die Collection komplett ersetzt.
+      // siehe auch: https://github.com/dotnet/maui/issues/18481
+      //foreach (var item in group)
+      //{
+      //  Items.Add(item);
+      //}
+
+      Items = new ObservableCollection<PersonsByCompany>(group);
     }
-    public GroupSampleViewModel(IDataStore<Person> dataStore) : base(dataStore)
+    finally
     {
-      Title = "Gruppierte Einträge";
+      IsBusy = false;
     }
-
-    public override async Task Initialize()
-    {
-      IsBusy = true;
-
-      try
-      {
-        var persons = await DataStore.GetItemsAsync(true);
-        var group = persons.GroupBy(p => p.CompanyName)
-                          .Select(group => new PersonsByCompany(group.Key, [.. group]))
-                          .ToList();
-
-        // Das dynamische ändern der Items-Collection führt unter Windows
-        // zu einem Fehler. Daher wird die Collection komplett ersetzt.
-        // siehe auch: https://github.com/dotnet/maui/issues/18481
-        //foreach (var item in group)
-        //{
-        //  Items.Add(item);
-        //}
-
-        Items = new ObservableCollection<PersonsByCompany>(group);
-      }
-      finally
-      {
-        IsBusy = false;
-      }
-      await base.Initialize();
-    }
+    await base.Initialize();
   }
 }

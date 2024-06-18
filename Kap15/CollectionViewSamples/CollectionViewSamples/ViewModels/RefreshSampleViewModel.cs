@@ -1,7 +1,5 @@
 ﻿using CollectionViewSamples.Models;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
 using CollectionViewSamples.Services;
 
 namespace CollectionViewSamples.ViewModels
@@ -22,12 +20,13 @@ namespace CollectionViewSamples.ViewModels
     {
       try
       {
+        await Task.Delay(6000);
         Persons.Clear();
         var persons = await DataStore.GetItemsAsync(true);
         // Add Dummy Item when refreshing
         if (isRefreshing)
         {
-          Persons.Add(new Person{Id = "0", Name = $"Refresh Demo ({DateTime.Now:T})", CompanyName = "-"});
+          Persons.Add(new Person { Id = "0", Name = $"Refresh Demo ({DateTime.Now:T})", CompanyName = "-" });
         }
         foreach (var person in persons)
         {
