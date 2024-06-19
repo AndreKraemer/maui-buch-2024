@@ -23,7 +23,6 @@
                 <Label Text="Bitte legen Sie einen neuen Eintrag an und laden Sie die Liste anschließend neu!" />
                 <Button Text="Neuen Eintrag anlegen" />
             </VerticalStackLayout>
-
         </CollectionView.EmptyView>
     </CollectionView>
 </ContentPage>
