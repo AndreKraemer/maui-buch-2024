@@ -30,6 +30,8 @@ namespace DontLetMeExpire
       builder.Services.AddTransient<MainPage>();
       builder.Services.AddTransient<ItemViewModel>();
       builder.Services.AddTransient<ItemPage>();
+      builder.Services.AddTransient<ItemsViewModel>();
+      builder.Services.AddTransient<ItemsPage>();
       return builder.Build();
     }
   }

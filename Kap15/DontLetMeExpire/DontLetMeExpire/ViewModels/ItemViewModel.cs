@@ -11,25 +11,39 @@ public class ItemViewModel : ValidationViewModelBase
   private DateTime _expirationDate;
   private StorageLocation _location;
   private decimal _amount;
+  private string _id;
   private string _image;
-
-  private readonly IStorageLocationService _storageLocationService;
+  private string _title;
   private readonly IItemService _itemService;
+  private readonly INavigationService _navigationService;
+  private readonly IStorageLocationService _storageLocationService;
 
-  public ItemViewModel(IStorageLocationService storageLocationService,
+
+  public ItemViewModel(INavigationService navigationService,
+                        IStorageLocationService storageLocationService,
                         IItemService itemService)
   {
     SaveCommand = new Command(async () => await SaveAsync());
+    _navigationService = navigationService;
     _storageLocationService = storageLocationService;
     _itemService = itemService;
   }
 
   public ObservableCollection<StorageLocation> StorageLocations { get; set; } = [];
 
-  /// <summary>
-  /// 
-  /// </summary>
   public Command SaveCommand { get; private set; }
+
+  public string Title
+  {
+    get => _title;
+    set => SetProperty(ref _title, value);
+  }
+
+  public string Id
+  {
+    get => _id;
+    set => SetProperty(ref _id, value);
+  }
 
   /// <summary>
   /// Der Name des Elements.
@@ -82,11 +96,10 @@ public class ItemViewModel : ValidationViewModelBase
   /// <summary>
   /// Initialisiert das ViewModel asynchron.
   /// </summary>
-  public async Task InitializeAsync()
+  public async Task InitializeAsync(string? itemId = null)
   {
     // Speicherorte laden
     var locations = await _storageLocationService.GetAsync();
-
 
     // Die Liste der Speicherorte aktualisieren
     StorageLocations.Clear();
@@ -94,7 +107,31 @@ public class ItemViewModel : ValidationViewModelBase
     {
       StorageLocations.Add(location);
     }
-    SelectedLocation = StorageLocations.FirstOrDefault();
+    if (!string.IsNullOrEmpty(itemId))
+    {
+      var item = await _itemService.GetByIdAsync(itemId);
+      if (item != null)
+      {
+        Id = item.Id;
+        Name = item.Name;
+        ExpirationDate = item.ExpirationDate;
+        SelectedLocation = StorageLocations.FirstOrDefault(x => x.Id == item.StorageLocationId);
+        Image = item.Image;
+        Amount = item.Amount;
+        Title = item.Name;
+      }
+
+    }
+    else
+    {
+      Id = string.Empty;
+      Name = string.Empty;
+      ExpirationDate = DateTime.Today;
+      SelectedLocation = StorageLocations.First();
+      Image = string.Empty;
+      Amount = 1;
+      Title = "Neuer Eintrag";
+    }
   }
 
   /// <summary>
@@ -102,14 +139,15 @@ public class ItemViewModel : ValidationViewModelBase
   /// </summary>
   private async Task SaveAsync()
   {
-    if(!Validate())
+    if (!Validate())
     {
       return;
-    } 
+    }
     // Neues Element mit den
     // Daten des ViewModels erstellen
     var item = new Item
     {
+      Id = Id,
       Name = Name,
       ExpirationDate = ExpirationDate,
       StorageLocationId = SelectedLocation.Id,
@@ -125,6 +163,8 @@ public class ItemViewModel : ValidationViewModelBase
     ExpirationDate = DateTime.Today;
     Amount = 0;
     SelectedLocation = StorageLocations.First();
+
+    await _navigationService.GoToAsync("..");
   }
 
   private bool CanSave()
@@ -132,6 +172,4 @@ public class ItemViewModel : ValidationViewModelBase
     return !string.IsNullOrEmpty(Name)
       && Amount > 0;
   }
-
-
 }

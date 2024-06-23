@@ -1,3 +1,4 @@
+using System.Windows.Input;
 namespace DontLetMeExpire.Controls;
 
 public partial class DashboardTile : ContentView
@@ -22,10 +23,20 @@ public partial class DashboardTile : ContentView
   public static readonly BindableProperty BorderColorProperty = BindableProperty.Create(nameof(BorderColor),
       typeof(Color), typeof(DashboardTile), Colors.Black);
 
+  public static readonly BindableProperty CommandProperty = BindableProperty.Create(nameof(Command), typeof(ICommand),
+         typeof(DashboardTile));
+
+
   public DashboardTile()
 	{
 		InitializeComponent();
 	}
+
+  public ICommand Command
+  {
+    get => (ICommand)GetValue(CommandProperty);
+    set => SetValue(CommandProperty, value);
+  }
 
   public Color TextColor
   {

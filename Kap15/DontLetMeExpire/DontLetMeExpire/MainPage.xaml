@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:DontLetMeExpire.Controls"
+    xmlns:models="clr-namespace:DontLetMeExpire.Models"
     xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
     Padding="16"
     x:DataType="viewModels:MainViewModel"
@@ -14,18 +15,20 @@
             ColumnSpacing="16"
             RowDefinitions="100,100,auto,*,48"
             RowSpacing="16">
-           
+
             <controls:DashboardTile
                 Grid.Row="0"
                 Grid.Column="0"
-                Count="{Binding StockCount}"
                 BorderColor="LightGray"
+                Command="{Binding NavigateToStockCommand}"
+                Count="{Binding StockCount}"
                 Icon="dotnet_bot.png"
                 Text="Mein Vorrat" />
             <controls:DashboardTile
                 Grid.Row="0"
                 Grid.Column="1"
                 BorderColor="Green"
+                Command="{Binding NavigateToExpiringSoonCommand}"
                 Count="{Binding ExpiringSoonCount}"
                 CountColor="Green"
                 Icon="dotnet_bot.png"
@@ -34,6 +37,7 @@
                 Grid.Row="1"
                 Grid.Column="0"
                 BorderColor="Orange"
+                Command="{Binding NavigateToExpiresTodayCommand}"
                 Count="{Binding ExpiresTodayCount}"
                 CountColor="Orange"
                 Icon="dotnet_bot.png"
@@ -42,12 +46,13 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 BorderColor="Red"
+                Command="{Binding NavigateToExpiredCommand}"
                 Count="{Binding ExpiredCount}"
                 CountColor="Red"
                 Icon="dotnet_bot.png"
                 Text="Abgelaufen" />
-            
-            <!-- Überschrift für Lagerorte -->
+
+            <!--  Überschrift für Lagerorte  -->
             <Label
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
@@ -59,157 +64,120 @@
                 Grid.Row="3"
                 Grid.ColumnSpan="2"
                 Padding="2"
+                BindableLayout.ItemsSource="{Binding StorageLocations}"
                 Spacing="8">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="models:StorageLocationWithItemCount">
+                        <!--  Darstellung eines Rahmens mit abgerundeten Ecken  -->
+                        <Border
+                            BackgroundColor="White"
+                            StrokeShape="RoundRectangle 16"
+                            StrokeThickness="0">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=NavigateToLocationCommand}" CommandParameter="{Binding Id}" />
+                            </Border.GestureRecognizers>
+                            <!--
+                                Definition des Schattens. Um natürlich zu wirken,
+                                kommt das Licht von oben (Offset X = 0)
+                            -->
+                            <Border.Shadow>
+                                <Shadow
+                                    Opacity="0.2"
+                                    Radius="4"
+                                    Offset="0,4" />
+                            </Border.Shadow>
+                            <!--  Grid mit zwei Zeilen und drei Spalten anlegen  -->
+                            <Grid
+                                Padding="8"
+                                ColumnDefinitions="48, *, 24"
+                                ColumnSpacing="8"
+                                RowDefinitions="24,24">
+                                <!--
+                                    Platzhalterbild in der ersten Spalte, und beiden Zeilen,
+                                    umgeben von einem hellblauen Kreis
+                                -->
+                                <Border
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    Grid.Column="0"
+                                    BackgroundColor="AliceBlue"
+                                    StrokeShape="RoundRectangle 45"
+                                    StrokeThickness="0">
+                                    <Image Source="dotnet_bot.png" />
+                                </Border>
+                                <!--  Anzeige des Lagerortnamens  -->
+                                <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Name}" />
+                                <!--  Anzeige der Anzahl der Einträge  -->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding ItemCount, StringFormat='{0} Einträge'}"
+                                    TextColor="DarkGray" />
+                                <!--  Darstellung eines einfachen Guillemet ›  -->
+                                <Label
+                                    Grid.RowSpan="2"
+                                    Grid.Column="2"
+                                    Margin="0,0,8,0"
+                                    FontSize="36"
+                                    HorizontalOptions="End"
+                                    Text="›"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
 
-                <!--  Darstellung eines Rahmens mit abgerundeten Ecken  -->
-                <Border
-                    BackgroundColor="White"
-                    StrokeShape="RoundRectangle 16"
-                    StrokeThickness="0">
-                    <!--
-                        Definition des Schattens. Um natürlich zu wirken,
-                        kommt das Licht von oben (Offset X = 0)
-                    -->
-                    <Border.Shadow>
-                        <Shadow
-                            Opacity="0.2"
-                            Radius="4"
-                            Offset="0,4" />
-                    </Border.Shadow>
-                    <!--  Grid mit zwei Zeilen und drei Spalten anlegen  -->
-                    <Grid
-                        Padding="8"
-                        ColumnDefinitions="48, *, 24"
-                        ColumnSpacing="8"
-                        RowDefinitions="24,24">
-                        <!--
-                            Platzhalterbild in der ersten Spalte, und beiden Zeilen,
-                            umgeben von einem hellblauen Kreis
-                        -->
-                        <Border
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="0"
-                            BackgroundColor="AliceBlue"
-                            StrokeShape="RoundRectangle 45"
-                            StrokeThickness="0">
-                            <Image Source="dotnet_bot.png" />
-                        </Border>
-                        <!--  Anzeige des Lagerortnamens  -->
-                        <Label
-                            Grid.Column="1"
-                            FontAttributes="Bold"
-                            Text="Gefrierschrank" />
-                        <!--  Anzeige der Anzahl der Einträge  -->
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="3 Einträge"
-                            TextColor="DarkGray" />
-                        <!--  Darstellung eines einfachen Guillemet ›  -->
-                        <Label
-                            Grid.RowSpan="2"
-                            Grid.Column="2"
-                            Margin="0,0,8,0"
-                            FontSize="36"
-                            HorizontalOptions="End"
-                            Text="›"
-                            VerticalOptions="Center" />
-                    </Grid>
-                </Border>
-                <Border
-                    BackgroundColor="White"
-                    StrokeShape="RoundRectangle 16"
-                    StrokeThickness="0">
-                    <Border.Shadow>
-                        <Shadow
-                            Opacity="0.2"
-                            Radius="4"
-                            Offset="0,4" />
-                    </Border.Shadow>
-                    <Grid
-                        Padding="8"
-                        ColumnDefinitions="48, *, 24"
-                        ColumnSpacing="8"
-                        RowDefinitions="24,24">
-                        <Border
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="0"
-                            BackgroundColor="AliceBlue"
-                            StrokeShape="RoundRectangle 45"
-                            StrokeThickness="0">
-                            <Image Source="dotnet_bot.png" />
-                        </Border>
-                        <Label
-                            Grid.Column="1"
-                            FontAttributes="Bold"
-                            Text="Kühlschrank" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="5 Einträge"
-                            TextColor="DarkGray" />
-                        <Label
-                            Grid.RowSpan="2"
-                            Grid.Column="2"
-                            Margin="0,0,8,0"
-                            FontSize="36"
-                            HorizontalOptions="End"
-                            Text="›"
-                            VerticalOptions="Center" />
-                    </Grid>
-                </Border>
-                <Border
-                    BackgroundColor="White"
-                    StrokeShape="RoundRectangle 16"
-                    StrokeThickness="0">
-                    <Border.Shadow>
-                        <Shadow
-                            Opacity="0.2"
-                            Radius="4"
-                            Offset="0,4" />
-                    </Border.Shadow>
-                    <Grid
-                        Padding="8"
-                        ColumnDefinitions="48, *, 24"
-                        ColumnSpacing="8"
-                        RowDefinitions="24,24">
-                        <Border
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="0"
-                            BackgroundColor="AliceBlue"
-                            StrokeShape="RoundRectangle 45"
-                            StrokeThickness="0">
-                            <Image Source="dotnet_bot.png" />
-                        </Border>
-                        <Label
-                            Grid.Column="1"
-                            FontAttributes="Bold"
-                            Text="Vorratsschrank" />
-                        <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            Text="4 Einträge"
-                            TextColor="DarkGray" />
-                        <Label
-                            Grid.RowSpan="2"
-                            Grid.Column="2"
-                            Margin="0,0,8,0"
-                            FontSize="36"
-                            HorizontalOptions="End"
-                            Text="›"
-                            VerticalOptions="Center" />
-                    </Grid>
-                </Border>
+                <BindableLayout.EmptyViewTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Spacing="8">
+                            <Image Source="dotnet_bot.png" WidthRequest="150" />
+                            <Label
+                                Margin="0,8,0,0"
+                                Style="{StaticResource SubHeadline}"
+                                Text="Oh, hier sieht es noch ganz leer aus!" />
+                            <Label Text="Du hast noch keine Orte, wie z.B. einen Kühlschrank oder einen Vorratsschrank, in der App gespeichert, wo du deine Lebensmittel aufbewahren kannst." />
+                            <Label
+                                Margin="0,8,0,0"
+                                FontAttributes="Bold"
+                                Text="Los geht's!" />
+                            <Label
+                                Text="Mit vorgeschlagenen Orten starten"
+                                TextColor="#3d6dcc"
+                                TextDecorations="Underline">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label FontSize="11" Text="Wir legen ein paar Orte wie 'Kühlschrank' und 'Vorratsschrank' für dich an, damit du direkt loslegen kannst! Du kannst die Orte später natürlich auch umbenennen oder löschen." />
+                            <Label
+                                Margin="0,8,0,0"
+                                Text="Mit vorgeschlagenen Orten und Lebensmitteln starten"
+                                TextColor="#3d6dcc"
+                                TextDecorations="Underline">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsAndStockCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label FontSize="11" Text="Hier fügen wir nicht nur Orte wie 'Kühlschrank' hinzu, sondern auch einige Lebensmittel, damit du siehst, wie alles funktioniert! Du kannst die Orte und Lebensmittel später natürlich auch umbenennen oder löschen" />
+                            <Label
+                                Margin="0,8,0,0"
+                                Text="Selbst einen neuen Ort anlegen"
+                                TextColor="#3d6dcc"
+                                TextDecorations="Underline" />
+                            <Label FontSize="11" Text="Erstelle deinen eigenen Ort, wie z.B. deinen Kühlschrank, um zu beginnen." />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </BindableLayout.EmptyViewTemplate>
             </VerticalStackLayout>
             <Button
                 Grid.Row="4"
                 Grid.Column="0"
                 BackgroundColor="#3d6dcc"
-                Text="Eintrag hinzufügen"
-                Command="{Binding NavigateToAddItemCommand}"/>
+                Command="{Binding NavigateToAddItemCommand}"
+                Text="Eintrag hinzufügen" />
             <Button
                 Grid.Row="4"
                 Grid.Column="1"

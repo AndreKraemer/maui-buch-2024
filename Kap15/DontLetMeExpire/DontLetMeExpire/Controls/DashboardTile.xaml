@@ -11,6 +11,9 @@
                 BackgroundColor="White"
                 Stroke="{TemplateBinding BorderColor}"
                 StrokeShape="RoundRectangle 8">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{TemplateBinding Command}" />
+                </Border.GestureRecognizers>
                 <Grid
                     Padding="8"
                     ColumnDefinitions="*,*"
