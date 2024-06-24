@@ -22,14 +22,14 @@ namespace LocalizationSample.Resources.Strings {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class AppResoruces {
+    internal class AppResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal AppResoruces() {
+        internal AppResources() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace LocalizationSample.Resources.Strings {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocalizationSample.Resources.Strings.AppResoruces", typeof(AppResoruces).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LocalizationSample.Resources.Strings.AppResources", typeof(AppResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,34 @@ namespace LocalizationSample.Resources.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Appointment Booking ähnelt.
+        /// </summary>
+        internal static string AppointmentBooking {
+            get {
+                return ResourceManager.GetString("AppointmentBooking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Thank you {0} {1}. Your appointment has been successfully booked. ähnelt.
+        /// </summary>
+        internal static string AppointmentSuccessfullyBooked {
+            get {
+                return ResourceManager.GetString("AppointmentSuccessfullyBooked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Book Now! ähnelt.
+        /// </summary>
+        internal static string BookNow {
+            get {
+                return ResourceManager.GetString("BookNow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Date ähnelt.
         /// </summary>
         internal static string Date {
             get {
@@ -70,7 +97,7 @@ namespace LocalizationSample.Resources.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die First Name ähnelt.
         /// </summary>
         internal static string FirstName {
             get {
@@ -79,7 +106,7 @@ namespace LocalizationSample.Resources.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Last Name ähnelt.
         /// </summary>
         internal static string LastName {
             get {
@@ -88,7 +115,7 @@ namespace LocalizationSample.Resources.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Time ähnelt.
         /// </summary>
         internal static string Time {
             get {

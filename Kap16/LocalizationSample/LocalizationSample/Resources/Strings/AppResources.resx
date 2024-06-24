@@ -117,16 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppointmentBooking" xml:space="preserve">
+    <value>Appointment Booking</value>
+  </data>
+  <data name="AppointmentSuccessfullyBooked" xml:space="preserve">
+    <value>Thank you {0} {1}. Your appointment has been successfully booked.</value>
+  </data>
+  <data name="BookNow" xml:space="preserve">
+    <value>Book Now!</value>
+  </data>
   <data name="Date" xml:space="preserve">
-    <value />
+    <value>Date</value>
   </data>
   <data name="FirstName" xml:space="preserve">
-    <value />
+    <value>First Name</value>
   </data>
   <data name="LastName" xml:space="preserve">
-    <value />
+    <value>Last Name</value>
   </data>
   <data name="Time" xml:space="preserve">
-    <value />
+    <value>Time</value>
   </data>
 </root>

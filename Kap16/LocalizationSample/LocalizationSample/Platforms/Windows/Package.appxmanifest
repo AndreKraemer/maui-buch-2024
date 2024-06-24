@@ -21,9 +21,12 @@
     <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
   </Dependencies>
 
-  <Resources>
-    <Resource Language="x-generate" />
-  </Resources>
+	<Resources>
+		<Resource Language="x-generate" />
+		<Resource Language="en-US"/>
+		<!-- Make sure to add your desired Language Codes here. I took de-DE as an example -->
+		<Resource Language="de-DE"/>
+	</Resources>
 
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">

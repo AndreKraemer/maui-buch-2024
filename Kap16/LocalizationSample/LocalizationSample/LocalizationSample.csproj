@@ -63,17 +63,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Resources\Strings\AppResoruces.Designer.cs">
+	  <Compile Update="Resources\Strings\AppResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	    <DependentUpon>AppResoruces.resx</DependentUpon>
+	    <DependentUpon>AppResources.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Strings\AppResoruces.resx">
+	  <EmbeddedResource Update="Resources\Strings\AppResources.resx">
 	    <Generator>ResXFileCodeGenerator</Generator>
-	    <LastGenOutput>AppResoruces.Designer.cs</LastGenOutput>
+	    <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
 	</ItemGroup>
 
