@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DontLetMeExpire.Views.ItemsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:DontLetMeExpire.Converters"
+    xmlns:models="clr-namespace:DontLetMeExpire.Models"
+    xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
+    Title="{Binding Title}"
+    Padding="16"
+    x:DataType="viewModels:ItemsViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:DateToRelativeStringConverter x:Key="DateToRelativeStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Item">
+                    <Grid
+                        ColumnDefinitions="48,*,auto"
+                        ColumnSpacing="8"
+                        RowDefinitions="auto, auto, 16"
+                        RowSpacing="4">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ItemsViewModel}}, Path=NavigateToDetailsCommand}" CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+                        <Border
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            BackgroundColor="#f5f7fa"
+                            StrokeShape="RoundRectangle 45"
+                            StrokeThickness="0">
+                            <Image
+                                Aspect="AspectFill"
+                                HeightRequest="48"
+                                Source="dotnet_bot.png"
+                                VerticalOptions="Center"
+                                WidthRequest="48" />
+                        </Border>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="{Binding Name}"
+                            TextColor="#141f33" />
+                        <!-- Ausgabe des Datums in natürlicher Sprache unter
+                             Verwendung des eigenen Converters DateToRelativeStringConverter-->
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="{Binding ExpirationDate, Converter={StaticResource DateToRelativeStringConverter}}"
+                            TextColor="#141f33" />
+                        <Label
+                            Grid.RowSpan="2"
+                            Grid.Column="2"
+                            FontSize="24"
+                            Text="›"
+                            TextColor="#141f33"
+                            VerticalOptions="Center" />
+                        <!-- Anzeige einer Trennlinie -->
+                        <Line
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Stroke="#8792a8"
+                            StrokeThickness="1"
+                            X2="{Binding Width, Source={RelativeSource Self}}"
+                            Y1="4"
+                            Y2="4" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
