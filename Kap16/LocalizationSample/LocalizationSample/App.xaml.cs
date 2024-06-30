@@ -1,12 +1,15 @@
-﻿namespace LocalizationSample
-{
-  public partial class App : Application
-  {
-    public App()
-    {
-      InitializeComponent();
+﻿using System.Globalization;
 
-      MainPage = new AppShell();
-    }
+namespace LocalizationSample;
+
+public partial class App : Application
+{
+  public App()
+  {
+    InitializeComponent();
+
+    MainPage = new AppShell();
+    // Aktuelle UI-Kultur auf Französisch setzen
+    // CultureInfo.CurrentUICulture = new CultureInfo("fr-FR");
   }
 }

@@ -12,11 +12,14 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
-
     <ShellContent
         Title="Lokalisierungsdemo"
         ContentTemplate="{DataTemplate views:LocalizationDemoPage}"
         Route="LocalizationDemoPage" />
 
+    <ShellContent
+        Title="Dynamische Lokalisierung"
+        ContentTemplate="{DataTemplate views:DynamicLocalizationDemoPage}"
+        Route="DynamicLocalizationDemoPage" />    
+    
 </Shell>

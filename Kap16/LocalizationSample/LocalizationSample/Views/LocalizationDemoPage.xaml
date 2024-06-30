@@ -7,13 +7,13 @@
     Title="{x:Static strings:AppResources.AppointmentBooking}">
     <VerticalStackLayout Padding="32" Spacing="8">
         <Label Text="{x:Static strings:AppResources.FirstName}" />
-        <Entry x:Name="FirstNameEntry"/>
+        <Entry x:Name="FirstNameEntry" />
         <Label Text="{x:Static strings:AppResources.LastName}" />
-        <Entry x:Name="LastNameEntry"/>
+        <Entry x:Name="LastNameEntry" />
         <Label Text="{x:Static strings:AppResources.Date}" />
-        <DatePicker x:Name="AppointmentDatePicker"/>
-        <Label Text="{x:Static strings:AppResources.Time}" />
+        <DatePicker x:Name="AppointmentDatePicker" />
+        <Label Margin="0,380,0,0" Text="{x:Static strings:AppResources.Time}" />
         <TimePicker x:Name="AppointmentTimePicker" />
-        <Button Text="{x:Static strings:AppResources.BookNow}" Clicked="Button_Clicked" />
+        <Button Clicked="Button_Clicked" Text="{x:Static strings:AppResources.BookNow}" />
     </VerticalStackLayout>
 </ContentPage>
