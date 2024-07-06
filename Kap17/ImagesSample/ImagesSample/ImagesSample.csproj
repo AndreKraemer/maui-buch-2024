@@ -61,13 +61,6 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <None Remove="Images\qualitybytes_sample.png" />
-	  <None Remove="Resources\Fonts\DancingScript-VariableFont_wght.ttf" />
-	  <None Remove="Resources\Fonts\Font Awesome 5 Free-Regular-400.otf" />
-	  <None Remove="Resources\Fonts\IndieFlower-Regular.ttf" />
-	  <None Remove="Resources\Images\qualitybytes_sample_maui.png" />
-	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Images\qualitybytes_sample.png" />
@@ -77,6 +70,12 @@
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\FaIcons.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
