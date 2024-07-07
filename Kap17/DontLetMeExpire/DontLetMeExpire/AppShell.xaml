@@ -18,6 +18,10 @@
             BackgroundColor="#3d6dcc"
             StrokeThickness="0">
             <VerticalStackLayout Margin="10">
+                <Image
+                    HeightRequest="120"
+                    Source="logo.png"
+                    WidthRequest="120" />
                 <Label
                     FontSize="24"
                     HorizontalOptions="Center"
@@ -31,10 +35,16 @@
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
+        Icon="{FontImageSource FontFamily='MaterialSymbolsRounded',
+                               Glyph={StaticResource IconHome},
+                               Color='#141f33'}"
         Route="MainPage" />
     <ShellContent
         Title="{x:Static strings:AppResources.Settings}"
         ContentTemplate="{DataTemplate views:SettingsPage}"
+        Icon="{FontImageSource FontFamily='MaterialSymbolsRounded',
+                               Glyph={StaticResource IconSettings},
+                               Color='#141f33'}"
         Route="SettingsPage" />
 
 </Shell>

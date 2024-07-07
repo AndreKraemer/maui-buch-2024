@@ -19,10 +19,13 @@
                     ColumnDefinitions="*,*"
                     HeightRequest="98"
                     RowDefinitions="auto, *">
-                    <Image
-                        HeightRequest="40"
-                        HorizontalOptions="Start"
-                        Source="{TemplateBinding Icon}" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        FontFamily="MaterialSymbolsRounded"
+                        FontSize="28"
+                        Text="{TemplateBinding Icon}"
+                        TextColor="{TemplateBinding IconColor}" />
                     <Label
                         Grid.Row="0"
                         Grid.Column="1"

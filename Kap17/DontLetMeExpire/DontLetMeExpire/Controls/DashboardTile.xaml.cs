@@ -7,6 +7,9 @@ public partial class DashboardTile : ContentView
   public static readonly BindableProperty IconProperty = BindableProperty.Create(nameof(Icon), typeof(string),
        typeof(DashboardTile));
 
+  public static readonly BindableProperty IconColorProperty = BindableProperty.Create(nameof(IconColor),
+    typeof(Color), typeof(DashboardTile), Colors.Black);
+
   public static readonly BindableProperty TextProperty = BindableProperty.Create(nameof(Text), typeof(string),
       typeof(DashboardTile));
 
@@ -60,6 +63,12 @@ public partial class DashboardTile : ContentView
   {
     get => (string)GetValue(IconProperty);
     set => SetValue(IconProperty, value);
+  }
+
+  public Color IconColor
+  {
+    get => (Color)GetValue(IconColorProperty);
+    set => SetValue(IconColorProperty, value);
   }
 
   public string Text
