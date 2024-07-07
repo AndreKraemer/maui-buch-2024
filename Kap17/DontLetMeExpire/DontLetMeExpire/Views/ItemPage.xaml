@@ -11,6 +11,8 @@
     HideSoftInputOnTapped="True">
     <ContentPage.Resources>
         <ResourceDictionary>
+            <toolkit:IsStringNullOrEmptyConverter x:Key="IsStringNullOrEmptyConverter" />
+            <toolkit:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
             <toolkit:IsListNotNullOrEmptyConverter x:Key="IsListNotNullOrEmptyConverter" />
             <toolkit:ListToStringConverter x:Key="ListToStringConverter" Separator="," />
         </ResourceDictionary>
@@ -18,21 +20,28 @@
 
     <ScrollView>
         <Grid RowDefinitions="300, auto">
-            <!--  Dummy Produktbild anzeigen  -->
-            <BoxView BackgroundColor="AliceBlue" HeightRequest="300" />
+            <!--  Produktbild anzeigen  -->
+            <Image
+                Aspect="AspectFill"
+                BackgroundColor="#dae2f2"
+                HeightRequest="300"
+                Source="{Binding Image}" />
             <Button
                 Margin="16"
                 HorizontalOptions="End"
+                IsVisible="{Binding Image, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"
                 Text="{x:Static strings:AppResources.DeleteImage}"
                 VerticalOptions="Start" />
             <FlexLayout
                 AlignItems="Center"
                 Direction="Column"
+                IsVisible="{Binding Image, Converter={StaticResource IsStringNullOrEmptyConverter}}"
                 JustifyContent="Center">
-                <Image
-                    HeightRequest="48"
-                    Source="dotnet_bot.png"
-                    WidthRequest="48" />
+                <Label
+                    FontFamily="MaterialSymbolsRounded"
+                    FontSize="48"
+                    Text="{StaticResource IconAdd_a_photo}"
+                    TextColor="#505c73" />
                 <Label Text="{x:Static strings:AppResources.TapToAddImage}" />
             </FlexLayout>
 
@@ -59,8 +68,10 @@
                             BackgroundColor="#b81c1c" />
                         <Label
                             Grid.Column="1"
+                            Margin="0,4,0,0"
+                            FontFamily="MaterialSymbolsRounded"
                             FontSize="24"
-                            Text="!"
+                            Text="{StaticResource IconError}"
                             TextColor="#b81c1c"
                             VerticalOptions="End" />
                         <Label
