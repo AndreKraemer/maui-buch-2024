@@ -14,19 +14,20 @@
         <!--  Border is a workaround for https://github.com/dotnet/maui/issues/19712  -->
         <Border
             Margin="0"
-            Padding="24"
-            BackgroundColor="#3d6dcc"
-            StrokeThickness="0">
-            <VerticalStackLayout Margin="10">
+            BackgroundColor="{AppThemeBinding Light={StaticResource Primary},
+                                              Dark={StaticResource Secondary}}"
+            StrokeThickness="0"
+            StyleClass="p-l">
+            <VerticalStackLayout Margin="{StaticResource ThicknessS}">
                 <Image
                     HeightRequest="120"
                     Source="logo.png"
                     WidthRequest="120" />
                 <Label
-                    FontSize="24"
+                    FontSize="{StaticResource SizeL}"
                     HorizontalOptions="Center"
                     Text="{x:Static strings:AppResources.AppName}"
-                    TextColor="White" />
+                    TextColor="{StaticResource White}" />
             </VerticalStackLayout>
         </Border>
     </Shell.FlyoutHeader>
@@ -37,14 +38,16 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Icon="{FontImageSource FontFamily='MaterialSymbolsRounded',
                                Glyph={StaticResource IconHome},
-                               Color='#141f33'}"
+                               Color={AppThemeBinding Light={StaticResource PrimaryLightDarkest},
+                                                      Dark={StaticResource PrimaryLightLightest}}}"
         Route="MainPage" />
     <ShellContent
         Title="{x:Static strings:AppResources.Settings}"
         ContentTemplate="{DataTemplate views:SettingsPage}"
         Icon="{FontImageSource FontFamily='MaterialSymbolsRounded',
                                Glyph={StaticResource IconSettings},
-                               Color='#141f33'}"
+                               Color={AppThemeBinding Light={StaticResource PrimaryLightDarkest},
+                                                      Dark={StaticResource PrimaryLightLightest}}}"
         Route="SettingsPage" />
 
 </Shell>

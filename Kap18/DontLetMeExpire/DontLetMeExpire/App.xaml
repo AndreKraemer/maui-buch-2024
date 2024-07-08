@@ -9,8 +9,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-                <ResourceDictionary Source="Resources/Styles/MaterialSymbolsRounded.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/MaterialSymbolsRounded.xaml" />
+                <ResourceDictionary Source="Resources/Styles/AppStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <StyleSheet Source="/Resources/Styles/mystyles.css" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

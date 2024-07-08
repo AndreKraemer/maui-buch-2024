@@ -4,12 +4,37 @@
 
     <!--  Note: For Android please see also Platforms\Android\Resources\values\colors.xml  -->
 
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
+    <Color x:Key="Primary">#3d6dcc</Color>
+    <Color x:Key="PrimaryLightDarkest">#141f33</Color>
+    <Color x:Key="PrimaryLightDark">#505c73</Color>
+    <Color x:Key="PrimaryLightMedium">#8792a8</Color>
+    <Color x:Key="PrimaryLightLight">#dae2f2</Color>
+    <Color x:Key="PrimaryLightLightest">#f5f7fa</Color>
+
+    <Color x:Key="PrimaryDarkDarkest">#222426</Color>
+    <Color x:Key="PrimaryDarkDark">#35373b</Color>
+    <Color x:Key="PrimaryDarkMedium">#4d5054</Color>
+    <Color x:Key="PrimaryDarkLight">#9c9fa6</Color>
+    <Color x:Key="PrimaryDarkLightest">#c4c7cc</Color>
+
+    <Color x:Key="SuccessDark">#055c3c</Color>
+    <Color x:Key="Success">#4caf8c</Color>
+    <Color x:Key="SuccessLightest">#add0cc</Color>
+
+    <Color x:Key="ErrorDark">#b81c1c</Color>
+    <Color x:Key="Error">#d63c3c</Color>
+    <Color x:Key="ErrorLightest">#ffb0b0</Color>
+
+    <Color x:Key="WarningDark">#e65100</Color>
+    <Color x:Key="Warning">#fb8C00</Color>
+    <Color x:Key="WarningLightest">#ffcc80</Color>
+
     <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="Secondary">#3d98dc</Color>
+    <Color x:Key="PrimaryDark">#3d98dc</Color>
+    <Color x:Key="SecondaryDarkText">#3d98dc</Color>
+    <Color x:Key="Tertiary">#3ddcd0</Color>
+
 
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>

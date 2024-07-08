@@ -7,62 +7,85 @@
     xmlns:models="clr-namespace:DontLetMeExpire.Models"
     xmlns:strings="clr-namespace:DontLetMeExpire.Resources.Strings"
     xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
-    Padding="16"
+    Padding="{StaticResource ThicknessM}"
     x:DataType="viewModels:MainViewModel"
-    BackgroundColor="#f5f7fa">
+    BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryLightLightest},
+                                      Dark={StaticResource PrimaryDarkDarkest}}">
     <ScrollView>
         <Grid
             ColumnDefinitions="*,*"
-            ColumnSpacing="16"
+            ColumnSpacing="{StaticResource SizeM}"
             RowDefinitions="100,100,auto,*,48"
-            RowSpacing="16">
+            RowSpacing="{StaticResource SizeM}">
 
             <controls:DashboardTile
                 Grid.Row="0"
                 Grid.Column="0"
-                BorderColor="LightGray"
+                BorderColor="{AppThemeBinding Light={StaticResource PrimaryLightLight},
+                                              Dark={StaticResource PrimaryDarkLight}}"
                 Command="{Binding NavigateToStockCommand}"
                 Count="{Binding StockCount}"
+                CountColor="{AppThemeBinding Light={StaticResource PrimaryLightDarkest},
+                                             Dark={StaticResource PrimaryDarkLightest}}"
                 Icon="{StaticResource IconHome_storage}"
-                IconColor="LightGray"
-                Text="{x:Static strings:AppResources.MyStock}" />
+                IconColor="{AppThemeBinding Light={StaticResource PrimaryLightDarkest},
+                                            Dark={StaticResource White}}"
+                Text="{x:Static strings:AppResources.MyStock}"
+                TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                            Dark={StaticResource PrimaryDarkLightest}}" />
             <controls:DashboardTile
                 Grid.Row="0"
                 Grid.Column="1"
-                BorderColor="Green"
+                BorderColor="{AppThemeBinding Light={StaticResource SuccessDark},
+                                              Dark={StaticResource Success}}"
                 Command="{Binding NavigateToExpiringSoonCommand}"
                 Count="{Binding ExpiringSoonCount}"
-                CountColor="Green"
+                CountColor="{AppThemeBinding Light={StaticResource SuccessDark},
+                                             Dark={StaticResource Success}}"
                 Icon="{StaticResource IconUpdate}"
-                IconColor="Green"
-                Text="{x:Static strings:AppResources.ExpiringSoon}" />
+                IconColor="{AppThemeBinding Light={StaticResource SuccessDark},
+                                            Dark={StaticResource Success}}"
+                Text="{x:Static strings:AppResources.ExpiringSoon}"
+                TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                            Dark={StaticResource PrimaryDarkLightest}}" />
             <controls:DashboardTile
                 Grid.Row="1"
                 Grid.Column="0"
-                BorderColor="Orange"
+                BorderColor="{AppThemeBinding Light={StaticResource WarningDark},
+                                              Dark={StaticResource Warning}}"
                 Command="{Binding NavigateToExpiresTodayCommand}"
                 Count="{Binding ExpiresTodayCount}"
-                CountColor="Orange"
+                CountColor="{AppThemeBinding Light={StaticResource WarningDark},
+                                             Dark={StaticResource Warning}}"
                 Icon="{StaticResource IconCalendar_today}"
-                IconColor="Orange"
-                Text="{x:Static strings:AppResources.ExpiresToday}" />
+                IconColor="{AppThemeBinding Light={StaticResource WarningDark},
+                                            Dark={StaticResource Warning}}"
+                Text="{x:Static strings:AppResources.ExpiresToday}"
+                TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                            Dark={StaticResource PrimaryDarkLightest}}" />
+
             <controls:DashboardTile
                 Grid.Row="1"
                 Grid.Column="1"
-                BorderColor="Red"
+                BorderColor="{AppThemeBinding Light={StaticResource ErrorDark},
+                                              Dark={StaticResource Error}}"
                 Command="{Binding NavigateToExpiredCommand}"
                 Count="{Binding ExpiredCount}"
-                CountColor="Red"
+                CountColor="{AppThemeBinding Light={StaticResource ErrorDark},
+                                             Dark={StaticResource Error}}"
                 Icon="{StaticResource IconError}"
-                IconColor="Red"
-                Text="{x:Static strings:AppResources.Expired}" />
+                IconColor="{AppThemeBinding Light={StaticResource ErrorDark},
+                                            Dark={StaticResource Error}}"
+                Text="{x:Static strings:AppResources.Expired}"
+                TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                            Dark={StaticResource PrimaryDarkLightest}}" />
 
             <!--  Überschrift für Lagerorte  -->
             <Label
                 Grid.Row="2"
                 Grid.ColumnSpan="2"
-                Margin="0,8,0,0"
-                FontSize="24"
+                FontSize="{StaticResource SizeL}"
+                StyleClass="mt-xs"
                 Text="{x:Static strings:AppResources.MyStorageLocations}" />
             <!--  Platzhalter für Lagerorte  -->
             <VerticalStackLayout
@@ -70,12 +93,13 @@
                 Grid.ColumnSpan="2"
                 Padding="2"
                 BindableLayout.ItemsSource="{Binding StorageLocations}"
-                Spacing="8">
+                Spacing="{StaticResource SizeXS}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate x:DataType="models:StorageLocationWithItemCount">
                         <!--  Darstellung eines Rahmens mit abgerundeten Ecken  -->
                         <Border
-                            BackgroundColor="White"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource White},
+                                                              Dark={StaticResource PrimaryDarkDark}}"
                             StrokeShape="RoundRectangle 16"
                             StrokeThickness="0">
                             <Border.GestureRecognizers>
@@ -87,15 +111,17 @@
                             -->
                             <Border.Shadow>
                                 <Shadow
+                                    Brush="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                                            Dark={StaticResource Gray950}}"
                                     Opacity="0.2"
                                     Radius="4"
                                     Offset="0,4" />
                             </Border.Shadow>
                             <!--  Grid mit zwei Zeilen und drei Spalten anlegen  -->
                             <Grid
-                                Padding="8"
+                                Padding="{StaticResource ThicknessXS}"
                                 ColumnDefinitions="48, *, 24"
-                                ColumnSpacing="8"
+                                ColumnSpacing="{StaticResource SizeXS}"
                                 RowDefinitions="24,24">
                                 <!--
                                     Platzhalterbild in der ersten Spalte, und beiden Zeilen,
@@ -105,37 +131,41 @@
                                     Grid.Row="0"
                                     Grid.RowSpan="2"
                                     Grid.Column="0"
-                                    BackgroundColor="AliceBlue"
-                                    StrokeShape="RoundRectangle 45"
-                                    StrokeThickness="0">
+                                    BackgroundColor="{StaticResource PrimaryLightLight}"
+                                    Style="{StaticResource BorderCircle}">
                                     <Label
                                         FontFamily="MaterialSymbolsRounded"
-                                        FontSize="24"
+                                        FontSize="{StaticResource SizeL}"
                                         HorizontalOptions="Center"
                                         Text="{Binding Icon}"
-                                        TextColor="#3d6dcc"
+                                        TextColor="{StaticResource PrimaryLightDarkest}"
                                         VerticalOptions="Center" />
                                 </Border>
                                 <!--  Anzeige des Lagerortnamens  -->
                                 <Label
                                     Grid.Column="1"
-                                    FontAttributes="Bold"
-                                    Text="{Binding Name}" />
+                                    StyleClass="bold"
+                                    Text="{Binding Name}"
+                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDarkest},
+                                                                Dark={StaticResource White}}" />
                                 <!--  Anzeige der Anzahl der Einträge  -->
                                 <Label
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     Text="{Binding ItemCount, StringFormat={x:Static strings:AppResources.XItems}}"
-                                    TextColor="DarkGray" />
+                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                                                Dark={StaticResource PrimaryDarkLightest}}" />
+
                                 <!--  Darstellung eines einfachen Guillemet ›  -->
                                 <Label
                                     Grid.RowSpan="2"
                                     Grid.Column="2"
-                                    Margin="0,0,8,0"
-                                    FontSize="36"
+                                    FontSize="{StaticResource SizeXL}"
                                     HorizontalOptions="End"
+                                    StyleClass="mt-xxs"
                                     Text="›"
-                                    VerticalOptions="Center" />
+                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                                                Dark={StaticResource PrimaryDarkLightest}}" />
                             </Grid>
                         </Border>
                     </DataTemplate>
@@ -143,42 +173,28 @@
 
                 <BindableLayout.EmptyViewTemplate>
                     <DataTemplate>
-                        <VerticalStackLayout Spacing="8">
+                        <VerticalStackLayout Spacing="{StaticResource SizeXS}">
                             <Image Source="no_data.png" WidthRequest="150" />
                             <Label
-                                Margin="0,8,0,0"
                                 Style="{StaticResource SubHeadline}"
+                                StyleClass="mt-xs"
                                 Text="{x:Static strings:AppResources.NoDataTitle}" />
                             <Label Text="{x:Static strings:AppResources.NoDataDescription}" />
-                            <Label
-                                Margin="0,8,0,0"
-                                FontAttributes="Bold"
-                                Text="{x:Static strings:AppResources.GetStarted}" />
-                            <Label
-                                Text="{x:Static strings:AppResources.StartWithSuggestedLocations}"
-                                TextColor="#3d6dcc"
-                                TextDecorations="Underline">
+                            <Label StyleClass="mt-xs, bold" Text="{x:Static strings:AppResources.GetStarted}" />
+                            <Label StyleClass="LinkLabel" Text="{x:Static strings:AppResources.StartWithSuggestedLocations}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
-                            <Label FontSize="11" Text="{x:Static strings:AppResources.SuggestedLocationsDescription}" />
-                            <Label
-                                Margin="0,8,0,0"
-                                Text="{x:Static strings:AppResources.StartWithSuggestedLocationsAndStock}"
-                                TextColor="#3d6dcc"
-                                TextDecorations="Underline">
+                            <Label StyleClass="Small" Text="{x:Static strings:AppResources.SuggestedLocationsDescription}" />
+                            <Label StyleClass="mt-xs, LinkLabel" Text="{x:Static strings:AppResources.StartWithSuggestedLocationsAndStock}">
                                 <Label.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsAndStockCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
-                            <Label FontSize="11" Text="{x:Static strings:AppResources.SuggestedLocationsAndStockDescription}" />
-                            <Label
-                                Margin="0,8,0,0"
-                                Text="{x:Static strings:AppResources.CreateNewLocationLinkText}"
-                                TextColor="#3d6dcc"
-                                TextDecorations="Underline" />
-                            <Label FontSize="11" Text="{x:Static strings:AppResources.CreateNewLocationDescription}" />
+                            <Label StyleClass="Small" Text="{x:Static strings:AppResources.SuggestedLocationsAndStockDescription}" />
+                            <Label StyleClass="mt-xs, LinkLabel" Text="{x:Static strings:AppResources.CreateNewLocationLinkText}" />
+                            <Label StyleClass="Small" Text="{x:Static strings:AppResources.CreateNewLocationDescription}" />
                         </VerticalStackLayout>
                     </DataTemplate>
                 </BindableLayout.EmptyViewTemplate>
@@ -186,17 +202,13 @@
             <Button
                 Grid.Row="4"
                 Grid.Column="0"
-                BackgroundColor="#3d6dcc"
                 Command="{Binding NavigateToAddItemCommand}"
                 Text="{x:Static strings:AppResources.AddEntry}" />
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
-                BackgroundColor="White"
-                BorderColor="#3d6dcc"
-                BorderWidth="1"
-                Text="{x:Static strings:AppResources.CreateNewLocation}"
-                TextColor="#3d6dcc" />
+                Style="{StaticResource SecondaryButton}"
+                Text="{x:Static strings:AppResources.CreateNewLocation}" />
         </Grid>
     </ScrollView>
 </ContentPage>

@@ -8,7 +8,8 @@
         <ControlTemplate>
             <Border
                 x:DataType="controls:DashboardTile"
-                BackgroundColor="White"
+                BackgroundColor="{AppThemeBinding Light={StaticResource White},
+                                                  Dark={StaticResource PrimaryDarkDark}}"
                 Stroke="{TemplateBinding BorderColor}"
                 StrokeShape="RoundRectangle 8">
                 <Border.GestureRecognizers>

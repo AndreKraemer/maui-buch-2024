@@ -23,11 +23,12 @@
             <!--  Produktbild anzeigen  -->
             <Image
                 Aspect="AspectFill"
-                BackgroundColor="#dae2f2"
+                BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryLightLight},
+                                                  Dark={StaticResource PrimaryDarkDark}}"
                 HeightRequest="300"
                 Source="{Binding Image}" />
             <Button
-                Margin="16"
+                Margin="{StaticResource ThicknessM}"
                 HorizontalOptions="End"
                 IsVisible="{Binding Image, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"
                 Text="{x:Static strings:AppResources.DeleteImage}"
@@ -39,61 +40,71 @@
                 JustifyContent="Center">
                 <Label
                     FontFamily="MaterialSymbolsRounded"
-                    FontSize="48"
+                    FontSize="{StaticResource SizeXXL}"
                     Text="{StaticResource IconAdd_a_photo}"
-                    TextColor="#505c73" />
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryLightDark},
+                                                Dark={StaticResource PrimaryDarkLightest}}" />
                 <Label Text="{x:Static strings:AppResources.TapToAddImage}" />
             </FlexLayout>
 
             <!--  Eingabefelder für das Produkt  -->
             <VerticalStackLayout
                 Grid.Row="1"
-                Padding="16"
-                Spacing="8">
+                Padding="{StaticResource ThicknessM}"
+                Spacing="{StaticResource SizeXS}">
                 <Border
-                    BackgroundColor="#ffb0b0"
+                    BackgroundColor="{StaticResource ErrorLightest}"
                     IsVisible="{Binding HasErrors}"
-                    Stroke="#b81c1c"
+                    Stroke="{StaticResource ErrorDark}"
                     StrokeShape="RoundRectangle 8"
                     StrokeThickness="0">
                     <Grid
                         ColumnDefinitions="4, auto, *"
-                        ColumnSpacing="8"
+                        ColumnSpacing="{StaticResource SizeXS}"
                         RowDefinitions="auto, auto, auto"
-                        RowSpacing="8">
+                        RowSpacing="{StaticResource SizeXS}">
                         <BoxView
                             Grid.Row="0"
                             Grid.RowSpan="3"
                             Grid.Column="0"
-                            BackgroundColor="#b81c1c" />
+                            BackgroundColor="{StaticResource ErrorDark}" />
                         <Label
                             Grid.Column="1"
-                            Margin="0,4,0,0"
                             FontFamily="MaterialSymbolsRounded"
-                            FontSize="24"
+                            FontSize="{StaticResource SizeL}"
+                            StyleClass="mt-xxs"
                             Text="{StaticResource IconError}"
-                            TextColor="#b81c1c"
+                            TextColor="{StaticResource ErrorDark}"
                             VerticalOptions="End" />
                         <Label
                             Grid.Row="0"
                             Grid.Column="2"
-                            Margin="0,8,0,0"
-                            Text="{x:Static strings:AppResources.ErrorsHeader}" />
+                            FontSize="{StaticResource SizeM}"
+                            StyleClass="mt-xs, bold"
+                            Text="{x:Static strings:AppResources.ErrorsHeader}"
+                            TextColor="{StaticResource PrimaryDarkDarkest}" />
                         <Label
                             Grid.Row="1"
                             Grid.Column="2"
-                            Text="{x:Static strings:AppResources.ErrorsSubHeader}" />
+                            Text="{x:Static strings:AppResources.ErrorsSubHeader}"
+                            TextColor="{StaticResource PrimaryDarkDark}" />
                         <VerticalStackLayout
                             Grid.Row="2"
                             Grid.Column="2"
-                            Margin="8"
+                            Margin="{StaticResource ThicknessXS}"
                             BindableLayout.ItemsSource="{Binding ErrorMessages}"
-                            Spacing="4">
+                            Spacing="{StaticResource SizeXXS}">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
                                     <HorizontalStackLayout>
-                                        <Label Margin="0,0,8,0" Text="&#x2022;" />
-                                        <Label Text="{Binding}" />
+                                        <Label
+                                            StyleClass="mr-xs"
+                                            Text="&#x2022;"
+                                            TextColor="{StaticResource PrimaryDarkDark}" />
+                                        <Label
+                                            LineBreakMode="TailTruncation"
+                                            Text="{Binding}"
+                                            TextColor="{StaticResource PrimaryDarkDark}" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>
@@ -102,28 +113,26 @@
                 </Border>
                 <Label Text="{x:Static strings:AppResources.Name}" />
                 <Label
-                    FontSize="12"
                     IsVisible="{Binding PropertyErrorMessages[Name], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
-                    Text="{Binding PropertyErrorMessages[Name], Converter={StaticResource ListToStringConverter}}"
-                    TextColor="Red" />
+                    StyleClass="ErrorLabel"
+                    Text="{Binding PropertyErrorMessages[Name], Converter={StaticResource ListToStringConverter}}" />
                 <Entry Text="{Binding Name}" />
-                <Label Margin="0,8,0,0" Text="{x:Static strings:AppResources.StorageLocation}" />
+                <Label StyleClass="mt-xs" Text="{x:Static strings:AppResources.StorageLocation}" />
                 <Picker
                     ItemDisplayBinding="{Binding Name}"
                     ItemsSource="{Binding StorageLocations}"
                     SelectedItem="{Binding SelectedLocation}" />
-                <Label Margin="0,8,0,0" Text="{x:Static strings:AppResources.ExpirationDate}" />
+                <Label StyleClass="mt-xs" Text="{x:Static strings:AppResources.ExpirationDate}" />
                 <DatePicker Date="{Binding ExpirationDate}" />
-                <Label Margin="0,8,0,0" Text="{x:Static strings:AppResources.Amount}" />
+                <Label StyleClass="mt-xs" Text="{x:Static strings:AppResources.Amount}" />
                 <Label
-                    FontSize="12"
                     IsVisible="{Binding PropertyErrorMessages[Amount], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
-                    Text="{Binding PropertyErrorMessages[Amount], Converter={StaticResource ListToStringConverter}}"
-                    TextColor="Red" />
+                    StyleClass="ErrorLabel"
+                    Text="{Binding PropertyErrorMessages[Amount], Converter={StaticResource ListToStringConverter}}" />
                 <Entry Keyboard="Numeric" Text="{Binding Amount}" />
                 <Button
-                    Margin="0,8,0,0"
                     Command="{Binding SaveCommand}"
+                    StyleClass="mt-xs"
                     Text="{x:Static strings:AppResources.Save}" />
             </VerticalStackLayout>
         </Grid>

@@ -90,6 +90,9 @@
 	  <MauiXaml Update="Controls\DashboardTile.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\AppStyles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\MaterialSymbolsRounded.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
