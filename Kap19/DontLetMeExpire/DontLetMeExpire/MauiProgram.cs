@@ -1,0 +1,48 @@
+﻿using CommunityToolkit.Maui;
+using DontLetMeExpire.Services;
+using DontLetMeExpire.ViewModels;
+using DontLetMeExpire.Views;
+using Microsoft.Extensions.Logging;
+
+namespace DontLetMeExpire
+{
+  public static class MauiProgram
+  {
+    public static MauiApp CreateMauiApp()
+    {
+      var builder = MauiApp.CreateBuilder();
+      builder
+        .UseMauiApp<App>()
+        .UseMauiCommunityToolkit()
+        .ConfigureFonts(fonts =>
+        {
+          fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+          fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+          fonts.AddFont("MaterialSymbols-Rounded.ttf", "MaterialSymbolsRounded");
+        });
+
+#if DEBUG
+  		builder.Logging.AddDebug();
+#endif
+#if WINDOWS
+      // DatePicker unter Windows: Erster Tag der Woche anpassen
+      Microsoft.Maui.Handlers.DatePickerHandler.Mapper.AppendToMapping("FixFirstDayOfWeek", (handler, view) =>
+      {
+        handler.PlatformView.FirstDayOfWeek = (Windows.Globalization.DayOfWeek)(int)
+            System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek;
+      });
+#endif
+
+      builder.Services.AddSingleton<IStorageLocationService, DummyStorageLocationService>();
+      builder.Services.AddSingleton<IItemService, DummyItemService>();
+      builder.Services.AddSingleton<INavigationService, NavigationService>();
+      builder.Services.AddTransient<MainViewModel>();
+      builder.Services.AddTransient<MainPage>();
+      builder.Services.AddTransient<ItemViewModel>();
+      builder.Services.AddTransient<ItemPage>();
+      builder.Services.AddTransient<ItemsViewModel>();
+      builder.Services.AddTransient<ItemsPage>();
+      return builder.Build();
+    }
+  }
+}
