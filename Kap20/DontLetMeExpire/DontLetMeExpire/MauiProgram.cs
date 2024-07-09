@@ -34,8 +34,10 @@ namespace DontLetMeExpire
       });
 #endif
 
-      builder.Services.AddSingleton<IStorageLocationService, DummyStorageLocationService>();
-      builder.Services.AddSingleton<IItemService, DummyItemService>();
+//    builder.Services.AddSingleton<IStorageLocationService, DummyStorageLocationService>();
+//    builder.Services.AddSingleton<IItemService, DummyItemService>();
+      builder.Services.AddSingleton<IStorageLocationService, SqliteStorageLocationService>();
+      builder.Services.AddSingleton<IItemService, SqliteItemService>();
       builder.Services.AddSingleton<INavigationService, NavigationService>();
       builder.Services.AddSingleton<IOpenFoodFactsApiClient, OpenFoodFactsApiClient>();
       builder.Services.AddTransient<MainViewModel>();
