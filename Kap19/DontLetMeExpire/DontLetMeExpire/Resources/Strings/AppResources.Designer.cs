@@ -331,6 +331,15 @@ namespace DontLetMeExpire.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Search Barcode ähnelt.
+        /// </summary>
+        public static string SearchBarcode {
+            get {
+                return ResourceManager.GetString("SearchBarcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Settings ähnelt.
         /// </summary>
         public static string Settings {

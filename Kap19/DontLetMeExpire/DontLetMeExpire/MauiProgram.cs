@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using DontLetMeExpire.OpenFoodFacts;
 using DontLetMeExpire.Services;
 using DontLetMeExpire.ViewModels;
 using DontLetMeExpire.Views;
@@ -36,6 +37,7 @@ namespace DontLetMeExpire
       builder.Services.AddSingleton<IStorageLocationService, DummyStorageLocationService>();
       builder.Services.AddSingleton<IItemService, DummyItemService>();
       builder.Services.AddSingleton<INavigationService, NavigationService>();
+      builder.Services.AddSingleton<IOpenFoodFactsApiClient, OpenFoodFactsApiClient>();
       builder.Services.AddTransient<MainViewModel>();
       builder.Services.AddTransient<MainPage>();
       builder.Services.AddTransient<ItemViewModel>();

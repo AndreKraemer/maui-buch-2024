@@ -285,4 +285,8 @@
     <value>New Entry</value>
     <comment>ItemViewModel</comment>
   </data>
+  <data name="SearchBarcode" xml:space="preserve">
+    <value>Search Barcode</value>
+    <comment>ItemPage</comment>
+  </data>
 </root>

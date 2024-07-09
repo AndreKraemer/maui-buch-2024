@@ -1,4 +1,5 @@
 ﻿using DontLetMeExpire.Models;
+using DontLetMeExpire.OpenFoodFacts;
 using DontLetMeExpire.Resources.Strings;
 using DontLetMeExpire.Services;
 using System.Collections.ObjectModel;
@@ -14,19 +15,23 @@ public class ItemViewModel : ValidationViewModelBase
   private decimal _amount;
   private string _id;
   private string _image;
+  private string _searchText;
   private string _title;
   private readonly IItemService _itemService;
   private readonly INavigationService _navigationService;
   private readonly IStorageLocationService _storageLocationService;
-
+  private readonly IOpenFoodFactsApiClient _openFoodFactsApiClient;
 
   public ItemViewModel(INavigationService navigationService,
                         IStorageLocationService storageLocationService,
-                        IItemService itemService)
+                        IItemService itemService,
+                        IOpenFoodFactsApiClient openFoodFactsApiClient)
   {
     SaveCommand = new Command(async () => await SaveAsync());
+    SearchBarcodeCommand = new Command(async () => await SearchBarcode());
     _navigationService = navigationService;
     _storageLocationService = storageLocationService;
+    _openFoodFactsApiClient = openFoodFactsApiClient;
     _itemService = itemService;
   }
 
@@ -34,11 +39,20 @@ public class ItemViewModel : ValidationViewModelBase
 
   public Command SaveCommand { get; private set; }
 
+  public Command SearchBarcodeCommand { get; }
+
   public string Title
   {
     get => _title;
     set => SetProperty(ref _title, value);
   }
+
+  public string SearchText
+  {
+    get => _searchText;
+    set => SetProperty(ref _searchText, value);
+  }
+
 
   public string Id
   {
@@ -170,10 +184,27 @@ public class ItemViewModel : ValidationViewModelBase
 
     await _navigationService.GoToAsync("..");
   }
-  
+
   private bool CanSave()
   {
     return !string.IsNullOrEmpty(Name)
       && Amount > 0;
   }
+
+  private async Task SearchBarcode()
+  {
+    var response = await _openFoodFactsApiClient.GetProductByCodeAsync(SearchText);
+    if (response is { Status: 1, Product: not null })
+    {
+      Name = response.Product.ProductName!;
+
+      // Zu einem späteren Zeitpunkt das Bild herunterladen
+
+    }
+    else
+    {
+      // Zu einem späteren Zeitpunkt Fehlermeldung anzeigen
+    }
+  }
 }
+

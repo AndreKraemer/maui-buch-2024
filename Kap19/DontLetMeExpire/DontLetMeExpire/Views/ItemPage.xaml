@@ -3,6 +3,7 @@
     x:Class="DontLetMeExpire.Views.ItemPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:strings="clr-namespace:DontLetMeExpire.Resources.Strings"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
@@ -111,6 +112,18 @@
                         </VerticalStackLayout>
                     </Grid>
                 </Border>
+                <Grid ColumnDefinitions="*, auto" ColumnSpacing="{StaticResource SizeXS}">
+                    <SearchBar
+                        ios:SearchBar.SearchBarStyle="Minimal"
+                        Placeholder="{x:Static strings:AppResources.SearchBarcode}"
+                        SearchCommand="{Binding SearchBarcodeCommand}"
+                        Text="{Binding SearchText}" />
+                    <Button
+                        Grid.Column="1"
+                        FontFamily="MaterialSymbolsRounded"
+                        FontSize="{StaticResource SizeL}"
+                        Text="{StaticResource IconBarcode_scanner}" />
+                </Grid>
                 <Label Text="{x:Static strings:AppResources.Name}" />
                 <Label
                     IsVisible="{Binding PropertyErrorMessages[Name], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"

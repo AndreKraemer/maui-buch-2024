@@ -243,4 +243,7 @@
   <data name="NewEntry" xml:space="preserve">
     <value>Neuer Eintrag</value>
   </data>
+  <data name="SearchBarcode" xml:space="preserve">
+    <value>Barcode suchen</value>
+  </data>
 </root>
