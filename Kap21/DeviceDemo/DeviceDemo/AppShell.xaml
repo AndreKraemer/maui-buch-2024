@@ -5,8 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DeviceDemo"
     xmlns:views="clr-namespace:DeviceDemo.Views"
-    Shell.FlyoutBehavior="Flyout"
-    Title="DeviceDemo">
+    Title="DeviceDemo"
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Home"
@@ -21,5 +21,11 @@
     <ShellContent
         Title="Zugriff auf die Kamera"
         ContentTemplate="{DataTemplate views:MediaPage}"
-        Route="MediaPage"/>
+        Route="MediaPage" />
+
+
+    <ShellContent
+        Title="Barcode Scanning über Camera.MAUI.ZXing"
+        ContentTemplate="{DataTemplate views:ZxingCameraMauiDemoPage}"
+        Route="ZxingCameraMauiDemoPage" />
 </Shell>
