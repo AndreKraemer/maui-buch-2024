@@ -11,43 +11,43 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
   public ZxingCameraMauiDemoPage()
   {
     InitializeComponent();
+    cameraView.CamerasLoaded += CameraView_CamerasLoaded;
+    cameraView.BarcodeDetected += CameraView_BarcodeDetected;
+    cameraView.BarCodeDecoder = new ZXingBarcodeDecoder();
 
-    //CameraView.ZoomFactor = 3;
-    CameraView.BarCodeOptions = new BarcodeDecodeOptions
+    cameraView.BarCodeOptions = new BarcodeDecodeOptions
     {
       AutoRotate = true,
-      PossibleFormats = [BarcodeFormat.EAN_13, BarcodeFormat.EAN_8, BarcodeFormat.QR_CODE],
-      TryHarder = true,
+      PossibleFormats = { BarcodeFormat.EAN_13, BarcodeFormat.EAN_8, BarcodeFormat.QR_CODE },
+      ReadMultipleCodes = false,
+      TryHarder = false,
       TryInverted = true
     };
-    CameraView.BarCodeDecoder = new ZXingBarcodeDecoder();
-    CameraView.BarCodeDetectionMaxThreads = 5;
-    CameraView.ControlBarcodeResultDuplicate = true;
-    CameraView.BarCodeDetectionEnabled = true;
-    CameraView.BarCodeDetectionEnabled = true;
+    cameraView.BarCodeDetectionEnabled = true;
+    cameraView.ControlBarcodeResultDuplicate = true;
   }
 
-  private void CameraView_CamerasLoaded(object? sender, EventArgs e)
+  private async void CameraView_CamerasLoaded(object? sender, EventArgs e)
   {
     SetCamera();
   }
 
   private void SetCamera()
   {
-    if (CameraView.NumCamerasDetected == 0)
+    if (cameraView.NumCamerasDetected == 0)
     {
       return;
     }
 
 #if WINDOWS || MACCATALYST
-    CameraView.Camera = CameraView.Cameras.FirstOrDefault();
+    cameraView.Camera = cameraView.Cameras.FirstOrDefault(x => x.Position == CameraPosition.Front) ?? cameraView.Cameras.FirstOrDefault();
 #else
-    CameraView.Camera = CameraView.Cameras.FirstOrDefault(x => x.Position != CameraPosition.Front);
+    cameraView.Camera = cameraView.Cameras.FirstOrDefault(x => x.Position != CameraPosition.Front) ?? cameraView.Cameras.FirstOrDefault();;
 #endif
-   CameraView.StartCameraAsync();
   }
 
-  private void CameraView_BarcodeDetected(object sender, BarcodeEventArgs args)
+
+  private async void CameraView_BarcodeDetected(object sender, BarcodeEventArgs args)
   {
     foreach (var result in args.Result)
     {
@@ -66,10 +66,10 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
 
         ResultLabel.Text = result.Text;
 
-        CameraView.FadeTo(0.5, 500);
-        await CameraView.ScaleTo(1.1, 500);
-        await CameraView.ScaleTo(1, 500);
-        CameraView.FadeTo(1);
+        cameraView.FadeTo(0.5, 500);
+        await cameraView.ScaleTo(1.1, 500);
+        await cameraView.ScaleTo(1, 500);
+        cameraView.FadeTo(1);
 
       });
     }
@@ -78,18 +78,25 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
   override protected void OnAppearing()
   {
     base.OnAppearing();
-    CameraView.CamerasLoaded += CameraView_CamerasLoaded;
-    CameraView.BarcodeDetected += CameraView_BarcodeDetected;
-    SetCamera();
+  }
+
+
+  private async void Button_Clicked(object sender, EventArgs e)
+  {
+    if(cameraView.Camera == null)
+    {
+      SetCamera();
+    }
+    await cameraView.StartCameraAsync();
   }
 
   protected override async void OnDisappearing()
   {
-    base.OnDisappearing();
-    CameraView.BarcodeDetected -= CameraView_BarcodeDetected;
-    CameraView.CamerasLoaded -= CameraView_CamerasLoaded;
-    await CameraView.StopCameraAsync();
-    CameraView.Camera = null;
+    //  base.OnDisappearing();
+    //  cameraView.BarcodeDetected -= CameraView_BarcodeDetected;
+    //  cameraView.CamerasLoaded -= CameraView_CamerasLoaded;
+    await cameraView.StopCameraAsync();
+    cameraView.Camera = null;
 
   }
 }

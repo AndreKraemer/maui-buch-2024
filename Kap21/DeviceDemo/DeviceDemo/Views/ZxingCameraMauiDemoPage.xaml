@@ -7,12 +7,10 @@
     Title="ZxingCameraMauiDemoPage">
     <VerticalStackLayout Spacing="8">
         <cv:CameraView
-            x:Name="CameraView"
-            AutoStartPreview="True"
-            BarCodeDetectionEnabled="True"
-            ControlBarcodeResultDuplicate="True"
-            HeightRequest="400"
-            WidthRequest="400" />
+            x:Name="cameraView"
+            HeightRequest="300"
+            WidthRequest="300" />
+        <Button Text="Scan starten" Clicked="Button_Clicked" />
         <Label
             x:Name="ResultLabel"
             FontSize="24"
