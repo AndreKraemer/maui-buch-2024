@@ -1,4 +1,5 @@
-﻿using Camera.MAUI;
+﻿using BarcodeScanning;
+using Camera.MAUI;
 using DeviceDemo.ViewModels;
 using DeviceDemo.Views;
 using Microsoft.Extensions.Logging;
@@ -12,7 +13,8 @@ namespace DeviceDemo
       var builder = MauiApp.CreateBuilder();
       builder
         .UseMauiApp<App>()
-        .UseMauiCameraView()
+        .UseMauiCameraView() // Camera.Maui
+        .UseBarcodeScanning() // BarcodeScanning.Native.Maui
         .ConfigureFonts(fonts =>
         {
           fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

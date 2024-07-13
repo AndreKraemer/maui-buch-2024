@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
+    Shell.FlyoutBehavior="Flyout"
+    Title="DeviceDemo"
     x:Class="DeviceDemo.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:DeviceDemo"
     xmlns:views="clr-namespace:DeviceDemo.Views"
-    Title="DeviceDemo"
-    Shell.FlyoutBehavior="Flyout">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage"
+        Title="Home" />
 
     <ShellContent
-        Title="Über"
         ContentTemplate="{DataTemplate views:AppInfoPage}"
-        Route="AppInfoPage" />
+        Route="AppInfoPage"
+        Title="Über" />
 
     <ShellContent
-        Title="Zugriff auf die Kamera"
         ContentTemplate="{DataTemplate views:MediaPage}"
-        Route="MediaPage" />
+        Route="MediaPage"
+        Title="Zugriff auf die Kamera" />
 
 
     <ShellContent
-        Title="Barcode Scanning über Camera.MAUI.ZXing"
         ContentTemplate="{DataTemplate views:ZxingCameraMauiDemoPage}"
-        Route="ZxingCameraMauiDemoPage" />
+        Route="ZxingCameraMauiDemoPage"
+        Title="Camera.MAUI.ZXing Demo" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate views:BarcodeScannerNativeMauiDemo}"
+        Route="BarcodeScannerNativeMauiDemo"
+        Title="Barcode Scanner Native Maui Demo" />
 </Shell>
