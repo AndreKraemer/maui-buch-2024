@@ -10,10 +10,23 @@ namespace DeviceDemo.Views
       InitializeComponent();
     }
 
-    private void CameraView_OnOnDetectionFinished(object? sender, OnDetectionFinishedEventArg e)
+    private async void CameraView_OnOnDetectionFinished(object? sender, OnDetectionFinishedEventArg e)
     {
       foreach (BarcodeResult barcodeResult in e.BarcodeResults)
       {
+        if(barcodeResult.DisplayValue == ResultLabel.Text)
+        {
+          return;
+        }
+        try
+        {
+          Vibration.Vibrate(500);
+
+        }
+        catch (FeatureNotSupportedException)
+        {
+          // Do nothing. Happens on Devices without Vibration support
+        }
         ResultLabel.Text = barcodeResult.DisplayValue;
       }
     }

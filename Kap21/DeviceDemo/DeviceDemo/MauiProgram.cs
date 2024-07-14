@@ -14,7 +14,9 @@ namespace DeviceDemo
       builder
         .UseMauiApp<App>()
         .UseMauiCameraView() // Camera.Maui
+#if !WINDOWS
         .UseBarcodeScanning() // BarcodeScanning.Native.Maui
+#endif
         .ConfigureFonts(fonts =>
         {
           fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -22,7 +24,7 @@ namespace DeviceDemo
         });
 
 #if DEBUG
-  		builder.Logging.AddDebug();
+      builder.Logging.AddDebug();
 #endif
       builder.Services.AddTransient<AppInfoViewModel>();
       builder.Services.AddTransient<AppInfoPage>();

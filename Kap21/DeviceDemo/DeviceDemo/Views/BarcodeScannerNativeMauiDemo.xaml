@@ -9,7 +9,9 @@
     <Grid RowDefinitions="300,30,*" RowSpacing="8">
         <scanner:CameraView
             AimMode="True"
-            BarcodeSymbologies="All"
+            BarcodeSymbologies="Ean8,Ean13,QRCode"
+            VibrationOnDetected="True"
+            PoolingInterval="500"
             CaptureQuality="High"
             ForceInverted="True"
             Height="300"

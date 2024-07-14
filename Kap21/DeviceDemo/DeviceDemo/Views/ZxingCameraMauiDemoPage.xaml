@@ -10,7 +10,7 @@
             x:Name="cameraView"
             HeightRequest="300"
             WidthRequest="300" />
-        <Button Text="Scan starten" Clicked="Button_Clicked" />
+        <Button Text="Scan starten" Clicked="ScanButton_Clicked" />
         <Label
             x:Name="ResultLabel"
             FontSize="24"
