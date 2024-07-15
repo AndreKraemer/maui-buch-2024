@@ -10,13 +10,18 @@ namespace DeviceDemo.Views
       InitializeComponent();
     }
 
-    private async void CameraView_OnOnDetectionFinished(object? sender, OnDetectionFinishedEventArg e)
+    // Wird jedes Mal aufgerufen, nach dem ein Kamera-Frame geprüft wurde,
+    // also auch, wenn kein Barcode erkannt wurde!
+    private async void CameraView_OnDetectionFinished(object? sender, OnDetectionFinishedEventArg e)
     {
+      // Barcode-Ergebnisse durchgehen
       foreach (BarcodeResult barcodeResult in e.BarcodeResults)
       {
-        if(barcodeResult.DisplayValue == ResultLabel.Text)
+        // Falls der Barcode mit dem zuletzt erkannten Barcode übereinstimmt,
+        // dann überspringen wir diesen Schleifendurchlauf
+        if (barcodeResult.DisplayValue == ResultLabel.Text)
         {
-          return;
+          continue;
         }
         try
         {
@@ -33,15 +38,18 @@ namespace DeviceDemo.Views
 
     protected override async void OnAppearing()
     {
+      // Berechtigung für die Nutzung der Kamera anfordern
       await Methods.AskForRequiredPermissionAsync();
       base.OnAppearing();
+
+      // Kamera aktivieren
       BarcodeScannerView.CameraEnabled = true;
-      BarcodeScannerView.CameraFacing = CameraFacing.Back;
     }
 
     protected override void OnDisappearing()
     {
       base.OnDisappearing();
+      // Kamera deaktivieren
       BarcodeScannerView.CameraEnabled = false;
     }
   }

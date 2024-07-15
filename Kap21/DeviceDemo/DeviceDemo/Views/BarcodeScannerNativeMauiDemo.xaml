@@ -10,15 +10,12 @@
         <scanner:CameraView
             AimMode="True"
             BarcodeSymbologies="Ean8,Ean13,QRCode"
-            VibrationOnDetected="True"
-            PoolingInterval="500"
+            VibrationOnDetected="False"
             CaptureQuality="High"
             ForceInverted="True"
-            Height="300"
-            OnDetectionFinished="CameraView_OnOnDetectionFinished"
+            OnDetectionFinished="CameraView_OnDetectionFinished"
             TapToFocusEnabled="True"
-            Width="300"
-            x:Name="BarcodeScannerView" />
+            x:Name="BarcodeScannerView"/>
         <Label
             FontSize="24"
             Grid.Row="1"
