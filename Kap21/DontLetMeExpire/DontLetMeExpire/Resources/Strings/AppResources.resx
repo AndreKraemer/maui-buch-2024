@@ -289,4 +289,64 @@
     <value>Search Barcode</value>
     <comment>ItemPage</comment>
   </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+    <comment>AlertService</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>AlertService</comment>
+  </data>
+  <data name="ResetAppWarnining" xml:space="preserve">
+    <value>Resetting the app will erase all your data, including locations, stock, and any custom settings. This action cannot be undone. Are you sure you want to proceed?</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="RestartApp" xml:space="preserve">
+    <value>Restart App</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="RestartAppLanguageChange" xml:space="preserve">
+    <value>Please restart the app to apply the language change</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="PleaseRestart" xml:space="preserve">
+    <value>Please restart the app!</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>German</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>Dark</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>Light</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Theme</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>(Default)</value>
+    <comment>SettingsPage</comment>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+    <comment>AlertService</comment>
+  </data>
+  <data name="ResetApp" xml:space="preserve">
+    <value>Reset App</value>
+    <comment>SettingsPage</comment>
+  </data>
 </root>

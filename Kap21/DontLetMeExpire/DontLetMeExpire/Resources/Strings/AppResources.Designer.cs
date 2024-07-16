@@ -88,6 +88,15 @@ namespace DontLetMeExpire.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Create New Location ähnelt.
         /// </summary>
         public static string CreateNewLocation {
@@ -115,11 +124,38 @@ namespace DontLetMeExpire.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dark ähnelt.
+        /// </summary>
+        public static string Dark {
+            get {
+                return ResourceManager.GetString("Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die (Default) ähnelt.
+        /// </summary>
+        public static string Default {
+            get {
+                return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Delete Image ähnelt.
         /// </summary>
         public static string DeleteImage {
             get {
                 return ResourceManager.GetString("DeleteImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die English ähnelt.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
             }
         }
         
@@ -178,6 +214,15 @@ namespace DontLetMeExpire.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die German ähnelt.
+        /// </summary>
+        public static string German {
+            get {
+                return ResourceManager.GetString("German", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Let&apos;s get started! ähnelt.
         /// </summary>
         public static string GetStarted {
@@ -223,6 +268,15 @@ namespace DontLetMeExpire.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Language ähnelt.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Last week ähnelt.
         /// </summary>
         public static string LastWeek {
@@ -237,6 +291,15 @@ namespace DontLetMeExpire.Resources.Strings {
         public static string LengthErrorMessage {
             get {
                 return ResourceManager.GetString("LengthErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Light ähnelt.
+        /// </summary>
+        public static string Light {
+            get {
+                return ResourceManager.GetString("Light", resourceCulture);
             }
         }
         
@@ -304,6 +367,24 @@ namespace DontLetMeExpire.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ok ähnelt.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please restart the app! ähnelt.
+        /// </summary>
+        public static string PleaseRestart {
+            get {
+                return ResourceManager.GetString("PleaseRestart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die The field {0} must be between {1} and {2}. ähnelt.
         /// </summary>
         public static string RangeErrorMessage {
@@ -318,6 +399,42 @@ namespace DontLetMeExpire.Resources.Strings {
         public static string RequiredErrorMessage {
             get {
                 return ResourceManager.GetString("RequiredErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Reset App ähnelt.
+        /// </summary>
+        public static string ResetApp {
+            get {
+                return ResourceManager.GetString("ResetApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Resetting the app will erase all your data, including locations, stock, and any custom settings. This action cannot be undone. Are you sure you want to proceed? ähnelt.
+        /// </summary>
+        public static string ResetAppWarnining {
+            get {
+                return ResourceManager.GetString("ResetAppWarnining", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Restart App ähnelt.
+        /// </summary>
+        public static string RestartApp {
+            get {
+                return ResourceManager.GetString("RestartApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Please restart the app to apply the language change ähnelt.
+        /// </summary>
+        public static string RestartAppLanguageChange {
+            get {
+                return ResourceManager.GetString("RestartAppLanguageChange", resourceCulture);
             }
         }
         
@@ -403,6 +520,15 @@ namespace DontLetMeExpire.Resources.Strings {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Theme ähnelt.
+        /// </summary>
+        public static string Theme {
+            get {
+                return ResourceManager.GetString("Theme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Today ähnelt.
         /// </summary>
         public static string Today {
@@ -417,6 +543,15 @@ namespace DontLetMeExpire.Resources.Strings {
         public static string Tomorrow {
             get {
                 return ResourceManager.GetString("Tomorrow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Warning ähnelt.
+        /// </summary>
+        public static string Warning {
+            get {
+                return ResourceManager.GetString("Warning", resourceCulture);
             }
         }
         
