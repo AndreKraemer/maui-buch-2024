@@ -49,6 +49,9 @@ namespace DontLetMeExpire
       builder.Services.AddTransient<ItemPage>();
       builder.Services.AddTransient<ItemsViewModel>();
       builder.Services.AddTransient<ItemsPage>();
+      builder.Services.AddTransient<SettingsViewModel>();
+      builder.Services.AddTransient<SettingsPage>();
+
       return builder.Build();
     }
   }
