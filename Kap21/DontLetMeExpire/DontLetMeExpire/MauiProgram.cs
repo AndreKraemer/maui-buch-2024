@@ -39,6 +39,8 @@ namespace DontLetMeExpire
       builder.Services.AddSingleton<IStorageLocationService, SqliteStorageLocationService>();
       builder.Services.AddSingleton<IItemService, SqliteItemService>();
       builder.Services.AddSingleton<IAlertService, AlertService>();
+      builder.Services.AddSingleton<ISettingsService, SettingsService>();
+      builder.Services.AddSingleton<IPreferences>(Preferences.Default);
       builder.Services.AddSingleton<INavigationService, NavigationService>();
       builder.Services.AddSingleton<IOpenFoodFactsApiClient, OpenFoodFactsApiClient>();
       builder.Services.AddTransient<MainViewModel>();
