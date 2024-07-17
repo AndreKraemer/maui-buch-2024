@@ -1,5 +1,4 @@
 ﻿using SQLite;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DontLetMeExpire.Models;
 
