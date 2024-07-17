@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui;
+﻿using Camera.MAUI;
+using CommunityToolkit.Maui;
 using DontLetMeExpire.OpenFoodFacts;
 using DontLetMeExpire.Services;
 using DontLetMeExpire.ViewModels;
@@ -15,6 +16,7 @@ namespace DontLetMeExpire
       builder
         .UseMauiApp<App>()
         .UseMauiCommunityToolkit()
+        .UseMauiCameraView() // Camera.Maui
         .ConfigureFonts(fonts =>
         {
           fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

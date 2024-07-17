@@ -16,6 +16,7 @@ public class ItemViewModel : ValidationViewModelBase
   private string _id;
   private string _image;
   private string _searchText;
+  private bool _showBarcodeScanner;
   private string _title;
   private readonly IItemService _itemService;
   private readonly INavigationService _navigationService;
@@ -28,7 +29,9 @@ public class ItemViewModel : ValidationViewModelBase
                         IOpenFoodFactsApiClient openFoodFactsApiClient)
   {
     SaveCommand = new Command(async () => await SaveAsync());
+    ScanBarcodeCommand = new Command(ScanBarcode);
     SearchBarcodeCommand = new Command(async () => await SearchBarcode());
+    TakePhotoCommand = new Command(async () => await TakePhoto());
     DeletePhotoCommand = new Command(DeletePhoto);
     _navigationService = navigationService;
     _storageLocationService = storageLocationService;
@@ -38,9 +41,13 @@ public class ItemViewModel : ValidationViewModelBase
 
   public ObservableCollection<StorageLocation> StorageLocations { get; set; } = [];
 
-  public Command SaveCommand { get; private set; }
+  public Command SaveCommand { get; }
+
+  public Command ScanBarcodeCommand { get; }
 
   public Command SearchBarcodeCommand { get; }
+
+  public Command TakePhotoCommand { get; }
 
   public Command DeletePhotoCommand { get; }
   public string Title
@@ -111,6 +118,12 @@ public class ItemViewModel : ValidationViewModelBase
   {
     get => _image;
     set => SetProperty(ref _image, value);
+  }
+
+  public bool ShowBarcodeScanner
+  {
+    get => _showBarcodeScanner;
+    set => SetProperty(ref _showBarcodeScanner, value);
   }
 
   /// <summary>
@@ -196,6 +209,31 @@ public class ItemViewModel : ValidationViewModelBase
   private void DeletePhoto()
   {
     Image = string.Empty;
+  }
+
+  private async Task TakePhoto()
+  {
+    if (MediaPicker.Default.IsCaptureSupported)
+    {
+      var photo = await MediaPicker.Default.CapturePhotoAsync();
+
+      if (photo != null)
+      {
+        // save the file into local storage
+        var localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+
+        await using var sourceStream = await photo.OpenReadAsync();
+        await using var localFileStream = File.OpenWrite(localFilePath);
+
+        await sourceStream.CopyToAsync(localFileStream);
+        Image = localFilePath;
+      }
+    }
+  }
+
+  private void ScanBarcode()
+  {
+    ShowBarcodeScanner = !ShowBarcodeScanner;
   }
 
   private async Task SearchBarcode()

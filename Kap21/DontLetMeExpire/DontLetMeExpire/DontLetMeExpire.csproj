@@ -65,6 +65,8 @@
 
 
 	<ItemGroup>
+		<PackageReference Include="Camera.MAUI" Version="1.5.1" />
+		<PackageReference Include="Camera.MAUI.ZXing" Version="1.0.0" />
 		<PackageReference Include="CommunityToolkit.Maui" Version="8.0.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
