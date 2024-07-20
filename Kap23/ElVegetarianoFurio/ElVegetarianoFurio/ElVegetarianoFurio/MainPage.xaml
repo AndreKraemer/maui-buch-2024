@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ElVegetarianoFurio;assembly=ElVegetarianoFurio"
+             xmlns:menu="clr-namespace:ElVegetarianoFurio.Menu;assembly=ElVegetarianoFurio"
+             xmlns:fonts="clr-namespace:ElVegetarianoFurio.Fonts;assembly=ElVegetarianoFurio"
+             x:Class="ElVegetarianoFurio.MainPage"
+             x:DataType="local:MainViewModel"
+             Title="{Binding Title}">
+    <StackLayout>
+        <Label Text="{x:Static fonts:FaSolid.Utensils}" FontFamily="Fa-Solid" FontSize="99" HorizontalTextAlignment="Center" Padding="10"></Label>
+        <Label Text="El Vegetariano Furio" FontSize="Title" HorizontalTextAlignment="Center" FontFamily="Sofia"></Label>
+        <Label Style="{StaticResource DishStyle}" HorizontalTextAlignment="Center" Padding="5">Unsere Speisen</Label>
+        <CollectionView ItemsSource="{Binding Categories}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="menu:Category">
+                    <Grid Padding="5" HeightRequest="200">
+                        <Image HeightRequest="200" Aspect="AspectFill" HorizontalOptions="FillAndExpand" Source="{Binding Id, Converter={StaticResource ResourceImageSourceConverter}, ConverterParameter='ElVegetarianoFurio.Images.Categories.{0}.jpg'}"/>
+                        <StackLayout Padding="5" VerticalOptions="End" BackgroundColor="Black" Opacity="0.7">
+                            <Label Text="{Binding Name}" Style="{StaticResource DishStyle}" TextColor="White"></Label>
+                            <Label Text="{Binding Description}" FontAttributes="Italic" TextColor="White"></Label>
+                        </StackLayout>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource 
+                                  AncestorType={x:Type local:MainViewModel}}, 
+                                  Path=NavigateToCategoryCommand}"
+                                CommandParameter="{Binding}">
+                            </TapGestureRecognizer>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>

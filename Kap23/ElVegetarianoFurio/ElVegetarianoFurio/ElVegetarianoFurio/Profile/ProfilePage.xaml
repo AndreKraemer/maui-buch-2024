@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ElVegetarianoFurio.Profile;assembly=ElVegetarianoFurio"
+             x:Class="ElVegetarianoFurio.Profile.ProfilePage"
+             Title ="{Binding Title}"
+             x:DataType="local:ProfileViewModel">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout.Padding>
+                    <OnPlatform x:TypeArguments="Thickness">
+                        <On Platform="iOS">20, 40, 20, 20</On>
+                        <On Platform="Android">20</On>
+                    </OnPlatform>
+                </StackLayout.Padding>
+                <Label FontSize="Large" Text="Wie erreichen wir dich?"></Label>
+                <Label Text="Name"></Label>
+                <Entry Text="{Binding FullName, Mode=TwoWay}"></Entry>
+                <Label Text="Straße"></Label>
+                <Entry Text="{Binding Street, Mode=TwoWay}"></Entry>
+                <Label Text="Plz"></Label>
+                <Entry Text="{Binding Zip, Mode=TwoWay}" Keyboard="Numeric"></Entry>
+                <Label Text="Ort"></Label>
+                <Entry Text="{Binding City, Mode=TwoWay}"></Entry>
+                <Label Text="Telefon"></Label>
+                <Entry Text="{Binding Phone, Mode=TwoWay}" Keyboard="Telephone"></Entry>
+                <Button Text="Speichern" Command="{Binding SaveCommand}"></Button>
+            </StackLayout>
+            <StackLayout BackgroundColor="Black" Opacity="0.7" IsVisible="{Binding IsBusy}">
+                <ActivityIndicator IsRunning="{Binding IsBusy}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" Color="DeepSkyBlue"></ActivityIndicator>
+                <Label Text="Lade ..." FontSize="Title" TextColor="White" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
