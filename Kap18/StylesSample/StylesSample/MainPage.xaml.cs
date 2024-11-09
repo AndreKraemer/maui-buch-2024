@@ -2,22 +2,21 @@
 
 public partial class MainPage : ContentPage
 {
-  int count = 0;
 
-  public MainPage()
+	public MainPage()
+	{
+		InitializeComponent();
+	}
+
+  private void TrainingButton_Clicked(object sender, EventArgs e)
   {
-    InitializeComponent();
+    var url = $"https://www.andrekraemer.de/training/app-entwicklung/cross-plattform-apps-mit-net-maui-entwickeln/?utm_source=maui-book&utm_medium=sample-app&utm_campaign={AppInfo.Name}";
+    Browser.OpenAsync(url);
   }
 
-  private void OnCounterClicked(object sender, EventArgs e)
+  private void ProjectButton_Clicked(object sender, EventArgs e)
   {
-    count++;
-
-    if (count == 1)
-      CounterBtn.Text = $"Clicked {count} time";
-    else
-      CounterBtn.Text = $"Clicked {count} times";
-
-    SemanticScreenReader.Announce(CounterBtn.Text);
+    var url = $"https://qualitybytes.de/services/mobile-apps/?utm_source=maui-book&utm_medium=sample-app&utm_campaign={AppInfo.Name}";
+    Browser.OpenAsync(url);
   }
 }

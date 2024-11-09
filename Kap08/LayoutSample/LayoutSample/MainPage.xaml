@@ -8,11 +8,6 @@
              BackgroundColor="{AppThemeBinding Light=White, Dark=#091F35}">
 
     <ContentPage.Resources>
-        <Style TargetType="Shell" ApplyToDerivedTypes="True">
-            <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#091F35}" />
-            <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Light=#091F35, Dark=White}" />
-            <Setter Property="Shell.TitleColor"  Value="{AppThemeBinding Light=#091F35, Dark=White}"  />
-        </Style>
         <Style TargetType="Button">
             <Setter Property="BackgroundColor" Value="DarkOrange"/>
             <Setter Property="TextColor" Value="White"/>

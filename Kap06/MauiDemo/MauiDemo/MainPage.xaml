@@ -18,21 +18,6 @@
                 <Label Text="Passwort" TextColor="#6d6d6d"/>
                 <Entry IsPassword="True"/>
                 <Button Text="Absenden"/>
-                <Button x:Name="LoginButton" Text="Login">
-                    <Button.Shadow>
-                        <Shadow
-                            Brush="Black"
-                            Offset="5,5"
-                            Opacity="0.6"
-                            Radius="4" />
-                    </Button.Shadow>
-                    <Button.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="DarkBlue" Offset="0.0"/>
-                            <GradientStop Color="#FFFFFF" Offset="1.0"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
             </VerticalStackLayout>
         </Border>
     </VerticalStackLayout>
