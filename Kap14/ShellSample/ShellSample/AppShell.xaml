@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ShellSample.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ShellSample"
+    Title="ShellSample"
+    Shell.FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <VerticalStackLayout Padding="20" BackgroundColor="#091F35">
+                <Label
+                    FontSize="Large"
+                    Text="Shell Demo"
+                    TextColor="White" />
+                <Label Text=".NET MAUI Shell" TextColor="White" />
+            </VerticalStackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <!--<TabBar>
+        <Tab Title="Startseite" Icon="home.png">-->
+    <!--<FlyoutItem Title="Gruppe 1" Icon="info.png">
+        <Tab>-->
+    <ShellContent
+        Title="Startseite"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Icon="home.png"
+        Route="MainPage" />
+    <!--</Tab>
+        <Tab Title="Einstellungen" Icon="settings.png">-->
+    <ShellContent
+        Title="Einstellungen"
+        ContentTemplate="{DataTemplate local:SettingsPage}"
+        Icon="settings.png"
+        Route="SettingsPage" />
+    <!--</Tab>
+    </FlyoutItem>
+    <ShellContent
+        Title="Dummy Eintrag 1"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Icon="home.png"
+        Route="Dummy1" />
+
+    <ShellContent
+        Title="Dummy Eintrag 2"
+        ContentTemplate="{DataTemplate local:SettingsPage}"
+        Icon="settings.png"
+        Route="Dummy2" />-->
+
+    <!--</Tab>-->
+    <!--<Tab Title="Navigation" Icon="navigation.png">-->
+    <ShellContent
+        Title="Navigation"
+        ContentTemplate="{DataTemplate local:NavigationDemoSourcePage}"
+        Icon="navigation.png"
+        Route="NavigationDemoSourcePage" />
+    <!--</Tab>-->
+    <MenuItem
+        Clicked="MenuItem_Clicked"
+        IconImageSource="info.png"
+        Text="Info" />
+    <!--</TabBar>-->
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout Padding="20" BackgroundColor="#2097C8">
+                <Label
+                    FontSize="Large"
+                    Text="Footer der"
+                    TextColor="White" />
+                <Label Text=".NET MAUI Shell" TextColor="White" />
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
+
+</Shell>

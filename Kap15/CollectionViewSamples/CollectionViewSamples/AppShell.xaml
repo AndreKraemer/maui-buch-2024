@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CollectionViewSamples.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CollectionViewSamples"
+    xmlns:views="clr-namespace:CollectionViewSamples.Views"
+    Title="CollectionViewSamples"
+    Shell.FlyoutBehavior="Flyout">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Einfaches Beispiel"
+        ContentTemplate="{DataTemplate views:FirstSamplePage}"
+        Route="FirstSamplePage" />
+    <ShellContent
+        Title="Einträge selektieren"
+        ContentTemplate="{DataTemplate views:SelectSamplePage}"
+        Route="SelectSamplePage" />
+    <ShellContent
+        Title="Kontextmenüs"
+        ContentTemplate="{DataTemplate views:MenuSamplePage}"
+        Route="MenuSamplePage" />
+    <ShellContent
+        Title="Daten aktualisieren"
+        ContentTemplate="{DataTemplate views:RefreshSamplePage}"
+        Route="RefreshSamplePage" />
+    <ShellContent
+        Title="Gruppierte Einträge"
+        ContentTemplate="{DataTemplate views:GroupSamplePage}"
+        Route="GroupSamplePage" />
+    <ShellContent
+        Title="Leere Liste"
+        ContentTemplate="{DataTemplate views:EmptyListSamplePage}"
+        Route="EmptyListSamplePage" />
+
+    <ShellContent
+        Title="Bindable Layout"
+        ContentTemplate="{DataTemplate views:BindableLayoutSamplePage}"
+        Route="BindableLayoutSamplePage" />
+
+</Shell>

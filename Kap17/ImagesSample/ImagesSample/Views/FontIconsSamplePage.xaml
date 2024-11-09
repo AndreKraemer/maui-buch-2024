@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ImagesSample.Views.FontIconsSamplePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:imagesSample="clr-namespace:ImagesSample;assembly=ImagesSample">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label
+                FontFamily="FontAwesome"
+                FontSize="50"
+                Text="{x:Static imagesSample:FaIcons.Clock}"
+                TextColor="Blue" />
+            <Label
+                FontFamily="FontAwesome"
+                FontSize="50"
+                Text="{x:Static imagesSample:FaIcons.Envelope}"
+                TextColor="Red" />
+            <Label
+                FontFamily="FontAwesome"
+                FontSize="50"
+                Text="{x:Static imagesSample:FaIcons.Newspaper}"
+                TextColor="DarkOrange" />
+            <Label
+                FontFamily="FontAwesome"
+                FontSize="50"
+                Text="{x:Static imagesSample:FaIcons.ShareSquare}"
+                TextColor="MediumPurple" />
+            <!-- <Label FontFamily="FontAwesome" Text="{x:Static imagesSample:FaIcons.User}" FontSize="50" TextColor="SkyBlue"  /> -->
+            <Label
+                FontFamily="FontAwesome"
+                FontSize="50"
+                Text="{x:StaticResource IconUser}"
+                TextColor="SkyBlue" />
+            <!--<Label FontFamily="FontAwesome" Text="#&e05a;" FontSize="30 />"-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

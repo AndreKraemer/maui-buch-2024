@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DontLetMeExpire.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:DontLetMeExpire.Controls"
+    xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
+    Padding="16"
+    x:DataType="viewModels:MainViewModel"
+    BackgroundColor="#f5f7fa">
+    <ScrollView>
+        <Grid
+            ColumnDefinitions="*,*"
+            ColumnSpacing="16"
+            RowDefinitions="100,100,auto,*,48"
+            RowSpacing="16">
+           
+            <controls:DashboardTile
+                Grid.Row="0"
+                Grid.Column="0"
+                Count="{Binding StockCount}"
+                BorderColor="LightGray"
+                Icon="dotnet_bot.png"
+                Text="Mein Vorrat" />
+            <controls:DashboardTile
+                Grid.Row="0"
+                Grid.Column="1"
+                BorderColor="Green"
+                Count="{Binding ExpiringSoonCount}"
+                CountColor="Green"
+                Icon="dotnet_bot.png"
+                Text="Läuft bald ab" />
+            <controls:DashboardTile
+                Grid.Row="1"
+                Grid.Column="0"
+                BorderColor="Orange"
+                Count="{Binding ExpiresTodayCount}"
+                CountColor="Orange"
+                Icon="dotnet_bot.png"
+                Text="Läuft heute ab" />
+            <controls:DashboardTile
+                Grid.Row="1"
+                Grid.Column="1"
+                BorderColor="Red"
+                Count="{Binding ExpiredCount}"
+                CountColor="Red"
+                Icon="dotnet_bot.png"
+                Text="Abgelaufen" />
+            
+            <!-- Überschrift für Lagerorte -->
+            <Label
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Margin="0,8,0,0"
+                FontSize="24"
+                Text="Meine Lagerorte" />
+            <!--  Platzhalter für Lagerorte  -->
+            <VerticalStackLayout
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Padding="2"
+                Spacing="8">
+
+                <!--  Darstellung eines Rahmens mit abgerundeten Ecken  -->
+                <Border
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0">
+                    <!--
+                        Definition des Schattens. Um natürlich zu wirken,
+                        kommt das Licht von oben (Offset X = 0)
+                    -->
+                    <Border.Shadow>
+                        <Shadow
+                            Opacity="0.2"
+                            Radius="4"
+                            Offset="0,4" />
+                    </Border.Shadow>
+                    <!--  Grid mit zwei Zeilen und drei Spalten anlegen  -->
+                    <Grid
+                        Padding="8"
+                        ColumnDefinitions="48, *, 24"
+                        ColumnSpacing="8"
+                        RowDefinitions="24,24">
+                        <!--
+                            Platzhalterbild in der ersten Spalte, und beiden Zeilen,
+                            umgeben von einem hellblauen Kreis
+                        -->
+                        <Border
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            BackgroundColor="AliceBlue"
+                            StrokeShape="RoundRectangle 45"
+                            StrokeThickness="0">
+                            <Image Source="dotnet_bot.png" />
+                        </Border>
+                        <!--  Anzeige des Lagerortnamens  -->
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="Gefrierschrank" />
+                        <!--  Anzeige der Anzahl der Einträge  -->
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="3 Einträge"
+                            TextColor="DarkGray" />
+                        <!--  Darstellung eines einfachen Guillemet ›  -->
+                        <Label
+                            Grid.RowSpan="2"
+                            Grid.Column="2"
+                            Margin="0,0,8,0"
+                            FontSize="36"
+                            HorizontalOptions="End"
+                            Text="›"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+                <Border
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow
+                            Opacity="0.2"
+                            Radius="4"
+                            Offset="0,4" />
+                    </Border.Shadow>
+                    <Grid
+                        Padding="8"
+                        ColumnDefinitions="48, *, 24"
+                        ColumnSpacing="8"
+                        RowDefinitions="24,24">
+                        <Border
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            BackgroundColor="AliceBlue"
+                            StrokeShape="RoundRectangle 45"
+                            StrokeThickness="0">
+                            <Image Source="dotnet_bot.png" />
+                        </Border>
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="Kühlschrank" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="5 Einträge"
+                            TextColor="DarkGray" />
+                        <Label
+                            Grid.RowSpan="2"
+                            Grid.Column="2"
+                            Margin="0,0,8,0"
+                            FontSize="36"
+                            HorizontalOptions="End"
+                            Text="›"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+                <Border
+                    BackgroundColor="White"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0">
+                    <Border.Shadow>
+                        <Shadow
+                            Opacity="0.2"
+                            Radius="4"
+                            Offset="0,4" />
+                    </Border.Shadow>
+                    <Grid
+                        Padding="8"
+                        ColumnDefinitions="48, *, 24"
+                        ColumnSpacing="8"
+                        RowDefinitions="24,24">
+                        <Border
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            BackgroundColor="AliceBlue"
+                            StrokeShape="RoundRectangle 45"
+                            StrokeThickness="0">
+                            <Image Source="dotnet_bot.png" />
+                        </Border>
+                        <Label
+                            Grid.Column="1"
+                            FontAttributes="Bold"
+                            Text="Vorratsschrank" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Text="4 Einträge"
+                            TextColor="DarkGray" />
+                        <Label
+                            Grid.RowSpan="2"
+                            Grid.Column="2"
+                            Margin="0,0,8,0"
+                            FontSize="36"
+                            HorizontalOptions="End"
+                            Text="›"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+            <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                BackgroundColor="#3d6dcc"
+                Text="Eintrag hinzufügen" />
+            <Button
+                Grid.Row="4"
+                Grid.Column="1"
+                BackgroundColor="White"
+                BorderColor="#3d6dcc"
+                BorderWidth="1"
+                Text="Neuen Ort anlegen"
+                TextColor="#3d6dcc" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

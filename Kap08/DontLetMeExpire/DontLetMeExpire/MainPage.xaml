@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DontLetMeExpire.MainPage"
+             Padding="16"
+             BackgroundColor="#f5f7fa">
+    <ScrollView>
+        <Grid RowDefinitions="100,100,auto,*,48" ColumnDefinitions="*,*" RowSpacing="16" ColumnSpacing="16">
+            <!-- Platzhalter für Kacheln -->
+            <BoxView Grid.Row="0" Grid.Column="0" BackgroundColor="DarkGray"/>
+            <BoxView Grid.Row="0" Grid.Column="1" BackgroundColor="DarkGreen"/>
+            <BoxView Grid.Row="1" Grid.Column="0" BackgroundColor="DarkOrange"/>
+            <BoxView Grid.Row="1" Grid.Column="1" BackgroundColor="DarkRed"/>
+            <Label Grid.Row="2" Grid.ColumnSpan="2" Margin="0,8,0,0" Text="Meine Lagerorte" FontSize="24"/>
+            <!-- Platzhalter für Lagerorte -->
+            <VerticalStackLayout Grid.Row="3" Grid.ColumnSpan="2" Spacing="8">
+                <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
+                <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
+                <BoxView BackgroundColor="LightGray" HeightRequest="50"/>
+            </VerticalStackLayout>
+            <Button Grid.Row="4" Grid.Column="0" Text="Eintrag hinzufügen"
+                    BackgroundColor="#3d6dcc"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="Neuen Ort anlegen"
+                BackgroundColor="White" 
+                BorderWidth="1"
+                BorderColor="#3d6dcc"
+                TextColor="#3d6dcc"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>

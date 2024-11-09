@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CollectionViewSamples.Views.MenuSamplePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CollectionViewSamples.Models;assembly=CollectionViewSamples"
+    xmlns:viewModels="clr-namespace:CollectionViewSamples.ViewModels;assembly=CollectionViewSamples"
+    Title="{Binding Title}"
+    x:Name="page"
+    Padding="16"
+    x:DataType="viewModels:MenuSampleViewModel">
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Persons}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Person">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    BackgroundColor="Red"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path= DeletePersonCommand}"
+                                    CommandParameter="{Binding}"
+                                    IconImageSource="delete.png"
+                                    Text="Löschen" />
+                                <SwipeItem
+                                    BackgroundColor="Yellow"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}},   Path=FavoritePersonCommand}"
+                                    CommandParameter="{Binding}"
+                                    IconImageSource="favorite.png"
+                                    Text="Favorit" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem
+                                    BackgroundColor="Azure"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=ArchivePersonCommand}"
+                                    CommandParameter="{Binding}"
+                                    IconImageSource="archive.png"
+                                    Text="Archivieren" />
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+                        <VerticalStackLayout Padding="0,4">
+                            <FlyoutBase.ContextFlyout>
+                                <MenuFlyout>
+                                    <MenuFlyoutItem
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=DeletePersonCommand}"
+                                        CommandParameter="{Binding}"
+                                        IconImageSource="delete.png"
+                                        Text="Löschen" />
+                                    <MenuFlyoutItem
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=FavoritePersonCommand}"
+                                        CommandParameter="{Binding}"
+                                        IconImageSource="favorite.png"
+                                        Text="Favorit" />
+                                    <MenuFlyoutItem
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MenuSampleViewModel}}, Path=ArchivePersonCommand}"
+                                        CommandParameter="{Binding}"
+                                        IconImageSource="archive.png"
+                                        Text="Archivieren">
+                                        <MenuFlyoutItem.KeyboardAccelerators>
+                                            <KeyboardAccelerator Key="A" Modifiers="Alt" />
+                                        </MenuFlyoutItem.KeyboardAccelerators>
+                                    </MenuFlyoutItem>
+                                </MenuFlyout>
+                            </FlyoutBase.ContextFlyout>
+                            <Label FontAttributes="Bold" Text="{Binding Name}" />
+                            <Label Text="{Binding CompanyName}" />
+                        </VerticalStackLayout>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

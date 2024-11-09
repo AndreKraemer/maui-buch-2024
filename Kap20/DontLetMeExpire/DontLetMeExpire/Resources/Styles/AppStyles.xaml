@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--  Sizes  (FontSize, Spacing, RowSpacing, ColumnSpacing)  -->
+    <x:Double x:Key="SizeXXS">4</x:Double>
+    <x:Double x:Key="SizeXS">8</x:Double>
+    <x:Double x:Key="SizeS">12</x:Double>
+    <x:Double x:Key="SizeM">16</x:Double>
+    <x:Double x:Key="SizeL">24</x:Double>
+    <x:Double x:Key="SizeXL">32</x:Double>
+    <x:Double x:Key="SizeXXL">48</x:Double>
+
+    <!--  Thickness  (Margin, Padding)  -->
+    <Thickness x:Key="ThicknessXXS">4</Thickness>
+    <Thickness x:Key="ThicknessXS">8</Thickness>
+    <Thickness x:Key="ThicknessS">12</Thickness>
+    <Thickness x:Key="ThicknessM">16</Thickness>
+    <Thickness x:Key="ThicknessL">24</Thickness>
+    <Thickness x:Key="ThicknessXL">32</Thickness>
+    <Thickness x:Key="ThicknessXXL">48</Thickness>
+
+    <!--  Implicit Styles  -->
+    <!--  Default Label Text Color  -->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource PrimaryLightDark}, Dark={StaticResource PrimaryLightLightest}}" />
+    </Style>
+
+
+    <!--  Explicit Styles  -->
+
+    <Style x:Key="Headline" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="FontSize" Value="{StaticResource SizeXL}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{OnPlatform iOS='OpenSansSemibold', Default='OpenSansRegular'}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+    </Style>
+
+    <Style x:Key="SubHeadline" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="FontSize" Value="{StaticResource SizeL}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{OnPlatform iOS='OpenSansSemibold', Default='OpenSansRegular'}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+    </Style>
+
+    <!--  Button for secondary actions  -->
+    <Style x:Key="SecondaryButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource PrimaryDarkDarkest}}" />
+        <Setter Property="BorderColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource Secondary}}" />
+    </Style>
+
+    <!--  Button / link for tertiary actions  -->
+    <Style Class="LinkLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+        <Setter Property="TextDecorations" Value="Underline" />
+    </Style>
+
+    <Style x:Key="BorderCircle" TargetType="Border">
+        <Setter Property="StrokeShape" Value="RoundRectangle 45" />
+        <Setter Property="StrokeThickness" Value="0" />
+    </Style>
+
+    <Style Class="Small" TargetType="Label">
+        <Setter Property="FontSize" Value="{StaticResource SizeS}" />
+    </Style>
+
+    <!--  iOS can't force bold fonts  -->
+    <Style Class="Bold" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{OnPlatform iOS='OpenSansSemibold', Default='OpenSansRegular'}" />
+    </Style>
+
+    <!--  Display of Error Messags  -->
+    <Style Class="ErrorLabel" TargetType="Label">
+        <Setter Property="FontSize" Value="{StaticResource SizeS}" />
+        <Setter Property="TextColor" Value="{StaticResource ErrorDark}" />
+    </Style>
+
+</ResourceDictionary>

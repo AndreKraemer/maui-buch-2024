@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ValidationDemo.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ValidationDemo"
+    xmlns:views="clr-namespace:ValidationDemo.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Title="ValidationDemo">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="Validation Demo"
+        ContentTemplate="{DataTemplate views:ValidationDemoPage}"
+        Route="ValidationDemoPage" />
+
+</Shell>

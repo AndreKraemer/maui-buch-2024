@@ -1,0 +1,118 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="appsettings.json" />
+    <None Remove="Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <None Remove="Fonts\License Font Awesome.txt" />
+    <None Remove="Fonts\License Shadows.txt" />
+    <None Remove="Fonts\License Sofia.txt" />
+    <None Remove="Fonts\ShadowsIntoLight-Regular.ttf" />
+    <None Remove="Fonts\Sofia-Regular.ttf" />
+    <None Remove="Images\Categories\1.jpg" />
+    <None Remove="Images\Categories\2.jpg" />
+    <None Remove="Images\Categories\3.jpg" />
+    <None Remove="Images\Categories\4.jpg" />
+    <None Remove="Images\Categories\5.jpg" />
+    <None Remove="Images\Categories\6.jpg" />
+    <None Remove="Images\Dishes\1.jpg" />
+    <None Remove="Images\Dishes\10.jpg" />
+    <None Remove="Images\Dishes\11.jpg" />
+    <None Remove="Images\Dishes\12.jpg" />
+    <None Remove="Images\Dishes\13.jpg" />
+    <None Remove="Images\Dishes\14.jpg" />
+    <None Remove="Images\Dishes\15.jpg" />
+    <None Remove="Images\Dishes\16.jpg" />
+    <None Remove="Images\Dishes\17.jpg" />
+    <None Remove="Images\Dishes\18.jpg" />
+    <None Remove="Images\Dishes\19.jpg" />
+    <None Remove="Images\Dishes\2.jpg" />
+    <None Remove="Images\Dishes\20.jpg" />
+    <None Remove="Images\Dishes\21.jpg" />
+    <None Remove="Images\Dishes\22.jpg" />
+    <None Remove="Images\Dishes\3.jpg" />
+    <None Remove="Images\Dishes\4.jpg" />
+    <None Remove="Images\Dishes\5.jpg" />
+    <None Remove="Images\Dishes\6.jpg" />
+    <None Remove="Images\Dishes\7.jpg" />
+    <None Remove="Images\Dishes\8.jpg" />
+    <None Remove="Images\Dishes\9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="appsettings.json" />
+    <EmbeddedResource Include="Fonts\Font Awesome 5 Free-Solid-900.otf" />
+    <EmbeddedResource Include="Fonts\ShadowsIntoLight-Regular.ttf" />
+    <EmbeddedResource Include="Fonts\Sofia-Regular.ttf" />
+    <EmbeddedResource Include="Images\Categories\1.jpg" />
+    <EmbeddedResource Include="Images\Categories\2.jpg" />
+    <EmbeddedResource Include="Images\Categories\3.jpg" />
+    <EmbeddedResource Include="Images\Categories\4.jpg" />
+    <EmbeddedResource Include="Images\Categories\5.jpg" />
+    <EmbeddedResource Include="Images\Categories\6.jpg" />
+    <EmbeddedResource Include="Images\Dishes\1.jpg" />
+    <EmbeddedResource Include="Images\Dishes\10.jpg" />
+    <EmbeddedResource Include="Images\Dishes\11.jpg" />
+    <EmbeddedResource Include="Images\Dishes\12.jpg" />
+    <EmbeddedResource Include="Images\Dishes\13.jpg" />
+    <EmbeddedResource Include="Images\Dishes\14.jpg" />
+    <EmbeddedResource Include="Images\Dishes\15.jpg" />
+    <EmbeddedResource Include="Images\Dishes\16.jpg" />
+    <EmbeddedResource Include="Images\Dishes\17.jpg" />
+    <EmbeddedResource Include="Images\Dishes\18.jpg" />
+    <EmbeddedResource Include="Images\Dishes\19.jpg" />
+    <EmbeddedResource Include="Images\Dishes\2.jpg" />
+    <EmbeddedResource Include="Images\Dishes\20.jpg" />
+    <EmbeddedResource Include="Images\Dishes\21.jpg" />
+    <EmbeddedResource Include="Images\Dishes\22.jpg" />
+    <EmbeddedResource Include="Images\Dishes\3.jpg" />
+    <EmbeddedResource Include="Images\Dishes\4.jpg" />
+    <EmbeddedResource Include="Images\Dishes\5.jpg" />
+    <EmbeddedResource Include="Images\Dishes\6.jpg" />
+    <EmbeddedResource Include="Images\Dishes\7.jpg" />
+    <EmbeddedResource Include="Images\Dishes\8.jpg" />
+    <EmbeddedResource Include="Images\Dishes\9.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
+    <PackageReference Include="MonkeyCache.FileStore" Version="1.5.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2662" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.8.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Menu\CategoryPage.xaml.cs">
+      <DependentUpon>CategoryPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="AppShell.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Contact\ContactPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Menu\CategoryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Menu\DishPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Profile\ProfilePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

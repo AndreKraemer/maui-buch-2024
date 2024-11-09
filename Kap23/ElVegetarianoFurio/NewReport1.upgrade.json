@@ -1,0 +1,789 @@
+{
+  "settings": {
+    "components": {
+      "code": true,
+      "binaries": false
+    },
+    "targetId": "",
+    "targetDisplayName": ".NET 8.0"
+  },
+  "analysisStartTime": "2024-07-20T12:09:24.3056695Z",
+  "analysisEndTime": "2024-07-20T12:10:44.5657178Z",
+  "privacyModeHelpUrl": "https://go.microsoft.com/fwlink/?linkid=2270980",
+  "stats": {
+    "summary": {
+      "projects": 4,
+      "issues": 6,
+      "incidents": 38,
+      "effort": 38
+    },
+    "charts": {
+      "severity": {
+        "Mandatory": 29,
+        "Optional": 0,
+        "Potential": 9,
+        "Information": 0
+      },
+      "category": {
+        "NuGet": 15,
+        "Project": 7,
+        "Api": 16
+      }
+    }
+  },
+  "projects": [
+    {
+      "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+      "startingProject": true,
+      "issues": 5,
+      "storyPoints": 13,
+      "ruleInstances": [
+        {
+          "incidentId": "75e12373-53f2-4979-93b3-6426a19b60e0",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+            "snippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "protectedSnippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "label": "Microsoft.Extensions.Hosting 3.1.0"
+          }
+        },
+        {
+          "incidentId": "392d6fd8-7867-43ba-bfc5-0197b7672d1f",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+            "snippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Forms 5.0.0.2662"
+          }
+        },
+        {
+          "incidentId": "58b5cf52-7395-4f84-a4e2-c3969ff452f4",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+            "snippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Essentials 1.8.1"
+          }
+        },
+        {
+          "incidentId": "d5d64ebd-08e4-40a0-9b40-70bcad0c49ee",
+          "ruleId": "Project.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj"
+          }
+        },
+        {
+          "incidentId": "7b569392-7956-4de4-a4b9-7b1147f908e5",
+          "ruleId": "Project.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+            "snippet": "Current: MonoAndroid,Version=v13.0\nNew: net8.0-android",
+            "protectedSnippet": "Current: MonoAndroid,Version=v13.0\nNew: net8.0-android"
+          }
+        },
+        {
+          "incidentId": "ff0fa6c1-96e6-4ea5-96e6-36bb4a6036c1",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\obj\\Debug\\130\\designtime\\Resource.designer.cs",
+            "snippet": "global::Android.Runtime.ResourceIdManager.UpdateIdValues();",
+            "protectedSnippet": "T:Android.Runtime.ResourceIdManager",
+            "label": "T:Android.Runtime.ResourceIdManager",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.runtime.resourceidmanager",
+                "isCustom": false
+              }
+            ],
+            "line": 22,
+            "column": 3
+          }
+        },
+        {
+          "incidentId": "90601ab8-bd56-4275-a548-97be58002717",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\obj\\Debug\\130\\designtime\\Resource.designer.cs",
+            "snippet": "global::Android.Runtime.ResourceIdManager.UpdateIdValues();",
+            "protectedSnippet": "M:Android.Runtime.ResourceIdManager.UpdateIdValues",
+            "label": "M:Android.Runtime.ResourceIdManager.UpdateIdValues",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.runtime.resourceidmanager.updateidvalues",
+                "isCustom": false
+              }
+            ],
+            "line": 22,
+            "column": 3
+          }
+        },
+        {
+          "incidentId": "4a6c21d9-3253-4a29-96ad-945dc1c362f1",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\MainActivity.cs",
+            "snippet": "Activity(Label = \u0022ElVegetarianoFurio\u0022, Icon = \u0022@mipmap/icon\u0022, Theme = \u0022@style/MainTheme\u0022, MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )",
+            "protectedSnippet": "M:Android.App.ActivityAttribute.#ctor",
+            "label": "M:Android.App.ActivityAttribute.#ctor",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.app.activityattribute.activityattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 11,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "4a25b260-d321-4e02-895a-7a1464cac646",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\MainActivity.cs",
+            "snippet": "protected override void OnCreate(Bundle savedInstanceState)",
+            "protectedSnippet": "T:Android.OS.Bundle",
+            "label": "T:Android.OS.Bundle",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.os.bundle",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "ac77dc21-41d9-4c15-a6e1-fc8158859882",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\MainActivity.cs",
+            "snippet": "Activity(Label = \u0022ElVegetarianoFurio\u0022, Icon = \u0022@mipmap/icon\u0022, Theme = \u0022@style/MainTheme\u0022, MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )",
+            "protectedSnippet": "T:Android.App.ActivityAttribute",
+            "label": "T:Android.App.ActivityAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.app.activityattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 11,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "1acd78e2-50c1-48c4-ba2f-c91f3f478724",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\MainActivity.cs",
+            "snippet": "GeneratedEnum",
+            "protectedSnippet": "M:Android.Runtime.GeneratedEnumAttribute.#ctor",
+            "label": "M:Android.Runtime.GeneratedEnumAttribute.#ctor",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.runtime.generatedenumattribute.generatedenumattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 22,
+            "column": 96
+          }
+        },
+        {
+          "incidentId": "b9ecd35d-1e71-4a99-a88e-fb13609ac36d",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\MainActivity.cs",
+            "snippet": "GeneratedEnum",
+            "protectedSnippet": "T:Android.Runtime.GeneratedEnumAttribute",
+            "label": "T:Android.Runtime.GeneratedEnumAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.runtime.generatedenumattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 22,
+            "column": 96
+          }
+        },
+        {
+          "incidentId": "bb154b2a-ea0c-42db-9aa3-a295c39cb17e",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\ElVegetarianoFurio.Android.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.Android\\MainActivity.cs",
+            "snippet": "base.OnRequestPermissionsResult(requestCode, permissions, grantResults);",
+            "protectedSnippet": "M:Android.App.Activity.OnRequestPermissionsResult(System.Int32,System.String[],Android.Content.PM.Permission[])",
+            "label": "M:Android.App.Activity.OnRequestPermissionsResult(System.Int32,System.String[],Android.Content.PM.Permission[])",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/android.app.activity.onrequestpermissionsresult",
+                "isCustom": false
+              }
+            ],
+            "line": 26,
+            "column": 12
+          }
+        }
+      ]
+    },
+    {
+      "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 8,
+      "ruleInstances": [
+        {
+          "incidentId": "c09227ce-d403-48f9-a08f-c745608a12ac",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+            "snippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Essentials 1.8.1"
+          }
+        },
+        {
+          "incidentId": "7f648e98-13bb-491f-a17b-04bdc03eb129",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+            "snippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "protectedSnippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "label": "Microsoft.Extensions.Hosting 3.1.0"
+          }
+        },
+        {
+          "incidentId": "667ede04-8541-4dff-8860-16b7e93fe485",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+            "snippet": "Microsoft.Extensions.FileProviders.Embedded, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.FileProviders.Embedded 8.0.7",
+            "protectedSnippet": "Microsoft.Extensions.FileProviders.Embedded, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.FileProviders.Embedded 8.0.7",
+            "label": "Microsoft.Extensions.FileProviders.Embedded 3.1.0"
+          }
+        },
+        {
+          "incidentId": "e2d1634b-5a23-4a64-bc0c-f6097090bcbd",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+            "snippet": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nNewtonsoft.Json 13.0.3",
+            "protectedSnippet": "Newtonsoft.Json, 13.0.1\n\nRecommendation:\n\nNewtonsoft.Json 13.0.3",
+            "label": "Newtonsoft.Json 13.0.1"
+          }
+        },
+        {
+          "incidentId": "51c2901c-c658-4344-923d-5a3a48820a5f",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+            "snippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Forms 5.0.0.2662"
+          }
+        },
+        {
+          "incidentId": "9fe29be6-bafa-418a-ba9a-b4f7d561d222",
+          "ruleId": "Project.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+            "snippet": "Current: netstandard2.0\nNew: net8.0-windows",
+            "protectedSnippet": "Current: netstandard2.0\nNew: net8.0-windows"
+          }
+        },
+        {
+          "incidentId": "f7ce5441-7b2c-4fef-94e8-9ffa11cb62b0",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\Data\\WebApiDataService.cs",
+            "snippet": "var result = JsonConvert.DeserializeObject\u003CT\u003E(json);",
+            "protectedSnippet": "M:Newtonsoft.Json.JsonConvert.DeserializeObject\u0060\u00601(System.String)",
+            "label": "M:Newtonsoft.Json.JsonConvert.DeserializeObject\u0060\u00601(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert.deserializeobject",
+                "isCustom": false
+              }
+            ],
+            "line": 56,
+            "column": 16
+          }
+        },
+        {
+          "incidentId": "736617ca-8e08-4a03-b284-cecd3c26571e",
+          "ruleId": "Api.0002",
+          "description": "API is available in package Newtonsoft.Json, 13.0.3.",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio\\ElVegetarianoFurio.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio\\Data\\WebApiDataService.cs",
+            "snippet": "var result = JsonConvert.DeserializeObject\u003CT\u003E(json);",
+            "protectedSnippet": "T:Newtonsoft.Json.JsonConvert",
+            "label": "T:Newtonsoft.Json.JsonConvert",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/newtonsoft.json.jsonconvert",
+                "isCustom": false
+              }
+            ],
+            "line": 56,
+            "column": 16
+          }
+        }
+      ]
+    },
+    {
+      "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+      "startingProject": true,
+      "issues": 5,
+      "storyPoints": 11,
+      "ruleInstances": [
+        {
+          "incidentId": "2c849504-c81e-47c0-afd4-3c820c53d3e9",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+            "snippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "protectedSnippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "label": "Microsoft.Extensions.Hosting 3.1.0"
+          }
+        },
+        {
+          "incidentId": "a33579e2-2e37-4837-aa8a-aee326ac9408",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+            "snippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Forms 5.0.0.2662"
+          }
+        },
+        {
+          "incidentId": "32c2fe10-6502-493c-9459-3a6740ef5e2e",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+            "snippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Essentials 1.8.1"
+          }
+        },
+        {
+          "incidentId": "ac9c637a-ffb3-46fc-825f-b8a282189768",
+          "ruleId": "Project.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj"
+          }
+        },
+        {
+          "incidentId": "65b98ce5-5ccb-4930-a84e-6ee03cd3b797",
+          "ruleId": "Project.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+            "snippet": "Current: Xamarin.iOS,Version=v1.0\nNew: net8.0-ios",
+            "protectedSnippet": "Current: Xamarin.iOS,Version=v1.0\nNew: net8.0-ios"
+          }
+        },
+        {
+          "incidentId": "ffd53182-8e6a-4222-b1fd-1f629fd38e9a",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\AppDelegate.cs",
+            "snippet": "public override bool FinishedLaunching(UIApplication app, NSDictionary options)",
+            "protectedSnippet": "T:UIKit.UIApplication",
+            "label": "T:UIKit.UIApplication",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/uikit.uiapplication",
+                "isCustom": false
+              }
+            ],
+            "line": 24,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "8266e508-fbb4-4ed7-b632-00598e920527",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\Main.cs",
+            "snippet": "UIApplication.Main(args, null, \u0022AppDelegate\u0022);",
+            "protectedSnippet": "M:UIKit.UIApplication.Main(System.String[],System.String,System.String)",
+            "label": "M:UIKit.UIApplication.Main(System.String[],System.String,System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/uikit.uiapplication.main",
+                "isCustom": false
+              }
+            ],
+            "line": 16,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "0fad9589-c528-4289-b454-bf80176ed8eb",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\AppDelegate.cs",
+            "snippet": "Register(\u0022AppDelegate\u0022)",
+            "protectedSnippet": "T:Foundation.RegisterAttribute",
+            "label": "T:Foundation.RegisterAttribute",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/foundation.registerattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 5
+          }
+        },
+        {
+          "incidentId": "d889efe6-aa09-46b5-b829-94c16c2c78fb",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\AppDelegate.cs",
+            "snippet": "public override bool FinishedLaunching(UIApplication app, NSDictionary options)",
+            "protectedSnippet": "T:Foundation.NSDictionary",
+            "label": "T:Foundation.NSDictionary",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/foundation.nsdictionary",
+                "isCustom": false
+              }
+            ],
+            "line": 24,
+            "column": 8
+          }
+        },
+        {
+          "incidentId": "f9446420-991a-4650-974b-789944491226",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\Main.cs",
+            "snippet": "UIApplication.Main(args, null, \u0022AppDelegate\u0022);",
+            "protectedSnippet": "T:UIKit.UIApplication",
+            "label": "T:UIKit.UIApplication",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/uikit.uiapplication",
+                "isCustom": false
+              }
+            ],
+            "line": 16,
+            "column": 12
+          }
+        },
+        {
+          "incidentId": "a66dfb10-6468-4e1e-a0bf-1fb4bc2a8e5a",
+          "ruleId": "Api.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\ElVegetarianoFurio.iOS.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.iOS\\AppDelegate.cs",
+            "snippet": "Register(\u0022AppDelegate\u0022)",
+            "protectedSnippet": "M:Foundation.RegisterAttribute.#ctor(System.String)",
+            "label": "M:Foundation.RegisterAttribute.#ctor(System.String)",
+            "links": [
+              {
+                "title": "API documentation",
+                "url": "https://learn.microsoft.com/dotnet/api/foundation.registerattribute.registerattribute",
+                "isCustom": false
+              }
+            ],
+            "line": 14,
+            "column": 5
+          }
+        }
+      ]
+    },
+    {
+      "path": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+      "startingProject": true,
+      "issues": 4,
+      "storyPoints": 6,
+      "ruleInstances": [
+        {
+          "incidentId": "97c073e8-cce3-4651-a540-00f10deaa992",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+            "snippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "protectedSnippet": "Microsoft.Extensions.Hosting, 3.1.0\n\nRecommendation:\n\nMicrosoft.Extensions.Hosting 8.0.0",
+            "label": "Microsoft.Extensions.Hosting 3.1.0"
+          }
+        },
+        {
+          "incidentId": "1815cd35-3a37-4f47-bbe7-db96da561dc6",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+            "snippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Forms, 5.0.0.2662\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Forms 5.0.0.2662"
+          }
+        },
+        {
+          "incidentId": "4659083f-414b-4483-b908-baa6f39c3e57",
+          "ruleId": "NuGet.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+            "snippet": "Microsoft.NETCore.UniversalWindowsPlatform, 6.2.12\n\nRecommendation:\n\nMicrosoft.Graphics.Win2D 1.1.0,\nMicrosoft.Windows.Compatibility 8.0.7",
+            "protectedSnippet": "Microsoft.NETCore.UniversalWindowsPlatform, 6.2.12\n\nRecommendation:\n\nMicrosoft.Graphics.Win2D 1.1.0,\nMicrosoft.Windows.Compatibility 8.0.7",
+            "label": "Microsoft.NETCore.UniversalWindowsPlatform 6.2.12"
+          }
+        },
+        {
+          "incidentId": "535be1e7-7245-4a54-ac77-c23f4b309e20",
+          "ruleId": "NuGet.0003",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+            "snippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "protectedSnippet": "Xamarin.Essentials, 1.8.1\n\nRecommendation:\n\nPackage functionality included with new framework reference",
+            "label": "Xamarin.Essentials 1.8.1"
+          }
+        },
+        {
+          "incidentId": "8bba62d6-5118-4573-92d5-6ef1fb35202d",
+          "ruleId": "Project.0001",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj"
+          }
+        },
+        {
+          "incidentId": "9a3176fc-004e-4cb0-81ea-6cc988eb522a",
+          "ruleId": "Project.0002",
+          "projectPath": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+          "state": "Active",
+          "location": {
+            "kind": "File",
+            "path": "ElVegetarianoFurio\\ElVegetarianoFurio.UWP\\ElVegetarianoFurio.UWP.csproj",
+            "snippet": "Current: .NETCore,Version=v5.0\nNew: net8.0-windows10.0.22621.0",
+            "protectedSnippet": "Current: .NETCore,Version=v5.0\nNew: net8.0-windows10.0.22621.0"
+          }
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "NuGet.0003": {
+      "id": "NuGet.0003",
+      "description": "NuGet package functionality is included with framework refrence.\n\nPackage needs to be removed.",
+      "label": "NuGet package functionality is included with framework refrence",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262609",
+          "isCustom": false
+        }
+      ]
+    },
+    "NuGet.0002": {
+      "id": "NuGet.0002",
+      "description": "NuGet package upgrade is recommended for selected target framework.\n\nStandard .NET packages are recommended to have versions matching version of .NET that project targets.\n\nSome other packages also are known to work better for selected target frameworks.",
+      "label": "NuGet package upgrade is recommended",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262530",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0002": {
+      "id": "Project.0002",
+      "description": "Project\u0027s target framework(s) needs to be changed to the new target framework that you selected for this upgrade.\n\nDuring upgrade target framework will be adjusted to correspinding platform when applicable. In some cases project would result in multiple target frameworks after the upgrade if it was using features that now have their own platforms in moderrn .NET frameworks (windows, iOS, Android etc).",
+      "label": "Project\u0027s target framework(s) needs to be changed",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0002": {
+      "id": "Api.0002",
+      "description": "Some API that lived in older versions of .NET frameworks were moved to standalone NuGet packages that could be added to projects explicitly.",
+      "label": "API available in NuGet package",
+      "severity": "Potential",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    },
+    "Project.0001": {
+      "id": "Project.0001",
+      "description": "Project file needs to be converted to SDK style. Modern .NET framework projects require a change in the project file format and use SDK corresponding to project flavor and functionality.",
+      "label": "Project file needs to be converted to SDK style",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Overview of porting from .NET Framework to .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265227",
+          "isCustom": false
+        },
+        {
+          "title": ".NET project SDKs",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2265226",
+          "isCustom": false
+        }
+      ]
+    },
+    "Api.0001": {
+      "id": "Api.0001",
+      "description": "API does not exist in the selected version of .NET. See breaking changes documentation for alternative or replacement functionality.",
+      "label": "API does not exist",
+      "severity": "Mandatory",
+      "effort": 1,
+      "links": [
+        {
+          "title": "Breaking changes in .NET",
+          "url": "https://go.microsoft.com/fwlink/?linkid=2262679",
+          "isCustom": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="DontLetMeExpire.Views.ItemPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:strings="clr-namespace:DontLetMeExpire.Resources.Strings"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="viewModels:ItemViewModel"
+    HideSoftInputOnTapped="True">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:IsStringNullOrEmptyConverter x:Key="IsStringNullOrEmptyConverter" />
+            <toolkit:IsStringNotNullOrEmptyConverter x:Key="IsStringNotNullOrEmptyConverter" />
+            <toolkit:IsListNotNullOrEmptyConverter x:Key="IsListNotNullOrEmptyConverter" />
+            <toolkit:ListToStringConverter x:Key="ListToStringConverter" Separator="," />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid RowDefinitions="300, auto">
+            <!--  Produktbild anzeigen  -->
+            <Image
+                Aspect="AspectFill"
+                BackgroundColor="#dae2f2"
+                HeightRequest="300"
+                Source="{Binding Image}" />
+            <Button
+                Margin="16"
+                HorizontalOptions="End"
+                IsVisible="{Binding Image, Converter={StaticResource IsStringNotNullOrEmptyConverter}}"
+                Text="{x:Static strings:AppResources.DeleteImage}"
+                VerticalOptions="Start" />
+            <FlexLayout
+                AlignItems="Center"
+                Direction="Column"
+                IsVisible="{Binding Image, Converter={StaticResource IsStringNullOrEmptyConverter}}"
+                JustifyContent="Center">
+                <Label
+                    FontFamily="MaterialSymbolsRounded"
+                    FontSize="48"
+                    Text="{StaticResource IconAdd_a_photo}"
+                    TextColor="#505c73" />
+                <Label Text="{x:Static strings:AppResources.TapToAddImage}" />
+            </FlexLayout>
+
+            <!--  Eingabefelder für das Produkt  -->
+            <VerticalStackLayout
+                Grid.Row="1"
+                Padding="16"
+                Spacing="8">
+                <Border
+                    BackgroundColor="#ffb0b0"
+                    IsVisible="{Binding HasErrors}"
+                    Stroke="#b81c1c"
+                    StrokeShape="RoundRectangle 8"
+                    StrokeThickness="0">
+                    <Grid
+                        ColumnDefinitions="4, auto, *"
+                        ColumnSpacing="8"
+                        RowDefinitions="auto, auto, auto"
+                        RowSpacing="8">
+                        <BoxView
+                            Grid.Row="0"
+                            Grid.RowSpan="3"
+                            Grid.Column="0"
+                            BackgroundColor="#b81c1c" />
+                        <Label
+                            Grid.Column="1"
+                            Margin="0,4,0,0"
+                            FontFamily="MaterialSymbolsRounded"
+                            FontSize="24"
+                            Text="{StaticResource IconError}"
+                            TextColor="#b81c1c"
+                            VerticalOptions="End" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="0,8,0,0"
+                            Text="{x:Static strings:AppResources.ErrorsHeader}" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Text="{x:Static strings:AppResources.ErrorsSubHeader}" />
+                        <VerticalStackLayout
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="8"
+                            BindableLayout.ItemsSource="{Binding ErrorMessages}"
+                            Spacing="4">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <HorizontalStackLayout>
+                                        <Label Margin="0,0,8,0" Text="&#x2022;" />
+                                        <Label Text="{Binding}" />
+                                    </HorizontalStackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </VerticalStackLayout>
+                    </Grid>
+                </Border>
+                <Label Text="{x:Static strings:AppResources.Name}" />
+                <Label
+                    FontSize="12"
+                    IsVisible="{Binding PropertyErrorMessages[Name], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
+                    Text="{Binding PropertyErrorMessages[Name], Converter={StaticResource ListToStringConverter}}"
+                    TextColor="Red" />
+                <Entry Text="{Binding Name}" />
+                <Label Margin="0,8,0,0" Text="{x:Static strings:AppResources.StorageLocation}" />
+                <Picker
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding StorageLocations}"
+                    SelectedItem="{Binding SelectedLocation}" />
+                <Label Margin="0,8,0,0" Text="{x:Static strings:AppResources.ExpirationDate}" />
+                <DatePicker Date="{Binding ExpirationDate}" />
+                <Label Margin="0,8,0,0" Text="{x:Static strings:AppResources.Amount}" />
+                <Label
+                    FontSize="12"
+                    IsVisible="{Binding PropertyErrorMessages[Amount], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
+                    Text="{Binding PropertyErrorMessages[Amount], Converter={StaticResource ListToStringConverter}}"
+                    TextColor="Red" />
+                <Entry Keyboard="Numeric" Text="{Binding Amount}" />
+                <Button
+                    Margin="0,8,0,0"
+                    Command="{Binding SaveCommand}"
+                    Text="{x:Static strings:AppResources.Save}" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

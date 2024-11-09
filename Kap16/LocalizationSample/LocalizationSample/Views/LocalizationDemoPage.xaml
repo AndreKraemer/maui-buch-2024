@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LocalizationSample.Views.LocalizationDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:strings="clr-namespace:LocalizationSample.Resources.Strings"
+    Title="{x:Static strings:AppResources.AppointmentBooking}">
+    <VerticalStackLayout Padding="32" Spacing="8">
+        <Label Text="{x:Static strings:AppResources.FirstName}" />
+        <Entry x:Name="FirstNameEntry" />
+        <Label Text="{x:Static strings:AppResources.LastName}" />
+        <Entry x:Name="LastNameEntry" />
+        <Label Text="{x:Static strings:AppResources.Date}" />
+        <DatePicker x:Name="AppointmentDatePicker" />
+        <Label Margin="0,380,0,0" Text="{x:Static strings:AppResources.Time}" />
+        <TimePicker x:Name="AppointmentTimePicker" />
+        <Button Clicked="Button_Clicked" Text="{x:Static strings:AppResources.BookNow}" />
+    </VerticalStackLayout>
+</ContentPage>

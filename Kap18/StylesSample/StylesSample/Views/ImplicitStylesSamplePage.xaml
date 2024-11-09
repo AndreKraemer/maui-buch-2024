@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="StylesSample.Views.ImplicitStylesSamplePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Implicit Styles">
+    <VerticalStackLayout>
+        <!--<StackLayout.Resources>
+                <ResourceDictionary>
+                    <Style TargetType="Label">
+                        <Setter Property="TextColor" Value="White"/>
+                        <Setter Property="BackgroundColor" Value="Blue"/>
+                        <Setter Property="FontSize" Value="20" />
+                    </Style>
+                </ResourceDictionary>
+            </StackLayout.Resources>-->
+
+        <Label Text="Das ist ein Label" />
+        <Button Text="Das ist ein Button" />
+        <!--<BoxView>
+                <BoxView.Style>
+                    <Style TargetType="BoxView">
+                        <Setter Property="HeightRequest" Value="200"></Setter>
+                        <Setter Property="WidthRequest" Value="200"></Setter>
+                        <Setter Property="Color" Value="Green"></Setter>
+                    </Style>
+                </BoxView.Style>
+            </BoxView>-->
+    </VerticalStackLayout>
+</ContentPage>

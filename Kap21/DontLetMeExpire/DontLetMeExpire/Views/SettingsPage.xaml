@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    HideSoftInputOnTapped="True"
+    StyleClass="p-s"
+    x:Class="DontLetMeExpire.Views.SettingsPage"
+    x:DataType="viewModels:SettingsViewModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:strings="clr-namespace:DontLetMeExpire.Resources.Strings"
+    xmlns:viewModels="clr-namespace:DontLetMeExpire.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Spacing="{x:StaticResource SizeXS}">
+                <Label StyleClass="mt-xs" Text="{x:Static strings:AppResources.Language}" />
+                <Picker
+                    ItemDisplayBinding="{Binding Value}"
+                    ItemsSource="{Binding Languages}"
+                    SelectedItem="{Binding SelectedLanguage}" />
+                <Label StyleClass="mt-xs" Text="{x:Static strings:AppResources.Theme}" />
+                <Picker
+                    ItemDisplayBinding="{Binding Value}"
+                    ItemsSource="{Binding Themes}"
+                    SelectedItem="{Binding SelectedTheme}" />
+                <Button
+                    Command="{Binding SaveCommand}"
+                    StyleClass="mt-xs"
+                    Text="{x:Static strings:AppResources.Save}" />
+                <Button 
+                    BackgroundColor="{AppThemeBinding Light={StaticResource White},
+                                                  Dark={StaticResource PrimaryDarkDarkest}}"
+                    BorderColor="{AppThemeBinding Light={StaticResource WarningDark},
+                                              Dark={StaticResource Warning}}"
+                    BorderWidth="1"
+                    Command="{Binding ResetAppCommand}"
+                    StyleClass="mt-xs"
+                    Text="{x:Static strings:AppResources.ResetApp}"
+                    TextColor="{AppThemeBinding Light={StaticResource WarningDark},
+                                            Dark={StaticResource Warning}}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

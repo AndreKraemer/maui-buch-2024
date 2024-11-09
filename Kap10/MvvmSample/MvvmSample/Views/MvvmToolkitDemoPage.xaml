@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:MvvmSample.ViewModels"
+             x:Class="MvvmSample.Views.MvvmToolkitDemoPage"
+             Title="MvvmToolkitDemoPage"    
+             x:DataType="viewModels:MvvmDemoViewModel">
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="8">
+            <Label Margin="0,0,0,20" Text="Dies ist ein Dummy-Vertrag ... &#10;Bitte unterzeichnen Sie hier:" />
+
+            <!--  Eingabefelder  -->
+            <Entry Placeholder="Name" Text="{Binding Name}" />
+            <Entry Placeholder="Ort" Text="{Binding Place}" />
+            <HorizontalStackLayout>
+                <CheckBox IsChecked="{Binding AcceptTerms}" />
+                <Label Text="Vertragsbedingungen akzeptieren" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Button Command="{Binding SignCommand}" Text="Unterschreiben" />
+            <!--  Ausgabebereich  -->
+            <!--  Datum und Ort  -->
+            <Label Margin="0,64,0,0" Text="{Binding DatePlace}" />
+            <BoxView HeightRequest="1" Color="Black" />
+            <Label FontAttributes="Bold" Text="Datum, Ort" />
+
+            <!--  Unterschrift  -->
+            <Label Margin="0,24,0,0" Text="{Binding Name}" />
+            <BoxView HeightRequest="1" Color="Black" />
+            <Label FontAttributes="Bold" Text="Unterschrift" />
+
+            <!--  Datum und Uhrzeit der Unterschrift, klein und kursiv  -->
+            <Label
+                FontAttributes="Italic"
+                FontSize="12"
+                Text="{Binding SignedInfo}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

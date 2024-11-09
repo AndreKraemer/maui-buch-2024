@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CollectionViewSamples.Views.FirstSamplePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:CollectionViewSamples.Models;assembly=CollectionViewSamples"
+    xmlns:viewModels="clr-namespace:CollectionViewSamples.ViewModels;assembly=CollectionViewSamples"
+    Title="{Binding Title}"
+    Padding="16"
+    x:DataType="viewModels:FirstSampleViewModel">
+    <ContentPage.Content>
+        <CollectionView ItemSizingStrategy="MeasureFirstItem" ItemsSource="{Binding Persons}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Person">
+                    <VerticalStackLayout Padding="0,4">
+                        <Label FontAttributes="Bold" Text="{Binding Name}" />
+                        <Label
+                            FontAttributes="Italic"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="1"
+                            Text="{Binding CompanyName}" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

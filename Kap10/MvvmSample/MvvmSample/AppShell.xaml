@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MvvmSample.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MvvmSample"
+    xmlns:views="clr-namespace:MvvmSample.Views"
+    Title="MvvmSample"
+    Shell.FlyoutBehavior="Flyout">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="No MVVM Demo"
+        ContentTemplate="{DataTemplate views:NoMvvmDemoPage}"
+        Route="NoMvvmDemo" />
+
+    <ShellContent
+        Title="MVVM Demo"
+        ContentTemplate="{DataTemplate views:MvvmDemoPage}"
+        Route="MvvmDemo" />
+
+
+    <ShellContent
+        Title="MVVM Toolkit Demo"
+        ContentTemplate="{DataTemplate views:MvvmToolkitDemoPage}"
+        Route="MvvmToolkitDemo" />
+
+</Shell>

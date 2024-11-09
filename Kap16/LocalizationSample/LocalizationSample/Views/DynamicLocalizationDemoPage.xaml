@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LocalizationSample.Views.DynamicLocalizationDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LocalizationSample"
+    Title="{local:Translate Key=AppointmentBooking,
+                            Resource=LocalizationSample.Resources.Strings.AppResources}">
+    <VerticalStackLayout Padding="32" Spacing="8">
+        <Label Text="{local:Translate Key=FirstName, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+        <Entry x:Name="FirstNameEntry" />
+        <Label Text="{local:Translate Key=LastName, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+        <Entry x:Name="LastNameEntry" />
+        <Label Text="{local:Translate Key=Date, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+        <DatePicker x:Name="AppointmentDatePicker" />
+        <Label Text="{local:Translate Key=Time, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+        <TimePicker x:Name="AppointmentTimePicker" />
+        <Button Clicked="Button_Clicked" Text="{local:Translate Key=BookNow, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+        <Button Clicked="English_Clicked" Text="{local:Translate Key=English, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+        <Button Clicked="French_Clicked" Text="{local:Translate Key=French, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+        <Button Clicked="German_Clicked" Text="{local:Translate Key=German, Resource=LocalizationSample.Resources.Strings.AppResources}" />
+    </VerticalStackLayout>
+</ContentPage>

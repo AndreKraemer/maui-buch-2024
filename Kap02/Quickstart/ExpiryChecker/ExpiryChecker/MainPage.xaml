@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpiryChecker.MainPage"
+             Title="Expiry Checker"
+             Padding="32">
+    <VerticalStackLayout Spacing="8">
+        <Label Style="{DynamicResource Headline}"
+                Text="Willkommen beim Frischetester"/>
+        <Label Style="{DynamicResource SubHeadline}"
+                Text="Lass uns checken, wie frisch dein Essen wirklich ist!"/>
+        <Label Margin="0,8,0,0"
+                Text="Wann läuft's ab?"/>
+        <DatePicker x:Name="ExpiryDatePicker"/>
+        <Button Margin="0,8,0,0"
+                BackgroundColor="green"
+                Clicked="Button_Clicked"
+                Text="Frisch oder nicht?" />
+        <Label Margin="0,8,0,0"
+                FontAttributes="Bold"
+                x:Name="ExpiryLabel" Text="" />
+        <Label Margin="0,8,0,0"
+                FontSize="12"
+                FontAttributes="Italic"               
+                x:Name="ExpiryHintLabel" Text=""/>
+    </VerticalStackLayout>
+</ContentPage>

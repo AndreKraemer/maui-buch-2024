@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ViewsSample.Views.TextSamplePage"
+             HideSoftInputOnTapped="True"
+             Title="Entry / Editor Demo">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Padding="20" Spacing="6">
+                <Label>Einfaches Entry:</Label>
+                <Entry/>
+                <Label Text="Passwortfeld"/>
+                <Entry IsPassword="True"/>
+                <Label Text="Numerisches Feld"/>
+                <Entry Keyboard="Numeric"/>
+                <Label Text="Entry mit Platzhaltertext"/>
+                <Entry Placeholder="Dies ist Platzhaltertext"/>
+                <Label Text="Keyboardtypen:"/>
+                <Entry Placeholder="Chat" Keyboard="Chat"/>
+                <Entry Placeholder="Default" Keyboard="Default"/>
+                <Entry Placeholder="Email" Keyboard="Email"/>
+                <Entry Placeholder="Numeric" Keyboard="Numeric"/>
+                <Entry Placeholder="Plain" Keyboard="Plain"/>
+                <Entry Placeholder="Telephone" Keyboard="Telephone"/>
+                <Entry Placeholder="Text" Keyboard="Text"/>
+                <Entry Placeholder="Url" Keyboard="Url"/>
+                <Label Text="Editor"/>
+                <Editor HeightRequest="200"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

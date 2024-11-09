@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="ValidationDemo.Views.ValidationDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewModels="clr-namespace:ValidationDemo.ViewModels"
+    Title="ValidationDemoPage"
+    x:DataType="viewModels:ValidationDemoViewModel">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <toolkit:IsListNotNullOrEmptyConverter x:Key="IsListNotNullOrEmptyConverter" />
+            <toolkit:ListToStringConverter x:Key="ListToStringConverter" Separator="," />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout Margin="16" Spacing="4">
+        <Border
+            BackgroundColor="#ffb0b0"
+            IsVisible="{Binding HasErrors}"
+            Stroke="#b81c1c"
+            StrokeShape="RoundRectangle 8"
+            StrokeThickness="0">
+            <Grid
+                ColumnDefinitions="4, auto, *"
+                ColumnSpacing="8"
+                RowDefinitions="auto, auto, auto"
+                RowSpacing="8">
+                <BoxView
+                    Grid.Row="0"
+                    Grid.RowSpan="3"
+                    Grid.Column="0"
+                    BackgroundColor="#b81c1c" />
+                <Label
+                    Grid.Column="1"
+                    FontSize="24"
+                    Text="!"
+                    TextColor="#b81c1c"
+                    VerticalOptions="End" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Margin="0,8,0,0"
+                    Text="Fehler!" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Text="Es sind einige Fehler aufgetreten" />
+                <VerticalStackLayout
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Margin="8"
+                    BindableLayout.ItemsSource="{Binding ErrorMessages}"
+                    Spacing="4">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout>
+                                <Label Margin="0,0,8,0" Text="&#x2022;" />
+                                <Label Text="{Binding}" />
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+
+        <Label Text="Firstname" />
+        <Label
+            FontSize="12"
+            IsVisible="{Binding PropertyErrorMessages[FirstName], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
+            Text="{Binding PropertyErrorMessages[FirstName], Converter={StaticResource ListToStringConverter}}"
+            TextColor="Red" />
+        <Entry Text="{Binding FirstName}" />
+
+        <Label Text="Lastname" />
+        <Label
+            FontSize="12"
+            IsVisible="{Binding PropertyErrorMessages[LastName], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
+            Text="{Binding PropertyErrorMessages[LastName], Converter={StaticResource ListToStringConverter}}"
+            TextColor="Red" />
+        <Entry Text="{Binding LastName}" />
+
+        <Label Text="Email" />
+        <Label
+            FontSize="12"
+            IsVisible="{Binding PropertyErrorMessages[Email], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
+            Text="{Binding PropertyErrorMessages[Email], Converter={StaticResource ListToStringConverter}}"
+            TextColor="Red" />
+        <Entry Text="{Binding Email}" />
+        <Label Text="Age" />
+        <Label
+            FontSize="12"
+            IsVisible="{Binding PropertyErrorMessages[Age], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"
+            Text="{Binding PropertyErrorMessages[Age], Converter={StaticResource ListToStringConverter}}"
+            TextColor="Red" />
+        <Entry Text="{Binding Age}" />
+        <Button Command="{Binding SaveCommand}" Text="Save" />
+
+    </VerticalStackLayout>
+</ContentPage>

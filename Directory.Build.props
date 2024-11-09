@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <MauiVersion>8.0.93</MauiVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
+    <CodesignKey>Apple Development: André Krämer (GM64FQT723)</CodesignKey>
+    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+  </PropertyGroup>
+</Project>

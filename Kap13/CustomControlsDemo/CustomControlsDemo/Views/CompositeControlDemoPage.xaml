@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsDemo.Views.CompositeControlDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CustomControlsDemo.Controls"
+    xmlns:vm="clr-namespace:CustomControlsDemo.ViewModels"
+    Title="CompositeControlDemoPage"
+    x:DataType="vm:CompositeControlDemoViewModel">
+    <VerticalStackLayout Padding="32" Spacing="16">
+        <controls:EntryWithLabel
+            EntryText="{Binding Username}"
+            LabelText="Username"
+            ValidationErrors="{Binding PropertyErrorMessages[Username]}" />
+        <controls:EntryWithLabel
+            EntryText="{Binding Password}"
+            LabelText="Password"
+            ValidationErrors="{Binding PropertyErrorMessages[Password]}" />
+        <Button Command="{Binding LoginCommand}" Text="Login" />
+    </VerticalStackLayout>
+</ContentPage>

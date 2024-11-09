@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="DontLetMeExpire.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DontLetMeExpire"
+    xmlns:strings="clr-namespace:DontLetMeExpire.Resources.Strings"
+    xmlns:views="clr-namespace:DontLetMeExpire.Views"
+    Title="{x:Static strings:AppResources.AppName}"
+    Shell.FlyoutBehavior="Flyout">
+
+    <!--  Kopfzeile  -->
+    <Shell.FlyoutHeader>
+        <!--  Border is a workaround for https://github.com/dotnet/maui/issues/19712  -->
+        <Border
+            Margin="0"
+            BackgroundColor="{AppThemeBinding Light={StaticResource Primary},
+                                              Dark={StaticResource Secondary}}"
+            StrokeThickness="0"
+            StyleClass="p-l">
+            <VerticalStackLayout Margin="{StaticResource ThicknessS}">
+                <Image
+                    HeightRequest="120"
+                    Source="logo.png"
+                    WidthRequest="120" />
+                <Label
+                    FontSize="{StaticResource SizeL}"
+                    HorizontalOptions="Center"
+                    Text="{x:Static strings:AppResources.AppName}"
+                    TextColor="{StaticResource White}" />
+            </VerticalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+
+    <!--  Navigationseinträge  -->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Icon="{FontImageSource FontFamily='MaterialSymbolsRounded',
+                               Glyph={StaticResource IconHome},
+                               Color={AppThemeBinding Light={StaticResource PrimaryLightDarkest},
+                                                      Dark={StaticResource PrimaryLightLightest}}}"
+        Route="MainPage" />
+    <ShellContent
+        Title="{x:Static strings:AppResources.Settings}"
+        ContentTemplate="{DataTemplate views:SettingsPage}"
+        Icon="{FontImageSource FontFamily='MaterialSymbolsRounded',
+                               Glyph={StaticResource IconSettings},
+                               Color={AppThemeBinding Light={StaticResource PrimaryLightDarkest},
+                                                      Dark={StaticResource PrimaryLightLightest}}}"
+        Route="SettingsPage" />
+
+</Shell>

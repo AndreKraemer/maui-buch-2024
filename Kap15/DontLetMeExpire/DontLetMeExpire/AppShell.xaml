@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="DontLetMeExpire.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DontLetMeExpire"
+    xmlns:views="clr-namespace:DontLetMeExpire.Views"
+    Title="DontLetMeExpire"
+    Shell.FlyoutBehavior="Flyout">
+
+    <!--  Kopfzeile  -->
+    <Shell.FlyoutHeader>
+        <!--  Border is a workaround for https://github.com/dotnet/maui/issues/19712  -->
+        <Border
+            Margin="0"
+            Padding="24"
+            BackgroundColor="#3d6dcc"
+            StrokeThickness="0">
+            <VerticalStackLayout Margin="10">
+                <Label
+                    FontSize="24"
+                    HorizontalOptions="Center"
+                    Text="Don't let me expire"
+                    TextColor="White" />
+            </VerticalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+
+    <!--  Navigationseinträge  -->
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        Title="Einstellungen"
+        ContentTemplate="{DataTemplate views:SettingsPage}"
+        Route="SettingsPage" />
+
+</Shell>

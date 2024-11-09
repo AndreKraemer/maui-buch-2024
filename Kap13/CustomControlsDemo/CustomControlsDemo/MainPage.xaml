@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsDemo.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.BackgroundColor="{AppThemeBinding Light=White, Dark=#091F35}"
+             Shell.ForegroundColor="{AppThemeBinding Light=#091F35, Dark=White}"
+             Shell.TitleColor="{AppThemeBinding Light=#091F35, Dark=White}"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#091F35}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="DarkOrange"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextTransform" Value="Uppercase" />
+            <Setter Property="FontFamily" Value="OpenSansSemibold"/>
+            <Setter Property="Margin" Value="0,8"/>
+        </Style>
+        <Style TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#091F35}"/>
+        </Style>
+        <Style TargetType="Label" Class="Heading1">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="TextTransform" Value="Uppercase" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#091F35, Dark=White}"/>
+            <Setter Property="FontFamily" Value="OpenSansSemibold"/>
+        </Style>
+        <Style TargetType="Label" Class="Heading2">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextTransform" Value="Uppercase" />
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#091F35, Dark=White}"/>
+            <Setter Property="FontFamily" Value="OpenSansSemibold"/>
+        </Style>
+        <Style TargetType="Label" Class="BodyText">
+            <Setter Property="TextColor" Value="{AppThemeBinding Light=#091F35, Dark=White}"/>
+            <Setter Property="Margin" Value="0,8"/>
+        </Style>
+        <Style TargetType="Image">
+            <Setter Property="Margin" Value="32"/>
+        </Style>
+    </ContentPage.Resources>
+
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16">
+            <Image Source="{AppThemeBinding Light=arrow_dark.png, Dark=arrow_light.png}" WidthRequest="100" HorizontalOptions="Start" Margin="0"/>
+            <Label Text="Hier findest du die Beispiele" Margin="100,0"/>
+            <Image Source="{AppThemeBinding Light=logo_qb_ak_dark.png, Dark=logo_qb_ak_light.png}" WidthRequest="150"/>
+            <Label StyleClass="Heading1" Text="Bereit für den nächsten Schritt?"  />
+            <Image Source="{AppThemeBinding Light=workshop_dark.png, Dark=workshop_light.png}" WidthRequest="300" />
+            
+            <Label Text="Lerne live vom Autor – Dein direkter Draht zu mir" StyleClass="Heading2"/>
+            <Label StyleClass="BodyText">
+                Willst du dein .NET MAUI-Wissen vertiefen, dich mit anderen .NET MAUI-Entwicklern austauschen und dich auf echte Projekte vorbereiten? Dann bieten dir meine Schulungen die ideale Ergänzung zu diesem Buch. Nutze die Chance, direkt vom Autor zu lernen, und melde dich jetzt an. Die Plätze sind begrenzt – sichere dir schnell deinen!
+            </Label>
+            <Button Text="Jetzt anmelden" Clicked="TrainingButton_Clicked"/>
+            <Image Source="project.png" WidthRequest="120" />
+            <Label Text="Der Turbo Boost für deine App-Projekte" StyleClass="Heading2"/>
+            <Label StyleClass="BodyText">
+                Brauchst du Unterstützung bei der Entwicklung deiner App? Bei Quality Bytes helfen wir dir, technische Herausforderungen zu meistern und deine Ziele zu erreichen. Gemeinsam bringen wir deine App schnell und effizient in den Store.
+            </Label>
+            <Button Text="Kostenloses Gespräch vereinbaren" Clicked="ProjectButton_Clicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

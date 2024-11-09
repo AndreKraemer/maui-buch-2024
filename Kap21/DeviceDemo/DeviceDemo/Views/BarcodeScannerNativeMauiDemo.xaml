@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    Padding="16"
+    x:Class="DeviceDemo.Views.BarcodeScannerNativeMauiDemo"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Grid RowDefinitions="300,30,*" RowSpacing="8">
+        <scanner:CameraView
+            AimMode="True"
+            BarcodeSymbologies="Ean8,Ean13,QRCode"
+            VibrationOnDetected="False"
+            CaptureQuality="High"
+            ForceInverted="True"
+            OnDetectionFinished="CameraView_OnDetectionFinished"
+            TapToFocusEnabled="True"
+            x:Name="BarcodeScannerView"/>
+        <Label
+            FontSize="24"
+            Grid.Row="1"
+            HorizontalTextAlignment="Center"
+            Text="Suche Barcode ..."
+            x:Name="ResultLabel" />
+    </Grid>
+</ContentPage>

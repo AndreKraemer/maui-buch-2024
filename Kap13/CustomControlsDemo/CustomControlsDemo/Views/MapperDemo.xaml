@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CustomControlsDemo.Views.MapperDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:CustomControlsDemo.Controls"
+    Title="Mapper Demo">
+    <!--<VerticalStackLayout Padding="32" Spacing="24">
+        <ProgressBar
+            x:Name="progressBar"
+            Progress="0"
+            ProgressColor="Teal" />
+        <Button Clicked="OnProgressPlusClicked" Text="Progress: + 10" />
+        <Button Clicked="OnProgressMinusClicked" Text="Progress: - 10" />
+        <controls:CircularProgressBar
+            x:Name="circularProgressBar"
+            Progress="0"
+            ProgressColor="Teal" />
+    </VerticalStackLayout>-->
+
+    <Grid
+        Padding="32"
+        RowDefinitions="250, auto, auto"
+        RowSpacing="24">
+        <ProgressBar
+            x:Name="progressBar"
+            Progress="0"
+            ProgressColor="CornflowerBlue" />
+        <Button
+            Grid.Row="1"
+            Clicked="OnProgressPlusClicked"
+            Text="Progress: + 10" />
+        <Button
+            Grid.Row="2"
+            Clicked="OnProgressMinusClicked"
+            Text="Progress: - 10" />
+    </Grid>
+</ContentPage>
