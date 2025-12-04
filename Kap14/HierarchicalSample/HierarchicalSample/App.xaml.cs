@@ -5,8 +5,12 @@
     public App()
     {
       InitializeComponent();
+    }
 
-      MainPage = new NavigationPage(new Page1());
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+      var window = new Window(new NavigationPage(new Page1()));
+      return window;
     }
   }
 }

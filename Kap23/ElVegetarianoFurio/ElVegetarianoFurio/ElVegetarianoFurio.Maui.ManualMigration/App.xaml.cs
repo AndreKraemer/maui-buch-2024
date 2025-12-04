@@ -8,7 +8,12 @@
     {
       _serviceProvider = serviceProvider;
       InitializeComponent();
-      MainPage = new AppShell();
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+      var window = new Window(new AppShell());
+      return window;
     }
 
     public IServiceProvider ServiceProvider => _serviceProvider;

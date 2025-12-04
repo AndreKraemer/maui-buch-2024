@@ -15,7 +15,7 @@ Inhalt der Beispiel-App ist die Umsetzung einer App zur Verwaltung von Lebensmit
 
 ## Beispiele für .NET 8 und .NET 9
 
-Die Beispiele für dieses Buch wurden ursprünglich für .NET 8 geschrieben. Kurz nach der Veröffentlichung des Buchs kam .NET 9 heraus. Da .NET 9 einige Verbesserungen für .NET MAUI gebracht hat, werde ich die Beispiele zeitnah auf .NET 9 aktualisieren. Um die Beispiele ausführen zu können, benötigen Sie Visual Studio 2022, Update 17.11.5 oder höher.
+Die Beispiele für dieses Buch wurden ursprünglich für .NET 8 geschrieben. Kurz nach der Veröffentlichung des Buchs kam .NET 9 heraus. Da .NET 9 einige Verbesserungen für .NET MAUI gebracht hat, wurden alle Beispiele auf .NET 9 aktualisieren. Um die Beispiele ausführen zu können, benötigen Sie Visual Studio 2022, Update 17.14.21 oder höher. Die ursprünglichen .NET 8 Beispiele befinden sich im Branch `net8`.
 
 ## Fehler, Korrekturen und Kontakt.
 Korrekturen zu fachlichen Fehlern im Buch sowie Rechtschreibkorrekturen finden Sie auf der Webseite zu diesem Buch, die Sie unter https://www.andrekraemer.de/maui-buch erreichen.

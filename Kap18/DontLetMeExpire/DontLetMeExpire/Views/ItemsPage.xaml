@@ -24,7 +24,7 @@
                         RowDefinitions="auto, auto, 16"
                         RowSpacing="{StaticResource SizeXXS}">
                         <Grid.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ItemsViewModel}}, Path=NavigateToDetailsCommand}" CommandParameter="{Binding .}" />
+                            <TapGestureRecognizer Command="{Binding x:DataType='viewModels:ItemsViewModel', Source={RelativeSource AncestorType={x:Type viewModels:ItemsViewModel}}, Path=NavigateToDetailsCommand}" CommandParameter="{Binding .}" />
                         </Grid.GestureRecognizers>
                         <Border
                             Grid.Row="0"

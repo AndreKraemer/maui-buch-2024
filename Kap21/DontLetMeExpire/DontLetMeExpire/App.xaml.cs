@@ -10,7 +10,12 @@ namespace DontLetMeExpire
       InitializeComponent();
       SetLanguage(settingsService.GetLanguage());
       SetTheme(settingsService.GetTheme());
-      MainPage = new AppShell();
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+      var window = new Window(new AppShell());
+      return window;
     }
 
     private void SetLanguage(string language)

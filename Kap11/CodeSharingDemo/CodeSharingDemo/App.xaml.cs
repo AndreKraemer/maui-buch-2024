@@ -5,14 +5,21 @@ public partial class App : Application
     public App()
     {
         InitializeComponent();
+    }
 
-        MainPage = new AppShell();
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        var window = new Window(new AppShell());
+#if WINDOWS
+        window.Width = 500;
+#endif
+        return window;
     }
 
     public static IServiceProvider Services
     {
         get
-        { 
+        {
 #if __ANDROID__
             return MauiApplication.Current.Services;
 #elif __IOS__
@@ -24,15 +31,4 @@ public partial class App : Application
 #endif
         }
     }
-
-#if WINDOWS
-    protected override Window CreateWindow(IActivationState activationState)
-    {
-        Window window = base.CreateWindow(activationState);
-
-        window.Width = 500;
-
-        return window;
-    }
-#endif
 }

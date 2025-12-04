@@ -24,7 +24,7 @@
                             <Label Text="{Binding CompanyName}" />
                             <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:SelectSampleViewModel}}, Path=PersonTapped}"
+                                    Command="{Binding x:DataType='viewModels:SelectSampleViewModel', Source={RelativeSource AncestorType={x:Type viewModels:SelectSampleViewModel}}, Path=PersonTapped}"
                                     CommandParameter="{Binding .}"
                                     NumberOfTapsRequired="1" />
                             </VerticalStackLayout.GestureRecognizers>

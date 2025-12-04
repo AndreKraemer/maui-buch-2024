@@ -5,18 +5,15 @@
     public App()
     {
       InitializeComponent();
-
-      MainPage = new AppShell();
     }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+      var window = new Window(new AppShell());
 #if WINDOWS
-  protected override Window CreateWindow(IActivationState activationState)
-  {
-    Window window = base.CreateWindow(activationState);
-
-    window.Width = 500;
-
+      window.Width = 500;
+#endif
     return window;
   }
-#endif    
   }
 }
