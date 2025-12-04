@@ -148,7 +148,7 @@
                                 TextColor="#3d6dcc"
                                 TextDecorations="Underline">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsCommand}" />
+                                    <TapGestureRecognizer Command="{Binding x:DataType='viewModels:MainViewModel', Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label FontSize="11" Text="Wir legen ein paar Orte wie 'Kühlschrank' und 'Vorratsschrank' für dich an, damit du direkt loslegen kannst! Du kannst die Orte später natürlich auch umbenennen oder löschen." />
@@ -158,7 +158,7 @@
                                 TextColor="#3d6dcc"
                                 TextDecorations="Underline">
                                 <Label.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsAndStockCommand}" />
+                                    <TapGestureRecognizer Command="{Binding x:DataType='viewModels:MainViewModel', Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=CreateSuggestedLocationsAndStockCommand}" />
                                 </Label.GestureRecognizers>
                             </Label>
                             <Label FontSize="11" Text="Hier fügen wir nicht nur Orte wie 'Kühlschrank' hinzu, sondern auch einige Lebensmittel, damit du siehst, wie alles funktioniert! Du kannst die Orte und Lebensmittel später natürlich auch umbenennen oder löschen" />

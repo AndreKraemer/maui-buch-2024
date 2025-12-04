@@ -86,7 +86,7 @@ public class SettingsViewModel : ViewModelBase
     // Hinweis auf Neustart anzeigen, falls die Sprache geändert wurde
     if (languageChanged)
     {
-      await _alertService.DisplayAlert(AppResources.RestartApp, AppResources.RestartAppLanguageChange, AppResources.Ok);
+      await _alertService.DisplayAlertAsync(AppResources.RestartApp, AppResources.RestartAppLanguageChange, AppResources.Ok);
     }
 
     SaveCommand.ChangeCanExecute();
@@ -102,7 +102,7 @@ public class SettingsViewModel : ViewModelBase
   private async Task ResetApp()
   {
     // Warnung darstellen, dass beim Zurücksetzen alle Daten verloren gehen.
-    if (await _alertService.DisplayAlert(AppResources.Warning, AppResources.ResetAppWarnining, AppResources.Ok,
+    if (await _alertService.DisplayAlertAsync(AppResources.Warning, AppResources.ResetAppWarnining, AppResources.Ok,
             AppResources.Cancel))
     {
       // Alle Vorratseinträge löschen

@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <MauiVersion>9.0.111</MauiVersion>
+    <MauiVersion>10.0.11</MauiVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='net9.0-ios'">
     <CodesignKey>Apple Development: André Krämer (GM64FQT723)</CodesignKey>

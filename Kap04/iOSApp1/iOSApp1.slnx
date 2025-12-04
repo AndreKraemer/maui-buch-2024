@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="iOSApp1/iOSApp1.csproj">
+    <Deploy />
+  </Project>
+</Solution>

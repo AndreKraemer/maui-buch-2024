@@ -9,7 +9,7 @@ public static class MauiProgram
   const string YourBingMapsKey = "<Your Bing Maps Key Here>";
 
   // To run this sample under android, you need to get a Goole Maps Key at:
-  // https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/map?view=net-maui-8.0#get-a-google-maps-api-key
+  // https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/map?view=net-maui-10.0#get-a-google-maps-api-key
   // and replace the value of com.google.android.geo.API_KEY in Platforms/Android/AndroidManifest.xml with your Google Maps Key.
 
   public static MauiApp CreateMauiApp()
@@ -22,10 +22,13 @@ public static class MauiProgram
         fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
         fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
       })
-      // Initialize NET MAUI Maps
-      .UseMauiMaps()
-      // Initialize .NET MAUI Community Toolkit Maps
-      .UseMauiCommunityToolkitMaps(YourBingMapsKey); ;
+#if WINDOWS
+			// Initialize the .NET MAUI Community Toolkit Maps by adding the below line of code
+			.UseMauiCommunityToolkitMaps(YourBingMapsKey);
+#else
+            // For all other platforms
+            .UseMauiMaps();
+#endif
 
 #if WINDOWS
     Microsoft.Maui.Handlers.DatePickerHandler.Mapper

@@ -8,7 +8,6 @@ public partial class MapsSamplePage : ContentPage
 	{
 		InitializeComponent();
 	}
-
   protected override void OnNavigatedTo(NavigatedToEventArgs args)
   {
     base.OnNavigatedTo(args);

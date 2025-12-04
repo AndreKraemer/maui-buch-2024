@@ -1,4 +1,4 @@
-﻿namespace ShellSample
+namespace ShellSample
 {
   public partial class AppShell : Shell
   {
@@ -10,8 +10,8 @@
 
     private async void MenuItem_Clicked(object sender, EventArgs e)
     {
-      await DisplayAlert("Versionsinfo", "1.0.0", "Ok");
-      FlyoutIsPresented = false; // Flyout wieder schließen
+      await DisplayAlertAsync("Versionsinfo", "1.0.0", "Ok");
+      FlyoutIsPresented = false; // Flyout wieder schlie�en
     }
   }
 }

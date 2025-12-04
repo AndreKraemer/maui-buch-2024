@@ -2,15 +2,15 @@ namespace DontLetMeExpire.Services;
 
 public class AlertService : IAlertService
 {
-  public Task DisplayAlert(string title, string message, string cancel)
+  public Task DisplayAlertAsync(string title, string message, string cancel)
   {
     return MainThread.InvokeOnMainThreadAsync(() =>
-        Application.Current.MainPage.DisplayAlert(title, message, cancel));
+        Application.Current.MainPage.DisplayAlertAsync(title, message, cancel));
   }
 
-  public Task<bool> DisplayAlert(string title, string message, string accept, string cancel)
+  public Task<bool> DisplayAlertAsync(string title, string message, string accept, string cancel)
   {
     return MainThread.InvokeOnMainThreadAsync(() => 
-        Application.Current.MainPage.DisplayAlert(title, message, accept, cancel));
+        Application.Current.MainPage.DisplayAlertAsync(title, message, accept, cancel));
   }
 }

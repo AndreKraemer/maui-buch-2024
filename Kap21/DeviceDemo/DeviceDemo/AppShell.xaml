@@ -24,10 +24,10 @@
         Title="Zugriff auf die Kamera" />
 
 
-    <ShellContent
+    <!--<ShellContent
         ContentTemplate="{DataTemplate views:ZxingCameraMauiDemoPage}"
         Route="ZxingCameraMauiDemoPage"
-        Title="Camera.MAUI.ZXing Demo" />
+        Title="Camera.MAUI.ZXing Demo" />-->
 
     <ShellContent
         ContentTemplate="{DataTemplate views:BarcodeScannerNativeMauiDemo}"

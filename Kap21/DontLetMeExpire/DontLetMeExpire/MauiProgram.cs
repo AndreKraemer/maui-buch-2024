@@ -1,4 +1,4 @@
-﻿using Camera.MAUI;
+﻿using ZXing.Net.Maui.Controls;
 using CommunityToolkit.Maui;
 using DontLetMeExpire.OpenFoodFacts;
 using DontLetMeExpire.Services;
@@ -16,7 +16,7 @@ namespace DontLetMeExpire
       builder
         .UseMauiApp<App>()
         .UseMauiCommunityToolkit()
-        .UseMauiCameraView() // Camera.Maui
+        .UseBarcodeReader() // ZXING.Net.MAUI
         .ConfigureFonts(fonts =>
         {
           fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

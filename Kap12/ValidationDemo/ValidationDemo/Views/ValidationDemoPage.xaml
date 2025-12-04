@@ -52,7 +52,7 @@
                     BindableLayout.ItemsSource="{Binding ErrorMessages}"
                     Spacing="4">
                     <BindableLayout.ItemTemplate>
-                        <DataTemplate>
+                        <DataTemplate x:DataType="x:String">
                             <HorizontalStackLayout>
                                 <Label Margin="0,0,8,0" Text="&#x2022;" />
                                 <Label Text="{Binding .}" />

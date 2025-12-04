@@ -11,7 +11,7 @@ public partial class DatePickerTimePickerSamplePage : ContentPage
 
     private void DatePicker_OnDateSelected(object sender, DateChangedEventArgs e)
     {
-        ResultDateLabel.Text = e.NewDate.ToShortDateString();
+        ResultDateLabel.Text = e.NewDate?.ToShortDateString();
     }
 
     private void TimePicker_Changed(object sender, PropertyChangedEventArgs e)
@@ -19,7 +19,7 @@ public partial class DatePickerTimePickerSamplePage : ContentPage
         if (e.PropertyName == "Time") // prüfen, ob die Uhrzeit verändert wurde
         {
             var timepicker = (TimePicker)sender;
-            ResultTimeLabel.Text = timepicker.Time.ToString("g");
+            ResultTimeLabel.Text = timepicker.Time?.ToString("g");
         }
     }
 }

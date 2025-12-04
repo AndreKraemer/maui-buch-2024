@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MvvmSample.Tests/MvvmSample.Tests.csproj" />
+  <Project Path="MvvmSample/MvvmSample.csproj" />
+</Solution>

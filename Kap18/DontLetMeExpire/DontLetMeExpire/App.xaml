@@ -12,7 +12,8 @@
                 <ResourceDictionary Source="Resources/Styles/MaterialSymbolsRounded.xaml" />
                 <ResourceDictionary Source="Resources/Styles/AppStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            <StyleSheet Source="/Resources/Styles/mystyles.css" />
+            <!-- Commented because loading embedded stylesheet when XamlSourceGenerator is used crashes-->
+            <!--<StyleSheet Source="/Resources/Styles/mystyles.css" />-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>

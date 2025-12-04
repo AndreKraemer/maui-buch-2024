@@ -52,11 +52,11 @@ public partial class EntryWithLabel : ContentView
         {
           errorLabel.Text = string.Join(", ", ValidationErrors);
           errorLabel.IsVisible = true;
-          await errorLabel.FadeTo(1, 1000);
+          await errorLabel.FadeToAsync(1, 1000);
         }
         else
         {
-          await errorLabel.FadeTo(0, 1000);
+          await errorLabel.FadeToAsync(0, 1000);
           errorLabel.Text = string.Empty;
           errorLabel.IsVisible = false;
         }

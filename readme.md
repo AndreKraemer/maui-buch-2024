@@ -13,9 +13,9 @@ Inhalt der Beispiel-App ist die Umsetzung einer App zur Verwaltung von Lebensmit
 
 ![Screenshot der Beispiel-App Dont Let Me Expire Android, iOS und Windows](./images/dont-let-me-expire-sample-app.jpg)
 
-## Beispiele für .NET 8 und .NET 9
+## Beispiele für .NET 8 und .NET 9, 10
 
-Die Beispiele für dieses Buch wurden ursprünglich für .NET 8 geschrieben. Kurz nach der Veröffentlichung des Buchs kam .NET 9 heraus. Da .NET 9 einige Verbesserungen für .NET MAUI gebracht hat, wurden alle Beispiele auf .NET 9 aktualisieren. Um die Beispiele ausführen zu können, benötigen Sie Visual Studio 2022, Update 17.14.21 oder höher. Die ursprünglichen .NET 8 Beispiele befinden sich im Branch `net8`.
+Die Beispiele für dieses Buch wurden ursprünglich für .NET 8 geschrieben. Kurz nach der Veröffentlichung des Buchs kam .NET 9 heraus. Da .NET 9 einige Verbesserungen für .NET MAUI gebracht hat, wurden alle Beispiele auf .NET 9 aktualisieren. Mittlerweile erfolgte eine Aktualisierung auf .NET 10. Hier besteht aktuell jedoch noch ein Problem bei Kapitel 20 mit dem Scannen von Barcodes, da die ursprünglich verwendete Bibliothek unter .NET 10 nicht funktioniert. Um die Beispiele ausführen zu können, benötigen Sie Visual Studio 2026, Update 18.0.2 oder höher. Die ursprünglichen .NET 8 Beispiele befinden sich im Branch `net8`, die Beipsiele für .NET 9 im Branch `net9` .
 
 ## Fehler, Korrekturen und Kontakt.
 Korrekturen zu fachlichen Fehlern im Buch sowie Rechtschreibkorrekturen finden Sie auf der Webseite zu diesem Buch, die Sie unter https://www.andrekraemer.de/maui-buch erreichen.
