@@ -85,10 +85,10 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
 
         ResultLabel.Text = result.Text;
 
-        cameraView.FadeTo(0.5, 500);
-        await cameraView.ScaleTo(1.1, 500);
-        await cameraView.ScaleTo(1, 500);
-        cameraView.FadeTo(1);
+        cameraView.FadeToAsync(0.5, 500);
+        await cameraView.ScaleToAsync(1.1, 500);
+        await cameraView.ScaleToAsync(1, 500);
+        cameraView.FadeToAsync(1);
 
       });
     }

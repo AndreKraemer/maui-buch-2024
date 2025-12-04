@@ -25,11 +25,15 @@ public class MediaViewModel : BaseViewModel
     private async void OnGalleryClicked()
     {
         // Foto auswählen
-        var result = await _mediaPicker.PickPhotoAsync();
-        // Ergebnis auslesen
-        var stream = await result.OpenReadAsync();
-        // Ergebnisstream zur Anzeige an die Eigenschaft Image übergeben
-        Image = ImageSource.FromStream(() => stream);
+        var results = await _mediaPicker.PickPhotosAsync(new MediaPickerOptions { SelectionLimit = 1 });
+        var result = results.FirstOrDefault();
+        if (result != null)
+        {
+            // Ergebnis auslesen
+            var stream = await result.OpenReadAsync();
+            // Ergebnisstream zur Anzeige an die Eigenschaft Image übergeben
+            Image = ImageSource.FromStream(() => stream);
+        }
     }
 
     private async void OnCameraClicked()

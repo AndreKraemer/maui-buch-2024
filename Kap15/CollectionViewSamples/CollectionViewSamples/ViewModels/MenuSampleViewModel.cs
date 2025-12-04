@@ -1,4 +1,4 @@
-﻿using CollectionViewSamples.Models;
+using CollectionViewSamples.Models;
 using System.Collections.ObjectModel;
 using CollectionViewSamples.Services;
 
@@ -14,7 +14,7 @@ namespace CollectionViewSamples.ViewModels
 
     public MenuSampleViewModel(IDataStore<Person> dataStore) : base(dataStore)
     {
-      Title = "Kontextmenüs";
+      Title = "Kontextmen�s";
       DeletePersonCommand = new Command<Person>(OnPersonDeleted);
       FavoritePersonCommand = new Command<Person>(OnPersonFavorited);
       ArchivePersonCommand = new Command<Person>(OnPersonArchived);
@@ -54,12 +54,12 @@ namespace CollectionViewSamples.ViewModels
 
     private void OnPersonFavorited(Person person)
     {
-      Application.Current.MainPage.DisplayAlert("Hinweis", $"Person {person.Name} favorisiert", "OK");
+      Application.Current.MainPage.DisplayAlertAsync("Hinweis", $"Person {person.Name} favorisiert", "OK");
     }
 
     private void OnPersonArchived(Person person)
     {
-      Application.Current.MainPage.DisplayAlert("Hinweis", $"Person {person.Name} archiviert", "OK");
+      Application.Current.MainPage.DisplayAlertAsync("Hinweis", $"Person {person.Name} archiviert", "OK");
     }
 
   }

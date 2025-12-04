@@ -102,9 +102,9 @@
                                             StyleClass="mr-xs"
                                             Text="&#x2022;"
                                             TextColor="{StaticResource PrimaryDarkDark}" />
-                                        <Label
+                                        <Label x:DataType="x:String"
                                             LineBreakMode="TailTruncation"
-                                            Text="{Binding}"
+                                            Text="{Binding .}"
                                             TextColor="{StaticResource PrimaryDarkDark}" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>

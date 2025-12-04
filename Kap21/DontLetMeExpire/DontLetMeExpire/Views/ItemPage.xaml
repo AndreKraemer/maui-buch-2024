@@ -3,7 +3,7 @@
     x:Class="DontLetMeExpire.Views.ItemPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+    xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:strings="clr-namespace:DontLetMeExpire.Resources.Strings"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -108,9 +108,9 @@
                                             StyleClass="mr-xs"
                                             Text="&#x2022;"
                                             TextColor="{StaticResource PrimaryDarkDark}" />
-                                        <Label
+                                        <Label x:DataType="x:String"
                                             LineBreakMode="TailTruncation"
-                                            Text="{Binding}"
+                                            Text="{Binding .}"
                                             TextColor="{StaticResource PrimaryDarkDark}" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
@@ -131,10 +131,10 @@
                         FontSize="{StaticResource SizeL}"
                         Text="{StaticResource IconBarcode_scanner}" />
                 </Grid>
-                <cv:CameraView x:Name="CameraView" HeightRequest="300" WidthRequest="300" IsVisible="{Binding ShowBarcodeScanner}"
-                               AutoStartPreview="{Binding ShowBarcodeScanner}"
-                               BarCodeDetectionEnabled="{Binding ShowBarcodeScanner}">
-                </cv:CameraView>
+                <zxing:CameraBarcodeReaderView 
+                       x:Name="CameraView" HeightRequest="300" 
+                       WidthRequest="300" 
+                      BarcodesDetected="CameraView_BarcodeDetected" />
                 <Label Text="{x:Static strings:AppResources.Name}" />
                 <Label
                     IsVisible="{Binding PropertyErrorMessages[Name], Converter={StaticResource IsListNotNullOrEmptyConverter}, FallbackValue=False}"

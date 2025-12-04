@@ -1,0 +1,34 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="ARM" />
+    <Platform Name="iPhone" />
+    <Platform Name="iPhoneSimulator" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ElVegetarianoFurio/ElVegetarianoFurio.Android/ElVegetarianoFurio.Android.csproj" />
+  <Project Path="ElVegetarianoFurio/ElVegetarianoFurio.iOS/ElVegetarianoFurio.iOS.csproj">
+    <Platform Solution="*|iPhone" Project="iPhone" />
+    <Platform Solution="*|iPhoneSimulator" Project="iPhoneSimulator" />
+    <Platform Solution="Debug|Any CPU" Project="iPhone" />
+    <Platform Solution="Debug|ARM" Project="iPhoneSimulator" />
+    <Platform Solution="Debug|x64" Project="iPhoneSimulator" />
+    <Platform Solution="Debug|x86" Project="iPhoneSimulator" />
+    <Platform Solution="Release|Any CPU" Project="iPhoneSimulator" />
+    <Platform Solution="Release|ARM" Project="iPhone" />
+    <Platform Solution="Release|x64" Project="iPhone" />
+    <Platform Solution="Release|x86" Project="iPhone" />
+  </Project>
+  <Project Path="ElVegetarianoFurio/ElVegetarianoFurio.Maui.AutomaticMigration/ElVegetarianoFurio.Maui.AutomaticMigration.csproj" />
+  <Project Path="ElVegetarianoFurio/ElVegetarianoFurio.Maui.ManualMigration/ElVegetarianoFurio.Maui.ManualMigration.csproj" />
+  <Project Path="ElVegetarianoFurio/ElVegetarianoFurio.UWP/ElVegetarianoFurio.UWP.csproj">
+    <Platform Solution="*|Any CPU" Project="x64" />
+    <Platform Solution="*|ARM" Project="ARM" />
+    <Platform Solution="*|iPhone" Project="x64" />
+    <Platform Solution="*|iPhoneSimulator" Project="x64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+  </Project>
+  <Project Path="ElVegetarianoFurio/ElVegetarianoFurio/ElVegetarianoFurio.csproj" />
+</Solution>

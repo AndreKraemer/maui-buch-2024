@@ -23,7 +23,7 @@ public partial class DynamicLocalizationDemoPage : ContentPage
     // definierten Textfelder FirstNameEntry.Text und LastNameEntry.Text ersetzt.
     var message = string.Format(AppResources.AppointmentSuccessfullyBooked, FirstNameEntry.Text, LastNameEntry.Text);
 
-    DisplayAlert(title, message, "OK");
+    DisplayAlertAsync(title, message, "OK");
   }
 
   private void English_Clicked(object sender, EventArgs e)

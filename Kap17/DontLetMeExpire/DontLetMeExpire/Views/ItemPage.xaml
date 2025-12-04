@@ -91,9 +91,9 @@
                             Spacing="4">
                             <BindableLayout.ItemTemplate>
                                 <DataTemplate>
-                                    <HorizontalStackLayout>
+                                    <HorizontalStackLayout x:DataType="x:String">
                                         <Label Margin="0,0,8,0" Text="&#x2022;" />
-                                        <Label Text="{Binding}" />
+                                        <Label Text="{Binding .}" />
                                     </HorizontalStackLayout>
                                 </DataTemplate>
                             </BindableLayout.ItemTemplate>

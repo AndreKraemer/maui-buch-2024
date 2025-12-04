@@ -11,7 +11,7 @@ public partial class MainPage : ContentPage
   {
     string? hint;
     string? result;
-    var date = ExpiryDatePicker.Date;
+    var date = ExpiryDatePicker.Date.Value;
     var days = (date - DateTime.Today).TotalDays;
 
     switch (days)

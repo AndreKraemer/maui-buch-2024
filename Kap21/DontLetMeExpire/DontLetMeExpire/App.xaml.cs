@@ -1,5 +1,7 @@
 ﻿using DontLetMeExpire.Services;
+using Microsoft.Maui.Controls.StyleSheets;
 using System.Globalization;
+using System.Reflection;
 
 namespace DontLetMeExpire
 {
@@ -8,6 +10,16 @@ namespace DontLetMeExpire
     public App(ISettingsService settingsService)
     {
       InitializeComponent();
+      // Fix for loading embedded stylesheet when XamlSourceGenerator is used
+      var assembly = Assembly.GetExecutingAssembly();
+      var resourceName = "DontLetMeExpire.Resources.Styles.mystyles.css";
+
+      using var stream = assembly.GetManifestResourceStream(resourceName);
+      if (stream != null)
+      {
+        using var reader = new StreamReader(stream);
+        Resources.Add(StyleSheet.FromReader(reader));
+      }
       SetLanguage(settingsService.GetLanguage());
       SetTheme(settingsService.GetTheme());
     }

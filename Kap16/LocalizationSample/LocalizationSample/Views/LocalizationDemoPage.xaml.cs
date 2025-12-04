@@ -22,6 +22,6 @@ private void Button_Clicked(object sender, EventArgs e)
   // definierten Textfelder FirstNameEntry.Text und LastNameEntry.Text ersetzt.
   var message = string.Format(AppResources.AppointmentSuccessfullyBooked, FirstNameEntry.Text, LastNameEntry.Text);
     
-  DisplayAlert(title, message, "OK");
+  DisplayAlertAsync(title, message, "OK");
 }
 }

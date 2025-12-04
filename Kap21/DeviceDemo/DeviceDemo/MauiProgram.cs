@@ -1,5 +1,5 @@
 ﻿using BarcodeScanning;
-using Camera.MAUI;
+//using Camera.MAUI; // doesn't work on Windows
 using DeviceDemo.ViewModels;
 using DeviceDemo.Views;
 using Microsoft.Extensions.Logging;
@@ -13,7 +13,7 @@ namespace DeviceDemo
       var builder = MauiApp.CreateBuilder();
       builder
         .UseMauiApp<App>()
-        .UseMauiCameraView() // Camera.Maui
+       // .UseMauiCameraView() // Camera.Maui   // doesn't work on Windows
 #if !WINDOWS
         .UseBarcodeScanning() // BarcodeScanning.Native.Maui
 #endif
