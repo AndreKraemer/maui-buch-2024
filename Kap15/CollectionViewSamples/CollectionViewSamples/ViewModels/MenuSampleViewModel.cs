@@ -1,4 +1,4 @@
-using CollectionViewSamples.Models;
+﻿using CollectionViewSamples.Models;
 using System.Collections.ObjectModel;
 using CollectionViewSamples.Services;
 
@@ -14,7 +14,7 @@ namespace CollectionViewSamples.ViewModels
 
     public MenuSampleViewModel(IDataStore<Person> dataStore) : base(dataStore)
     {
-      Title = "Kontextmen�s";
+      Title = "Kontextmenüs";
       DeletePersonCommand = new Command<Person>(OnPersonDeleted);
       FavoritePersonCommand = new Command<Person>(OnPersonFavorited);
       ArchivePersonCommand = new Command<Person>(OnPersonArchived);

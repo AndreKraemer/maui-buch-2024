@@ -1,4 +1,4 @@
-namespace DontLetMeExpire.Services;
+ï»¿namespace DontLetMeExpire.Services;
 
 using SQLite;
 using Models;
@@ -14,7 +14,7 @@ public class SqliteItemService : IItemService
     // Name der Datenbankdatei
     var databaseFilename = $"dontletmeexpire.db3";
 
-    // Flags für die Datenbankverbindung
+    // Flags fÃ¼r die Datenbankverbindung
     var flags =
         // open the database in read/write mode
         SQLite.SQLiteOpenFlags.ReadWrite |
@@ -44,7 +44,7 @@ public class SqliteItemService : IItemService
     return await _connection.FindAsync<Item>(id);
   }
 
-  // Löschen aller Elemente
+  // LÃ¶schen aller Elemente
   public Task DeleteAllAsync()
   {
     return _connection.DeleteAllAsync<Item>();
@@ -73,7 +73,7 @@ public class SqliteItemService : IItemService
         .ToListAsync();
   }
 
-  // Abrufen von Elementen, die in den nächsten Tagen ablaufen
+  // Abrufen von Elementen, die in den nÃ¤chsten Tagen ablaufen
   public async Task<IEnumerable<Item>> GetExpiresSoonAsync(int days = 5)
   {
     var expiryDateUpperLimit = DateTime.Today.AddDays(days);
@@ -83,7 +83,7 @@ public class SqliteItemService : IItemService
         .ToListAsync();
   }
 
-  // Hinzufügen oder Aktualisieren eines Elements
+  // HinzufÃ¼gen oder Aktualisieren eines Elements
   public async Task SaveAsync(Item item)
   {
     var hasEmptyId = string.IsNullOrEmpty(item.Id) 
@@ -93,7 +93,7 @@ public class SqliteItemService : IItemService
         .Where(x => x.Id == item.Id)
         .CountAsync() == 1;
 
-    // Prüfen, ob es sich um einen neuen Eintrag handelt
+    // PrÃ¼fen, ob es sich um einen neuen Eintrag handelt
     if (hasEmptyId || !isExistingRecord)
     {
       if (hasEmptyId)
@@ -101,7 +101,7 @@ public class SqliteItemService : IItemService
         item.Id = Guid.NewGuid().ToString();
       }
       // Falls es ein neuer Eintrag ist,
-      // wird dieser zur Datenbank hinzugefügt
+      // wird dieser zur Datenbank hinzugefÃ¼gt
       await _connection.InsertAsync(item);
     }
     else

@@ -1,4 +1,4 @@
-namespace ViewsSample.Views;
+ï»¿namespace ViewsSample.Views;
 
 public partial class SwitchSamplePage : ContentPage
 {
@@ -23,11 +23,11 @@ public partial class SwitchSamplePage : ContentPage
         }
         catch (FeatureNotSupportedException)
         {
-            await DisplayAlertAsync("Taschenlampe", $"Taschenlampe wird auf diesem Gerät nicht unterstützt. Wert: {e.Value}", "Ok");
+            await DisplayAlertAsync("Taschenlampe", $"Taschenlampe wird auf diesem GerÃ¤t nicht unterstÃ¼tzt. Wert: {e.Value}", "Ok");
         }
         catch (PermissionException)
         {
-            await DisplayAlertAsync("Taschenlampe", $"Berechtigung für Taschenlampe fehlt. Wert: {e.Value}", "Ok");
+            await DisplayAlertAsync("Taschenlampe", $"Berechtigung fÃ¼r Taschenlampe fehlt. Wert: {e.Value}", "Ok");
         }
     }
 }

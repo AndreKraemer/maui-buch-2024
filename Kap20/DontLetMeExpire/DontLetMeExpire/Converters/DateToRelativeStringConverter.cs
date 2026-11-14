@@ -1,4 +1,4 @@
-using System.Globalization;
+ï»¿using System.Globalization;
 using DontLetMeExpire.Resources.Strings;
 namespace DontLetMeExpire.Converters;
 
@@ -12,12 +12,12 @@ public class DateToRelativeStringConverter : IValueConverter
     }
 
     // Differenz zwischen dem aktuellen und
-    // dem übergebenen Datum berechnen
+    // dem Ã¼bergebenen Datum berechnen
     var today = DateTime.Today;
     var difference = (date - today).Days;
 
-    // Unterschied in natürliche Sprache umwandeln
-    // und zurückgeben
+    // Unterschied in natÃ¼rliche Sprache umwandeln
+    // und zurÃ¼ckgeben
     return difference switch
     {
       0 => AppResources.Today,

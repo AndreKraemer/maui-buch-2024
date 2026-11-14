@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>true</ImplicitUsings>
     <SupportedOSPlatformVersion>13.0</SupportedOSPlatformVersion>
-    <CodesignKey>Apple Development: Created via API (FNNKN6KNDA)</CodesignKey>
+    <CodesignKey>Apple Development: André Krämer (GM64FQT723)</CodesignKey>
     <CodesignProvision>VS: WildCard Development</CodesignProvision>
   </PropertyGroup>
 </Project>

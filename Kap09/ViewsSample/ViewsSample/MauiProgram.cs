@@ -1,12 +1,11 @@
-﻿using CommunityToolkit.Maui.Maps;
-
-namespace ViewsSample;
+﻿namespace ViewsSample;
 
 public static class MauiProgram
 {
-  // Get your Bing Maps Key from the Bing Maps Dev Center
-  // https://learn.microsoft.com/en-us/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key
-  const string YourBingMapsKey = "<Your Bing Maps Key Here>";
+  // To run this sample under Windows, you need an Azure Maps subscription key.
+  // Create an Azure Maps account in the Azure Portal (https://portal.azure.com)
+  // and copy the key from Azure Maps account > Authentication.
+  const string YourAzureMapsKey = "<Your Azure Maps Key Here>";
 
   // To run this sample under android, you need to get a Goole Maps Key at:
   // https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/map?view=net-maui-10.0#get-a-google-maps-api-key
@@ -22,13 +21,9 @@ public static class MauiProgram
         fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
         fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
       })
-#if WINDOWS
-			// Initialize the .NET MAUI Community Toolkit Maps by adding the below line of code
-			.UseMauiCommunityToolkitMaps(YourBingMapsKey);
-#else
-            // For all other platforms
-            .UseMauiMaps();
-#endif
+      .UseMauiMaps()
+      // Only used under Windows, where the map is backed by Azure Maps
+      .ConfigureEssentials(essentials => essentials.UseMapServiceToken(YourAzureMapsKey));
 
 #if WINDOWS
     Microsoft.Maui.Handlers.DatePickerHandler.Mapper

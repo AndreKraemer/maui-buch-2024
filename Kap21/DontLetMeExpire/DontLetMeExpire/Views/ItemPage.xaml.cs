@@ -1,4 +1,5 @@
-
+ï»¿
+using System.ComponentModel;
 using DontLetMeExpire.ViewModels;
 using ZXing.Net.Maui;
 using ZXing.Net.Maui.Controls;
@@ -8,31 +9,16 @@ namespace DontLetMeExpire.Views;
 public partial class ItemPage : ContentPage
 {
   private readonly ItemViewModel _viewModel;
+  private CameraBarcodeReaderView? _cameraView;
+  private bool _isHandlingBarcode;
 
   public ItemPage(ItemViewModel viewModel)
   {
     InitializeComponent();
     BindingContext = _viewModel = viewModel;
 
-
-
-    // Auf das Ereignis reagieren, dass ein Barcode erkannt wurde
-    CameraView.BarcodesDetected += CameraView_BarcodeDetected;
-
-
-    // BarcodeOptionen setzen
-    CameraView.Options = new BarcodeReaderOptions
-    {
-      // Automatisches Drehen des Bildes aus Performancegründen deaktivieren
-      AutoRotate = false,
-      // Mögliche Formate setzen (13- und 8-stellige GTIN-Barcodes)
-      Formats = BarcodeFormat.Ean13,
-      // Nur einen Code lesen
-      Multiple = false,
-      // Intensiver nach Barcodes suchen deaktivieren, da es länger dauert
-      TryHarder = false
-    };
-    SetCamera();
+    // Den Scanner ein- bzw. ausschalten, sobald der Scan-Button gedrÃ¼ckt wird
+    _viewModel.PropertyChanged += ViewModel_PropertyChanged;
   }
 
   public string? ItemId { get; set; }
@@ -43,69 +29,146 @@ public partial class ItemPage : ContentPage
     base.OnNavigatedTo(args);
   }
 
-
-  // Automatische Auswahl der Kamera
-  private async void SetCamera()
+  private async void ViewModel_PropertyChanged(object? sender, PropertyChangedEventArgs e)
   {
-    // Prüfen, ob Kameras im Gerät entdeckt wurden
-    var cameras = await CameraView.GetAvailableCameras();
-    if (cameras.Count == 0)
+    if (e.PropertyName != nameof(ItemViewModel.ShowBarcodeScanner))
     {
       return;
     }
 
+    if (_viewModel.ShowBarcodeScanner)
+    {
+      await StartScannerAsync();
+    }
+    else
+    {
+      StopScanner();
+    }
+  }
+
+  // Erzeugt die Kameraansicht erst, wenn der Scanner tatsÃ¤chlich benÃ¶tigt wird.
+  // So wird die Kamera-Berechtigung zum richtigen Zeitpunkt angefragt, und die
+  // Kamera lÃ¤uft nicht unnÃ¶tig im Hintergrund.
+  private async Task StartScannerAsync()
+  {
+    if (_cameraView is not null)
+    {
+      return;
+    }
+
+    // Kamera-Berechtigung anfragen
+    var status = await Permissions.RequestAsync<Permissions.Camera>();
+    if (status != PermissionStatus.Granted || !BarcodeScanning.IsSupported)
+    {
+      _viewModel.ShowBarcodeScanner = false;
+      return;
+    }
+
+    _cameraView = new CameraBarcodeReaderView
+    {
 #if WINDOWS || MACCATALYST
-    // Auf dem Desktop (Windows und Mac) wählen wir die erste Frontkamera aus
-    // Gibt es keine Frontkamera, dann wählen wir die erste verfügbare Kamera aus
-    CameraView.SelectedCamera = cameras.FirstOrDefault(x => x.Location != CameraLocation.Front) ?? cameras.First();
+      // Auf dem Desktop (Windows und Mac) verwenden wir die Frontkamera
+      CameraLocation = CameraLocation.Front,
 #else
-    // Auf dem Handy (Android und iOS) wählen wir die erste Rückkamera aus
-    // Gibt es keine Rückkamera, dann wählen wir die erste verfügbare Kamera aus
-    CameraView.SelectedCamera = cameras.FirstOrDefault(x => x.Location != CameraLocation.Front) ?? cameras.First();
-  #endif
- 
+      // Auf dem Handy (Android und iOS) verwenden wir die RÃ¼ckkamera
+      CameraLocation = CameraLocation.Rear,
+#endif
+      // BarcodeOptionen setzen
+      Options = new BarcodeReaderOptions
+      {
+        // Bild automatisch drehen, damit Barcodes auch im Hochformat erkannt werden
+        AutoRotate = true,
+        // MÃ¶gliche Formate setzen (13- und 8-stellige GTIN-Barcodes)
+        Formats = BarcodeFormat.Ean13 | BarcodeFormat.Ean8,
+        // Nur einen Code lesen
+        Multiple = false,
+        // Intensiver nach Barcodes suchen deaktivieren, da es lÃ¤nger dauert
+        TryHarder = false,
+        // Eine AuflÃ¶sung nahe 1280x720 wÃ¤hlen. HÃ¶here AuflÃ¶sungen verlangsamen die
+        // Erkennung deutlich, da jedes Kamerabild vollstÃ¤ndig analysiert wird.
+        CameraResolutionSelector = resolutions => resolutions
+          .OrderBy(r => Math.Abs((r.Width * r.Height) - (1280 * 720)))
+          .ThenBy(r => Math.Abs(r.Width - 1280) + Math.Abs(r.Height - 720))
+          .First()
+      },
+      IsDetecting = true
+    };
+
+    // Auf das Ereignis reagieren, dass ein Barcode erkannt wurde
+    _cameraView.BarcodesDetected += CameraView_BarcodeDetected;
+    ScannerHost.Content = _cameraView;
+  }
+
+  // Entfernt die Kameraansicht wieder. Dadurch wird auch die Kamera beendet.
+  private void StopScanner()
+  {
+    if (_cameraView is null)
+    {
+      return;
+    }
+
+    _cameraView.IsDetecting = false;
+    _cameraView.BarcodesDetected -= CameraView_BarcodeDetected;
+    ScannerHost.Content = null;
+    _cameraView.Handler?.DisconnectHandler();
+    _cameraView = null;
   }
 
   // Wird aufgerufen, sobald ein oder mehrere Barcodes erkannt wurden
-  private async void CameraView_BarcodeDetected(object sender, BarcodeDetectionEventArgs args)
+  private void CameraView_BarcodeDetected(object? sender, BarcodeDetectionEventArgs args)
   {
-    foreach (var result in args.Results)
+    var result = args.Results.FirstOrDefault();
+    if (result is null)
     {
+      return;
+    }
+
+    // ZXing.Net.Maui meldet erkannte Barcodes auf einem Hintergrund-Thread.
+    // Alle Zugriffe auf die OberflÃ¤che mÃ¼ssen daher auf dem UI-Thread erfolgen.
+    Dispatcher.Dispatch(async () =>
+    {
+      // Mehrfachmeldungen desselben Barcodes ignorieren
+      if (_isHandlingBarcode || _cameraView is null)
+      {
+        return;
+      }
+      _isHandlingBarcode = true;
+      _cameraView.IsDetecting = false;
+
       // Haptisches Feedback geben, dass ein Barcode erkannt wurde
       try
       {
         Vibration.Vibrate(500);
-
       }
       catch (FeatureNotSupportedException)
       {
-        // FeatureNotSupportedException wird auf Endgeräten ohne 
+        // FeatureNotSupportedException wird auf EndgerÃ¤ten ohne
         // Vibrationsfunktion geworfen. Die Exception ignorieren wir
         // an dieser Stelle.
       }
 
-      // Barcode Suche im ViewModel ausführen.
+      // Barcode Suche im ViewModel ausfÃ¼hren.
       _viewModel.SearchText = result.Value;
       _viewModel.SearchBarcodeCommand.Execute(null);
 
       // Visuelles Feedback geben, dass ein Barcode erkannt wurde
-      CameraView.FadeToAsync(0.5, 500);
-      await CameraView.ScaleToAsync(1.1, 500);
-      await CameraView.ScaleToAsync(1, 500);
-      await CameraView.FadeToAsync(1);
+      _ = ScannerHost.FadeToAsync(0.5, 500);
+      await ScannerHost.ScaleToAsync(1.1, 500);
+      await ScannerHost.ScaleToAsync(1, 500);
+      await ScannerHost.FadeToAsync(1);
 
-      // Barcode-Suche ausblenden
+      // Barcode-Suche ausblenden (entfernt auch die Kameraansicht)
       _viewModel.ShowBarcodeScanner = false;
-    }
+      _isHandlingBarcode = false;
+    });
   }
 
-  protected override async void OnDisappearing()
+  protected override void OnDisappearing()
   {
     base.OnDisappearing();
     // Kamera stoppen, wenn die Seite nicht mehr sichtbar ist
     // Wird dieser Aufruf vergessen, reduziert sich die Performance der App
-    // spürbar!
-    CameraView.BarcodesDetected -= CameraView_BarcodeDetected;
-    CameraView.SelectedCamera = null;
+    // spÃ¼rbar!
+    _viewModel.ShowBarcodeScanner = false;
   }
 }

@@ -1,4 +1,4 @@
-using MvvmSample.ViewModels;
+ï»¿using MvvmSample.ViewModels;
 
 namespace MvvmSample.Tests
 {
@@ -17,7 +17,7 @@ namespace MvvmSample.Tests
       var viewModel = new MvvmDemoViewModel
       {
         Name = "Wilhelm Brause",
-        Place = "Köln",
+        Place = "KÃ¶ln",
         AcceptTerms = true
       };
 
@@ -30,7 +30,7 @@ namespace MvvmSample.Tests
       var viewModel = new MvvmDemoViewModel
       {
         Name = "",
-        Place = "Köln",
+        Place = "KÃ¶ln",
         AcceptTerms = true
       };
 
@@ -56,7 +56,7 @@ namespace MvvmSample.Tests
       var viewModel = new MvvmDemoViewModel
       {
         Name = "Wilhelm Brause",
-        Place = "Köln",
+        Place = "KÃ¶ln",
         AcceptTerms = false
       };
 

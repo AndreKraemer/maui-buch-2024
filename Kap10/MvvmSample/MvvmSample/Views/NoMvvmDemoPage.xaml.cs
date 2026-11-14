@@ -1,4 +1,4 @@
-namespace MvvmSample.Views;
+ï»¿namespace MvvmSample.Views;
 
 public partial class NoMvvmDemoPage : ContentPage
 {
@@ -10,15 +10,15 @@ public partial class NoMvvmDemoPage : ContentPage
 
   private void NameEntry_TextChanged(object sender, TextChangedEventArgs e)
   {
-    // Aktualisiere die Unterschrift live, während der Benutzer tippt
+    // Aktualisiere die Unterschrift live, wÃ¤hrend der Benutzer tippt
     SignatureNameLabel.Text = e.NewTextValue;
     ValidateForm();
   }
 
   private void PlaceEntry_TextChanged(object sender, TextChangedEventArgs e)
   {
-    // Setze den Ort in DatePlaceLabel, während der Benutzer tippt.
-    // Das aktuelle Datum wird hier noch nicht eingefügt, da es erst beim Klicken des Buttons gesetzt werden soll.
+    // Setze den Ort in DatePlaceLabel, wÃ¤hrend der Benutzer tippt.
+    // Das aktuelle Datum wird hier noch nicht eingefÃ¼gt, da es erst beim Klicken des Buttons gesetzt werden soll.
     DatePlaceLabel.Text = e.NewTextValue;
     ValidateForm();
   }
@@ -31,7 +31,7 @@ public partial class NoMvvmDemoPage : ContentPage
 
   private void ValidateForm()
   {
-    // Überprüfen, ob Name, Ort und AGB akzeptiert wurden
+    // ÃœberprÃ¼fen, ob Name, Ort und AGB akzeptiert wurden
     // und den Button entsprechend aktivieren oder deaktivieren
     SignButton.IsEnabled = !string.IsNullOrWhiteSpace(NameEntry.Text) &&
                            !string.IsNullOrWhiteSpace(PlaceEntry.Text) &&

@@ -1,4 +1,4 @@
-using System.Collections.ObjectModel;
+Ôªøusing System.Collections.ObjectModel;
 using DontLetMeExpire.Resources.Strings;
 using DontLetMeExpire.Services;
 
@@ -31,7 +31,7 @@ public class SettingsViewModel : ViewModelBase
 
   public ObservableCollection<KeyValuePair<string, string>> Themes { get; } = [];
 
-  // Ausgew‰hlte Sprache
+  // Ausgew√§hlte Sprache
   public KeyValuePair<string, string> SelectedLanguage
   {
     get => _selectedLanguage;
@@ -42,7 +42,7 @@ public class SettingsViewModel : ViewModelBase
     }
   }
 
-  // Ausgew‰hltes Theme
+  // Ausgew√§hltes Theme
   public KeyValuePair<string, string> SelectedTheme
   {
     get => _selectedTheme;
@@ -76,14 +76,14 @@ public class SettingsViewModel : ViewModelBase
   // Speichern der Einstellungen
   private async Task Save()
   {
-    // pr¸fen, ob die Sprache ge‰ndert wurde
+    // pr√ºfen, ob die Sprache ge√§ndert wurde
     var languageChanged = _settingsService.GetLanguage() != SelectedLanguage.Key;
 
     // Sprache und Theme speichern
     _settingsService.SetLanguage(SelectedLanguage.Key);
     _settingsService.SetTheme(SelectedTheme.Key);
 
-    // Hinweis auf Neustart anzeigen, falls die Sprache ge‰ndert wurde
+    // Hinweis auf Neustart anzeigen, falls die Sprache ge√§ndert wurde
     if (languageChanged)
     {
       await _alertService.DisplayAlertAsync(AppResources.RestartApp, AppResources.RestartAppLanguageChange, AppResources.Ok);
@@ -98,20 +98,20 @@ public class SettingsViewModel : ViewModelBase
            _settingsService.GetTheme() != SelectedTheme.Key;
   }
 
-  // Zur¸cksetzen der App
+  // Zur√ºcksetzen der App
   private async Task ResetApp()
   {
-    // Warnung darstellen, dass beim Zur¸cksetzen alle Daten verloren gehen.
+    // Warnung darstellen, dass beim Zur√ºcksetzen alle Daten verloren gehen.
     if (await _alertService.DisplayAlertAsync(AppResources.Warning, AppResources.ResetAppWarnining, AppResources.Ok,
             AppResources.Cancel))
     {
-      // Alle Vorratseintr‰ge lˆschen
+      // Alle Vorratseintr√§ge l√∂schen
       await _itemService.DeleteAllAsync();
 
-      // Alle Lagerorte lˆschen
+      // Alle Lagerorte l√∂schen
       await _storageLocationService.DeleteAllAsync();
 
-      // Ausgew‰hlte Sprache und ausgew‰hltes Thema auf Standardeintrag zur¸cksetzen
+      // Ausgew√§hlte Sprache und ausgew√§hltes Thema auf Standardeintrag zur√ºcksetzen
       SelectedLanguage = Languages.First();
       SelectedTheme = Themes.First();
       await Save();

@@ -1,4 +1,4 @@
-using LocalizationSample.Resources.Strings;
+﻿using LocalizationSample.Resources.Strings;
 
 namespace LocalizationSample.Views;
 
@@ -18,7 +18,7 @@ private void Button_Clicked(object sender, EventArgs e)
 
   // In AppointmentSuccessfullyBooked steht folgender String:
   // "Thank you {0} {1}. Your appointment has been successfully booked."
-  // Die Werte f�r {0} und {1} werden durch die Werte der im XAML
+  // Die Werte für {0} und {1} werden durch die Werte der im XAML
   // definierten Textfelder FirstNameEntry.Text und LastNameEntry.Text ersetzt.
   var message = string.Format(AppResources.AppointmentSuccessfullyBooked, FirstNameEntry.Text, LastNameEntry.Text);
     

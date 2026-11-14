@@ -1,4 +1,4 @@
-using DontLetMeExpire.Resources.Strings;
+ï»¿using DontLetMeExpire.Resources.Strings;
 
 namespace DontLetMeExpire.Services;
 
@@ -11,10 +11,10 @@ public class SettingsService : ISettingsService
     _preferences = preferences;
   }
 
-  // Liefert eine lokalisierte Liste der verfügbaren Sprachen
+  // Liefert eine lokalisierte Liste der verfÃ¼gbaren Sprachen
   public IEnumerable<KeyValuePair<string, string>> GetLanguages()
   {
-    // lokalisierte Namen der Sprachen zu einer Liste hinzufügen.
+    // lokalisierte Namen der Sprachen zu einer Liste hinzufÃ¼gen.
     var languages = new List<KeyValuePair<string, string>>(4)
         {
             new("en", AppResources.English),
@@ -24,17 +24,17 @@ public class SettingsService : ISettingsService
     // lokalisierte Liste alphabetisch sortieren
     languages.Sort((a, b) => string.Compare(a.Value, b.Value, StringComparison.Ordinal));
 
-    // Standard-Eintrag an der ersten Position hinzufügen.
+    // Standard-Eintrag an der ersten Position hinzufÃ¼gen.
     languages.Insert(0, new KeyValuePair<string, string>(string.Empty, AppResources.Default));
 
     return languages;
   }
 
-  // Liefert eine lokalisierte Liste der verfügbaren Themes
+  // Liefert eine lokalisierte Liste der verfÃ¼gbaren Themes
   public IEnumerable<KeyValuePair<string, string>> GetThemes()
   {
 
-    // lokalisierte Theme-Namen zu einer Liste hinzufügen.
+    // lokalisierte Theme-Namen zu einer Liste hinzufÃ¼gen.
     var themes = new List<KeyValuePair<string, string>>(4)
         {
             new(nameof(AppTheme.Dark), AppResources.Dark),
@@ -44,31 +44,31 @@ public class SettingsService : ISettingsService
     // lokalisierte Liste alphabetisch sortieren
     themes.Sort((a, b) => string.Compare(a.Value, b.Value, StringComparison.Ordinal));
     
-    // Standard-Eintrag an der ersten Position hinzufügen.
+    // Standard-Eintrag an der ersten Position hinzufÃ¼gen.
     themes.Insert(0, new KeyValuePair<string, string>(string.Empty, AppResources.Default));
 
     return themes;
   }
 
-  // Ausgewählte Sprache aus den Benutzereinstellungen abrufen
+  // AusgewÃ¤hlte Sprache aus den Benutzereinstellungen abrufen
   public string GetLanguage()
   {
     return _preferences.Get(nameof(AppResources.Language), string.Empty);
   }
 
-  // Ausgewähltes Theme aus den Benutzereinstellungen abrufen
+  // AusgewÃ¤hltes Theme aus den Benutzereinstellungen abrufen
   public string GetTheme()
   {
     return _preferences.Get(nameof(AppResources.Theme), string.Empty);
   }
 
-  // Ausgewählte Sprache in den Benutzereinstellungen speichern
+  // AusgewÃ¤hlte Sprache in den Benutzereinstellungen speichern
   public void SetLanguage(string language)
   {
     _preferences.Set(nameof(AppResources.Language), language);
   }
 
-  // Ausgewähltes Theme in den Benutzereinstellungen speichern
+  // AusgewÃ¤hltes Theme in den Benutzereinstellungen speichern
   public void SetTheme(string theme)
   {
     _preferences.Set(nameof(AppResources.Theme), theme);

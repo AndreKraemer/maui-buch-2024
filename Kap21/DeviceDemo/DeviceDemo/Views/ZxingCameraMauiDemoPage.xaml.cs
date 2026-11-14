@@ -1,4 +1,4 @@
-using Camera.MAUI;
+ï»¿using Camera.MAUI;
 using Camera.MAUI.ZXing;
 using Camera.MAUI.ZXingHelper;
 
@@ -23,11 +23,11 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
     {
       // Automatisches Drehen des Bildes
       AutoRotate = true,
-      // Mögliche Formate setzen (13- und 8-stellige GTIN-Barcodes, sowie QRCodes)
+      // MÃ¶gliche Formate setzen (13- und 8-stellige GTIN-Barcodes, sowie QRCodes)
       PossibleFormats = { BarcodeFormat.EAN_13, BarcodeFormat.EAN_8, BarcodeFormat.QR_CODE },
       // Nur einen Code lesen
       ReadMultipleCodes = false,
-      // Intensiver nach Barcodes suchen, auch wenn es länger dauert
+      // Intensiver nach Barcodes suchen, auch wenn es lÃ¤nger dauert
       TryHarder = false,
       // Codes auch in einer invertierten Variante des Bildes suchen
       TryInverted = true
@@ -47,19 +47,19 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
   // Automatische Auswahl der Kamera
   private void SetCamera()
   {
-    // Prüfen, ob Kameras im Gerät entdeckt wurden
+    // PrÃ¼fen, ob Kameras im GerÃ¤t entdeckt wurden
     if (cameraView.NumCamerasDetected == 0)
     {
       return;
     }
 
 #if WINDOWS || MACCATALYST
-    // Auf dem Desktop (Windows und Mac) wählen wir die erste Frontkamera aus
-    // Gibt es keine Frontkamera, dann wählen wir die erste verfügbare Kamera aus
+    // Auf dem Desktop (Windows und Mac) wÃ¤hlen wir die erste Frontkamera aus
+    // Gibt es keine Frontkamera, dann wÃ¤hlen wir die erste verfÃ¼gbare Kamera aus
     cameraView.Camera = cameraView.Cameras.FirstOrDefault(x => x.Position == CameraPosition.Front) ?? cameraView.Cameras.FirstOrDefault();
 #else
-    // Auf dem Handy (Android und iOS) wählen wir die erste Rückkamera aus
-    // Gibt es keine Rückkamera, dann wählen wir die erste verfügbare Kamera aus
+    // Auf dem Handy (Android und iOS) wÃ¤hlen wir die erste RÃ¼ckkamera aus
+    // Gibt es keine RÃ¼ckkamera, dann wÃ¤hlen wir die erste verfÃ¼gbare Kamera aus
     cameraView.Camera = cameraView.Cameras.FirstOrDefault(x => x.Position != CameraPosition.Front) ?? cameraView.Cameras.FirstOrDefault();;
 #endif
   }
@@ -69,7 +69,7 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
   {
     foreach (var result in args.Result)
     {
-      // Wechsel in den UI Thread. Ansonsten stürzt die App ab!
+      // Wechsel in den UI Thread. Ansonsten stÃ¼rzt die App ab!
       MainThread.InvokeOnMainThreadAsync(async () =>
       {
 
@@ -111,7 +111,7 @@ public partial class ZxingCameraMauiDemoPage : ContentPage
     base.OnDisappearing();
     // Kamera stoppen, wenn die Seite nicht mehr sichtbar ist
     // Wird dieser Aufruf vergessen, reduziert sich die Performance der App
-    // spürbar!
+    // spÃ¼rbar!
     await cameraView.StopCameraAsync();
     cameraView.Camera = null;
 

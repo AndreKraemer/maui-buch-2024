@@ -1,4 +1,4 @@
-using LocalizationSample.Resources.Strings;
+ï»¿using LocalizationSample.Resources.Strings;
 using System.Globalization;
 
 namespace LocalizationSample.Views;
@@ -19,7 +19,7 @@ public partial class DynamicLocalizationDemoPage : ContentPage
 
     // In AppointmentSuccessfullyBooked steht folgender String:
     // "Thank you {0} {1}. Your appointment has been successfully booked."
-    // Die Werte für {0} und {1} werden durch die Werte der im XAML
+    // Die Werte fÃ¼r {0} und {1} werden durch die Werte der im XAML
     // definierten Textfelder FirstNameEntry.Text und LastNameEntry.Text ersetzt.
     var message = string.Format(AppResources.AppointmentSuccessfullyBooked, FirstNameEntry.Text, LastNameEntry.Text);
 
@@ -46,8 +46,8 @@ public partial class DynamicLocalizationDemoPage : ContentPage
     // Setzt die aktuelle UI-Kultur auf die angegebene Kultur
     CultureInfo.CurrentUICulture = new CultureInfo(culture);
     
-    // Benachrichtigt die Instanz der TranslateSource für die AppResources
-    // Resource, dass sich die Sprache geändert hat
+    // Benachrichtigt die Instanz der TranslateSource fÃ¼r die AppResources
+    // Resource, dass sich die Sprache geÃ¤ndert hat
     TranslateSource.For(typeof(AppResources).FullName).NotifyLanguageChanged();
   }
 }

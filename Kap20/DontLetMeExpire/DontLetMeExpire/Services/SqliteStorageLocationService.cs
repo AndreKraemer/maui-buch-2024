@@ -1,4 +1,4 @@
-namespace DontLetMeExpire.Services;
+ï»¿namespace DontLetMeExpire.Services;
 
 using SQLite;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ public class SqliteStorageLocationService : IStorageLocationService
     // Name der Datenbankdatei
     var databaseFilename = $"dontletmeexpire.db3";
 
-    // Flags für die Datenbankverbindung
+    // Flags fÃ¼r die Datenbankverbindung
     var flags =
         // open the database in read/write mode
         SQLite.SQLiteOpenFlags.ReadWrite |
@@ -48,7 +48,7 @@ public class SqliteStorageLocationService : IStorageLocationService
               "GROUP BY l.Id, l.Name, l.Icon " +
               "Order BY l.Name";
 
-    // Ausführen des SQL-Statements. Das Ergebnist wird automatisch
+    // AusfÃ¼hren des SQL-Statements. Das Ergebnist wird automatisch
     // in die Klasse StorageLocationWithItemCount gemappt
     var locations = await _connection.QueryAsync<StorageLocationWithItemCount>(sql);
 
@@ -64,7 +64,7 @@ public class SqliteStorageLocationService : IStorageLocationService
   // Speichern eines Speicherorts
   public async Task SaveAsync(StorageLocation storageLocation)
   {
-    // Prüfen, ob die ID leer ist
+    // PrÃ¼fen, ob die ID leer ist
     // oder ob ein Datensatz mit der ID bereits existiert
     var hasEmptyId = string.IsNullOrEmpty(storageLocation.Id) || storageLocation.Id == Guid.Empty.ToString();
     var isExistingRecord = await _connection.Table<StorageLocation>()
@@ -88,7 +88,7 @@ public class SqliteStorageLocationService : IStorageLocationService
     }
   }
 
-  // Löschen eines Speicherorts
+  // LÃ¶schen eines Speicherorts
   public async Task DeleteAsync(StorageLocation storageLocation)
   {
     if (string.IsNullOrEmpty(storageLocation.Id))
@@ -104,7 +104,7 @@ public class SqliteStorageLocationService : IStorageLocationService
     await _connection.DeleteAsync(storageLocation);
   }
 
-  // Löschen aller Speicherorte
+  // LÃ¶schen aller Speicherorte
   public Task DeleteAllAsync()
   {
     return _connection.DeleteAllAsync<StorageLocation>();

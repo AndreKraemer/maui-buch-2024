@@ -1,4 +1,4 @@
-using System.Globalization;
+ï»¿using System.Globalization;
 
 namespace DontLetMeExpire.Converters;
 
@@ -28,10 +28,10 @@ public class DateToRelativeStringConverter : IValueConverter
                     < -7 => string.Format("Vor {0} Tagen", Math.Abs(difference)),
                     < 0 => "Letzte Woche",
                     < 7 => string.Format("In {0} Tagen", difference),
-                    < 14 => "Nächste Woche",
+                    < 14 => "NÃ¤chste Woche",
                     < 21 => "In zwei Wochen",
                     < 28 => "In drei Wochen",
-                    _ => "In über einem Monat"
+                    _ => "In Ã¼ber einem Monat"
                 };
         }
     }

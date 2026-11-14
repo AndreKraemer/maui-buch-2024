@@ -1,4 +1,4 @@
-using System.Globalization;
+ï»¿using System.Globalization;
 namespace DontLetMeExpire.Converters;
 
 public class DateToRelativeStringConverter : IValueConverter
@@ -11,12 +11,12 @@ public class DateToRelativeStringConverter : IValueConverter
     }
 
     // Differenz zwischen dem aktuellen und
-    // dem übergebenen Datum berechnen
+    // dem Ã¼bergebenen Datum berechnen
     var today = DateTime.Today;
     var difference = (date - today).Days;
 
-    // Unterschied in natürliche Sprache umwandeln
-    // und zurückgeben
+    // Unterschied in natÃ¼rliche Sprache umwandeln
+    // und zurÃ¼ckgeben
     return difference switch
     {
       0 => "Heute",
@@ -25,10 +25,10 @@ public class DateToRelativeStringConverter : IValueConverter
       < -7 => string.Format("Vor {0} Tagen", Math.Abs(difference)),
       < 0 => "Letzte Woche",
       < 7 => string.Format("In {0} Tagen", difference),
-      < 14 => "Nächste Woche",
+      < 14 => "NÃ¤chste Woche",
       < 21 => "In zwei Wochen",
       < 28 => "In drei Wochen",
-      _ => "In über einem Monat"
+      _ => "In Ã¼ber einem Monat"
     };
   }
 
